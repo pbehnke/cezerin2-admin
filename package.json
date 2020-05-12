@@ -43,7 +43,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js --mode production",
     "build:watch": "webpack --config webpack.config.js --mode development --watch",
-    "start":"webpack-dev-server  --open --config webpack.config.js --mode development --port 3002",
+    "start": "webpack-dev-server  --open --config webpack.config.js --mode development --port 3002",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --write \"src/**/*.js\"",
