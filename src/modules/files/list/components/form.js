@@ -47,7 +47,7 @@ class FileItem extends React.Component {
 	render() {
 		const { file, settings } = this.props;
 		const fileName = file.file;
-		const fileUrl = `${settings.domain}/${file.file}`;
+		const fileUrl = `${settings.assetServerDomain}/${file.file}`;
 		const modifiedDate = moment(file.modified);
 		const modifiedDateFormated = modifiedDate.format(`${settings.date_format}`);
 		const fileSizeFormated = helper.formatFileSize(file.size);
