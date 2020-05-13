@@ -21,6 +21,7 @@
   },
   "scripts": {
     "test": "jest",
+    "compile": "tsc",
     "dev": "tsc -w && yarn start",
     "build": "webpack --config webpack.config.js --mode production",
     "build:watch": "webpack --config webpack.config.js --mode development --watch",
