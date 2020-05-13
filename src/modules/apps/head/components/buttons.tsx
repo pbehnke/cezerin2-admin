@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import messages from 'lib/text';
+import React from "react"
+import { Link } from "react-router-dom"
+import messages from "lib/text"
 
-import FontIcon from 'material-ui/FontIcon';
-import IconMenu from 'material-ui/IconMenu';
-import IconButton from 'material-ui/IconButton';
-import MenuItem from 'material-ui/MenuItem';
+import FontIcon from "material-ui/FontIcon"
+import IconMenu from "material-ui/IconMenu"
+import IconButton from "material-ui/IconButton"
+import MenuItem from "material-ui/MenuItem"
 
 const WebStoreMenu = () => (
 	<IconMenu
@@ -16,14 +16,14 @@ const WebStoreMenu = () => (
 				</FontIcon>
 			</IconButton>
 		}
-		targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-		anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+		targetOrigin={{ horizontal: "right", vertical: "top" }}
+		anchorOrigin={{ horizontal: "right", vertical: "top" }}
 	>
 		<MenuItem
 			containerElement={<Link to="/apps/account" />}
 			primaryText={messages.account}
 		/>
 	</IconMenu>
-);
+)
 
-export default WebStoreMenu;
+export default WebStoreMenu

@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
-import { reset } from 'redux-form';
-import { updateStatus, createStatus, deselectStatus } from '../actions';
-import Form from './components/form';
+import { connect } from "react-redux"
+import { reset } from "redux-form"
+import { updateStatus, createStatus, deselectStatus } from "../actions"
+import Form from "./components/form"
 
 const mapStateToProps = state => ({
 	statusId: state.orderStatuses.selectedId,
@@ -9,24 +9,21 @@ const mapStateToProps = state => ({
 	initialValues: state.orderStatuses.items.find(
 		item => item.id === state.orderStatuses.selectedId
 	),
-	isSaving: state.orderStatuses.isSaving
-});
+	isSaving: state.orderStatuses.isSaving,
+})
 
 const mapDispatchToProps = dispatch => ({
 	onSubmit: values => {
 		if (values.id) {
-			dispatch(updateStatus(values));
+			dispatch(updateStatus(values))
 		} else {
-			dispatch(createStatus(values));
+			dispatch(createStatus(values))
 		}
 	},
 	onCancel: () => {
-		dispatch(deselectStatus());
-		dispatch(reset('FormOrderStatus'));
-	}
-});
+		dispatch(deselectStatus())
+		dispatch(reset("FormOrderStatus"))
+	},
+})
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form)

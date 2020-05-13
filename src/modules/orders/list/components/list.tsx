@@ -1,16 +1,16 @@
-import React from 'react';
-import { List } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import RaisedButton from 'material-ui/RaisedButton';
-import FontIcon from 'material-ui/FontIcon';
-import messages from 'lib/text';
-import OrdersListItem from './item';
-import Head from './head';
-import style from './style.css';
+import React from "react"
+import { List } from "material-ui/List"
+import Divider from "material-ui/Divider"
+import RaisedButton from "material-ui/RaisedButton"
+import FontIcon from "material-ui/FontIcon"
+import messages from "lib/text"
+import OrdersListItem from "./item"
+import Head from "./head"
+import style from "./style.css"
 
 export default class OrdersList extends React.Component {
 	componentDidMount() {
-		this.props.onLoad();
+		this.props.onLoad()
 	}
 
 	render() {
@@ -22,8 +22,8 @@ export default class OrdersList extends React.Component {
 			onSelect,
 			onSelectAll,
 			loadMore,
-			settings
-		} = this.props;
+			settings,
+		} = this.props
 		const rows = items.map((item, index) => (
 			<OrdersListItem
 				key={index}
@@ -32,7 +32,7 @@ export default class OrdersList extends React.Component {
 				onSelect={onSelect}
 				settings={settings}
 			/>
-		));
+		))
 
 		return (
 			<div>
@@ -52,6 +52,6 @@ export default class OrdersList extends React.Component {
 					</div>
 				</List>
 			</div>
-		);
+		)
 	}
 }

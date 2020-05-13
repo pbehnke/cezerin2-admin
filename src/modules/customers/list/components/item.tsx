@@ -1,31 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Checkbox from 'material-ui/Checkbox';
-import { ListItem } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import FontIcon from 'material-ui/FontIcon';
-import messages from 'lib/text';
-import * as helper from 'lib/helper';
-import style from './style.css';
+import React from "react"
+import { Link } from "react-router-dom"
+import Checkbox from "material-ui/Checkbox"
+import { ListItem } from "material-ui/List"
+import Divider from "material-ui/Divider"
+import FontIcon from "material-ui/FontIcon"
+import messages from "lib/text"
+import * as helper from "lib/helper"
+import style from "./style.css"
 
 const CustomersListItem = ({ customer, onSelect, selected, settings }) => {
-	const checked = selected.includes(customer.id);
+	const checked = selected.includes(customer.id)
 	const totalSpentFormatted = helper.formatCurrency(
 		customer.total_spent,
 		settings
-	);
+	)
 
 	return (
-		<div className={`customers-item${checked === true ? ' selected' : ''}`}>
+		<div className={`customers-item${checked === true ? " selected" : ""}`}>
 			<ListItem
-				style={{ cursor: 'normal' }}
+				style={{ cursor: "normal" }}
 				primaryText={
 					<div className="row middle-xs">
 						<div className="col-xs-1">
 							<Checkbox
 								checked={checked}
 								onCheck={(event, isInputChecked) => {
-									onSelect(customer.id, isInputChecked);
+									onSelect(customer.id, isInputChecked)
 								}}
 							/>
 						</div>
@@ -44,9 +44,9 @@ const CustomersListItem = ({ customer, onSelect, selected, settings }) => {
 								<span>
 									<FontIcon
 										style={{
-											color: 'rgba(0, 0, 0, 0.4)',
+											color: "rgba(0, 0, 0, 0.4)",
 											fontSize: 16,
-											marginRight: 6
+											marginRight: 6,
 										}}
 										className="material-icons"
 									>
@@ -65,7 +65,7 @@ const CustomersListItem = ({ customer, onSelect, selected, settings }) => {
 			/>
 			<Divider />
 		</div>
-	);
-};
+	)
+}
 
-export default CustomersListItem;
+export default CustomersListItem

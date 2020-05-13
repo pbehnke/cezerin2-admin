@@ -1,14 +1,14 @@
-import React from 'react';
-import messages from 'lib/text';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
-import MomentUtils from '@date-io/moment';
-import style from './style.css';
+import React from "react"
+import messages from "lib/text"
+import Select from "@material-ui/core/Select"
+import FormControl from "@material-ui/core/FormControl"
+import InputLabel from "@material-ui/core/InputLabel"
+import MenuItem from "@material-ui/core/MenuItem"
+import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers"
+import MomentUtils from "@date-io/moment"
+import style from "./style.css"
 
-const empty_string_if_null = value => (value != null ? value : '');
+const empty_string_if_null = value => (value != null ? value : "")
 
 export default ({
 	dateCreatedFrom,
@@ -27,7 +27,7 @@ export default ({
 	setPaid,
 	setHold,
 	setDraft,
-	settings
+	settings,
 }) => (
 	<MuiPickersUtilsProvider utils={MomentUtils}>
 		<div className={style.filter}>
@@ -64,11 +64,11 @@ export default ({
 					name="draft"
 					value={empty_string_if_null(isDraft)}
 					onChange={event => {
-						setDraft(event.target.value);
+						setDraft(event.target.value)
 					}}
 					inputProps={{
-						name: 'draft',
-						id: 'draft'
+						name: "draft",
+						id: "draft",
 					}}
 				>
 					<MenuItem value={null} label=" ">
@@ -86,11 +86,11 @@ export default ({
 					name="hold"
 					value={empty_string_if_null(isHold)}
 					onChange={event => {
-						setHold(event.target.value);
+						setHold(event.target.value)
 					}}
 					inputProps={{
-						name: 'hold',
-						id: 'hold'
+						name: "hold",
+						id: "hold",
 					}}
 				>
 					<MenuItem value={null} label=" ">
@@ -108,11 +108,11 @@ export default ({
 					name="paid"
 					value={empty_string_if_null(isPaid)}
 					onChange={event => {
-						setPaid(event.target.value);
+						setPaid(event.target.value)
 					}}
 					inputProps={{
-						name: 'paid',
-						id: 'paid'
+						name: "paid",
+						id: "paid",
 					}}
 				>
 					<MenuItem value={null} label=" ">
@@ -130,11 +130,11 @@ export default ({
 					name="delivered"
 					value={empty_string_if_null(isDelivered)}
 					onChange={event => {
-						setDelivered(event.target.value);
+						setDelivered(event.target.value)
 					}}
 					inputProps={{
-						name: 'delivered',
-						id: 'delivered'
+						name: "delivered",
+						id: "delivered",
 					}}
 				>
 					<MenuItem value={null} label=" ">
@@ -152,11 +152,11 @@ export default ({
 					name="cancelled"
 					value={empty_string_if_null(isCancelled)}
 					onChange={event => {
-						setCancelled(event.target.value);
+						setCancelled(event.target.value)
 					}}
 					inputProps={{
-						name: 'cancelled',
-						id: 'cancelled'
+						name: "cancelled",
+						id: "cancelled",
 					}}
 				>
 					<MenuItem value={null} label=" ">
@@ -174,11 +174,11 @@ export default ({
 					name="closed"
 					value={empty_string_if_null(isClosed)}
 					onChange={event => {
-						setClosed(event.target.value);
+						setClosed(event.target.value)
 					}}
 					inputProps={{
-						name: 'closed',
-						id: 'closed'
+						name: "closed",
+						id: "closed",
 					}}
 				>
 					<MenuItem value={null} label=" ">
@@ -190,4 +190,4 @@ export default ({
 			</FormControl>
 		</div>
 	</MuiPickersUtilsProvider>
-);
+)

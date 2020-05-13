@@ -20,10 +20,12 @@
     "url": "https://github.com/Cezerin2/cezerin2-admin"
   },
   "scripts": {
+    "test": "jest",
+    "dev": "tsc -w && yarn start",
     "build": "webpack --config webpack.config.js --mode production",
     "build:watch": "webpack --config webpack.config.js --mode development --watch",
     "start": "webpack-dev-server  --open --config webpack.config.js --mode development --port 3002",
-    "lint:fix": "eslint --fix .",
+    "lint": "eslint --fix .",
     "prettier": "prettier --write \"src/**/*.js\"",
     "precommit": "lint-staged"
   },
@@ -70,6 +72,7 @@
     "sitemap": "^6.1.0",
     "slug": "^2.1.1",
     "stripe": "^8.39.0",
+    "typescript": "^3.9.2",
     "ua-parser-js": "^0.7.21",
     "workbox-webpack-plugin": "^5.1.2",
     "ws": "^7.2.3"

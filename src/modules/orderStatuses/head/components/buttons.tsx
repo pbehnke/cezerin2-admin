@@ -1,37 +1,37 @@
-import React from 'react';
-import messages from 'lib/text';
-import DeleteConfirmation from 'modules/shared/deleteConfirmation';
-import FontIcon from 'material-ui/FontIcon';
-import IconButton from 'material-ui/IconButton';
-const { Fragment } = React;
+import React from "react"
+import messages from "lib/text"
+import DeleteConfirmation from "modules/shared/deleteConfirmation"
+import FontIcon from "material-ui/FontIcon"
+import IconButton from "material-ui/IconButton"
+const { Fragment } = React
 
 export default class Buttons extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
-			openDelete: false
-		};
+			openDelete: false,
+		}
 	}
 
 	showDelete = () => {
-		this.setState({ openDelete: true });
-	};
+		this.setState({ openDelete: true })
+	}
 
 	closeDelete = () => {
-		this.setState({ openDelete: false });
-	};
+		this.setState({ openDelete: false })
+	}
 
 	deleteStatus = () => {
-		this.setState({ openDelete: false });
-		this.props.onDelete(this.props.selected.id);
-	};
+		this.setState({ openDelete: false })
+		this.props.onDelete(this.props.selected.id)
+	}
 
 	render() {
-		const { selected, onDelete, onCreate } = this.props;
+		const { selected, onDelete, onCreate } = this.props
 		const statusName =
 			selected && selected.name && selected.name.length > 0
 				? selected.name
-				: 'Draft';
+				: "Draft"
 
 		return (
 			<span>
@@ -68,6 +68,6 @@ export default class Buttons extends React.Component {
 					</FontIcon>
 				</IconButton>
 			</span>
-		);
+		)
 	}
 }

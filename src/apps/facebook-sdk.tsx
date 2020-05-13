@@ -1,13 +1,13 @@
-import React from 'react';
-import messages from 'lib/text';
-import api from 'lib/api';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import React from "react"
+import messages from "lib/text"
+import api from "lib/api"
+import TextField from "material-ui/TextField"
+import RaisedButton from "material-ui/RaisedButton"
 
 export const Description = {
-	key: 'facebook-sdk',
-	name: 'Facebook SDK',
-	coverUrl: '/assets/images/apps/facebook.png',
+	key: "facebook-sdk",
+	name: "Facebook SDK",
+	coverUrl: "/assets/images/apps/facebook.png",
 	description: `The Facebook SDK for JavaScript provides a rich set of client-side functionality that:
   <ol>
     <li>Enables you to use the Like Button and other Social Plugins on your site.</li>
@@ -16,8 +16,8 @@ export const Description = {
     <li>Launch Dialogs that let people perform various actions like sharing stories.</li>
     <li>Facilitates communication when you're building a game or an app tab on Facebook.</li>
   </ol>
-  <p>The Facebook SDK for JavaScript doesn't have any standalone files that need to be downloaded or installed, instead you simply need to include a short piece of regular JavaScript in your HTML that will asynchronously load the SDK into your pages. The async load means that it does not block loading other elements of your page.</p>`
-};
+  <p>The Facebook SDK for JavaScript doesn't have any standalone files that need to be downloaded or installed, instead you simply need to include a short piece of regular JavaScript in your HTML that will asynchronously load the SDK into your pages. The async load means that it does not block loading other elements of your page.</p>`,
+}
 
 const FACEBOOK_CODE = `<script>
   window.fbAsyncInit = function() {
@@ -36,61 +36,61 @@ const FACEBOOK_CODE = `<script>
      js.src = "https://connect.facebook.net/YOUR_LOCALE/sdk/xfbml.customerchat.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>`;
+</script>`
 
 export class App extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
-			appId: '',
-			locale: 'en_US'
-		};
+			appId: "",
+			locale: "en_US",
+		}
 	}
 
 	handleAppIdChange = event => {
-		this.setState({ appId: event.target.value });
-	};
+		this.setState({ appId: event.target.value })
+	}
 
 	handleLocaleChange = event => {
-		this.setState({ locale: event.target.value });
-	};
+		this.setState({ locale: event.target.value })
+	}
 
 	fetchSettings = () => {
 		api.apps.settings
-			.retrieve('facebook-sdk')
+			.retrieve("facebook-sdk")
 			.then(({ status, json }) => {
-				const appSettings = json;
+				const appSettings = json
 				if (appSettings) {
 					this.setState({
 						appId: appSettings.appId,
-						locale: appSettings.locale
-					});
+						locale: appSettings.locale,
+					})
 				}
 			})
 			.catch(error => {
-				console.log(error);
-			});
-	};
+				console.log(error)
+			})
+	}
 
 	updateSettings = () => {
-		const { appId, locale } = this.state;
+		const { appId, locale } = this.state
 		const htmlCode =
 			appId && appId.length > 0
 				? FACEBOOK_CODE.replace(/YOUR_APP_ID/g, appId).replace(
 						/YOUR_LOCALE/g,
 						locale
 				  )
-				: '';
+				: ""
 
-		api.apps.settings.update('facebook-sdk', { appId, locale });
-		api.theme.placeholders.update('facebook-sdk', {
-			place: 'body_start',
-			value: htmlCode
-		});
-	};
+		api.apps.settings.update("facebook-sdk", { appId, locale })
+		api.theme.placeholders.update("facebook-sdk", {
+			place: "body_start",
+			value: htmlCode,
+		})
+	}
 
 	componentDidMount() {
-		this.fetchSettings();
+		this.fetchSettings()
 	}
 
 	render() {
@@ -115,7 +115,7 @@ export class App extends React.Component {
 					hintText="en_US"
 				/>
 
-				<div style={{ textAlign: 'right' }}>
+				<div style={{ textAlign: "right" }}>
 					<RaisedButton
 						label={messages.save}
 						primary
@@ -124,6 +124,6 @@ export class App extends React.Component {
 					/>
 				</div>
 			</div>
-		);
+		)
 	}
 }

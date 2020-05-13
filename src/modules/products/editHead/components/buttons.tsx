@@ -1,39 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import messages from 'lib/text';
-import DeleteConfirmation from 'modules/shared/deleteConfirmation';
-import FontIcon from 'material-ui/FontIcon';
-import IconButton from 'material-ui/IconButton';
-import FlatButton from 'material-ui/FlatButton';
-const { Fragment } = React;
+import React from "react"
+import { Link } from "react-router-dom"
+import messages from "lib/text"
+import DeleteConfirmation from "modules/shared/deleteConfirmation"
+import FontIcon from "material-ui/FontIcon"
+import IconButton from "material-ui/IconButton"
+import FlatButton from "material-ui/FlatButton"
+const { Fragment } = React
 
 export default class Buttons extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
-			openDelete: false
-		};
+			openDelete: false,
+		}
 	}
 
 	openDelete = () => {
-		this.setState({ openDelete: true });
-	};
+		this.setState({ openDelete: true })
+	}
 
 	closeDelete = () => {
-		this.setState({ openDelete: false });
-	};
+		this.setState({ openDelete: false })
+	}
 
 	handleDelete = () => {
-		this.closeDelete();
-		this.props.onDelete();
-	};
+		this.closeDelete()
+		this.props.onDelete()
+	}
 
 	render() {
-		const { product } = this.props;
+		const { product } = this.props
 		const productName =
 			product && product.name && product.name.length > 0
 				? product.name
-				: 'Draft';
+				: "Draft"
 
 		return (
 			<Fragment>
@@ -69,6 +69,6 @@ export default class Buttons extends React.Component {
 					onDelete={this.handleDelete}
 				/>
 			</Fragment>
-		);
+		)
 	}
 }

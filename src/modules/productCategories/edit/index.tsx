@@ -1,12 +1,12 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux"
 import {
 	updateCategory,
 	deselectCategory,
 	fetchCategories,
 	deleteImage,
-	uploadImage
-} from '../actions';
-import ProductCategoryEditForm from './components/form';
+	uploadImage,
+} from "../actions"
+import ProductCategoryEditForm from "./components/form"
 
 const mapStateToProps = state => ({
 	uploadingImage: state.productCategories.uploadingImage,
@@ -15,26 +15,26 @@ const mapStateToProps = state => ({
 	initialValues: state.productCategories.items.find(
 		item => item.id === state.productCategories.selectedId
 	),
-	isSaving: state.productCategories.isSaving
-});
+	isSaving: state.productCategories.isSaving,
+})
 
 const mapDispatchToProps = dispatch => ({
 	onImageDelete: () => {
-		dispatch(deleteImage());
+		dispatch(deleteImage())
 	},
 	onImageUpload: form => {
-		dispatch(uploadImage(form));
+		dispatch(uploadImage(form))
 	},
 	onSubmit: values => {
-		delete values.image;
-		if (!values.slug || values.slug === '') {
-			values.slug = values.name;
+		delete values.image
+		if (!values.slug || values.slug === "") {
+			values.slug = values.name
 		}
-		dispatch(updateCategory(values));
-	}
-});
+		dispatch(updateCategory(values))
+	},
+})
 
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(ProductCategoryEditForm);
+)(ProductCategoryEditForm)

@@ -1,40 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import messages from 'lib/text';
-import { Card, CardMedia, CardTitle } from 'material-ui/Card';
-import FontIcon from 'material-ui/FontIcon';
-import style from './style.css';
+import React from "react"
+import { Link } from "react-router-dom"
+import messages from "lib/text"
+import { Card, CardMedia, CardTitle } from "material-ui/Card"
+import FontIcon from "material-ui/FontIcon"
+import style from "./style.css"
 
 const styles = {
 	card: {
 		width: 280,
 		marginBottom: 15,
-		marginRight: 15
+		marginRight: 15,
 	},
 	textContainer: {
-		paddingBottom: 0
+		paddingBottom: 0,
 	},
 	title: {
-		color: '#212121',
-		fontSize: '15px',
-		lineHeight: '18px',
-		overflow: 'hidden',
-		textOverflow: 'ellipsis',
-		whiteSpace: 'nowrap'
+		color: "#212121",
+		fontSize: "15px",
+		lineHeight: "18px",
+		overflow: "hidden",
+		textOverflow: "ellipsis",
+		whiteSpace: "nowrap",
 	},
 	subtitle: {
-		color: '#616161',
-		fontSize: '13px',
-		lineHeight: '16px',
-		overflow: 'hidden',
-		textOverflow: 'ellipsis',
-		whiteSpace: 'nowrap',
-		marginTop: 5
+		color: "#616161",
+		fontSize: "13px",
+		lineHeight: "16px",
+		overflow: "hidden",
+		textOverflow: "ellipsis",
+		whiteSpace: "nowrap",
+		marginTop: 5,
 	},
 	link: {
-		textDecoration: 'none'
-	}
-};
+		textDecoration: "none",
+	},
+}
 
 const Item = ({ path, coverUrl, title, developer, enabled }) => (
 	<Link to={path} style={styles.link}>
@@ -54,7 +54,7 @@ const Item = ({ path, coverUrl, title, developer, enabled }) => (
 						{developer}
 						{enabled && (
 							<FontIcon
-								style={{ color: '#FF9900', float: 'right' }}
+								style={{ color: "#FF9900", float: "right" }}
 								className="material-icons"
 							>
 								check_circle
@@ -67,6 +67,6 @@ const Item = ({ path, coverUrl, title, developer, enabled }) => (
 			/>
 		</Card>
 	</Link>
-);
+)
 
-export default Item;
+export default Item

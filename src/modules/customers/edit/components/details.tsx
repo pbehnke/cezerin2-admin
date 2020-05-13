@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react"
 
-import messages from 'lib/text';
-import style from './style.css';
+import messages from "lib/text"
+import style from "./style.css"
 
-import CustomerSummary from './summary';
-import CustomerOrders from './orders';
-import CustomerAddresses from './addresses';
+import CustomerSummary from "./summary"
+import CustomerOrders from "./orders"
+import CustomerAddresses from "./addresses"
 
 export default class CustomerDetails extends React.Component {
 	componentDidMount() {
-		this.props.fetchData();
+		this.props.fetchData()
 	}
 
 	componentWillUnmount() {
-		this.props.clearData();
+		this.props.clearData()
 	}
 
 	render() {
@@ -24,9 +24,9 @@ export default class CustomerDetails extends React.Component {
 			onUpdateAddress,
 			onDeleteAddress,
 			onSetDefaultBillingAddress,
-			onSetDefaultShippingAddress
-		} = this.props;
-		if (!customer) return <br />;
+			onSetDefaultShippingAddress,
+		} = this.props
+		if (!customer) return <br />
 
 		return (
 			<div className="row row--no-gutter col-full-height">
@@ -50,6 +50,6 @@ export default class CustomerDetails extends React.Component {
 					<CustomerOrders customerId={customer.id} settings={settings} />
 				</div>
 			</div>
-		);
+		)
 	}
 }

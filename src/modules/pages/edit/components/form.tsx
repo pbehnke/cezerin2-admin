@@ -1,68 +1,67 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { TextField } from 'redux-form-material-ui';
+import React from "react"
+import { Field, reduxForm } from "redux-form"
+import { TextField } from "redux-form-material-ui"
 
-import { CustomToggle } from 'modules/shared/form';
-import Editor from 'modules/shared/editor';
-import TagsInput from 'react-tagsinput';
-import messages from 'lib/text';
-import api from 'lib/api';
+import { CustomToggle } from "modules/shared/form"
+import Editor from "modules/shared/editor"
+import TagsInput from "react-tagsinput"
+import messages from "lib/text"
+import api from "lib/api"
 
-import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
-import style from './style.css';
+import Paper from "material-ui/Paper"
+import RaisedButton from "material-ui/RaisedButton"
+import style from "./style.css"
 
 const TagsField = ({ input, placeholder }) => {
-	const tagsArray =
-		input.value && Array.isArray(input.value) ? input.value : [];
+	const tagsArray = input.value && Array.isArray(input.value) ? input.value : []
 	return (
 		<TagsInput
 			value={tagsArray}
 			inputProps={{ placeholder }}
 			onChange={tags => {
-				input.onChange(tags);
+				input.onChange(tags)
 			}}
 		/>
-	);
-};
+	)
+}
 
 const validate = values => {
-	const errors = {};
-	const requiredFields = ['slug', 'meta_title'];
+	const errors = {}
+	const requiredFields = ["slug", "meta_title"]
 
 	requiredFields.map(field => {
 		if (!values.is_system && values && !values[field]) {
-			errors[field] = messages.errors_required;
+			errors[field] = messages.errors_required
 		}
-	});
+	})
 
-	return errors;
-};
+	return errors
+}
 
 const asyncValidate = (values /* , dispatch */) =>
 	new Promise((resolve, reject) => {
 		if (!values.slug && values.is_system) {
-			resolve();
+			resolve()
 		} else {
 			api.sitemap.retrieve({ path: values.slug }).then(({ status, json }) => {
 				if (status === 404) {
-					resolve();
+					resolve()
 				} else if (json && !Object.is(json.resource, values.id)) {
-					reject({ slug: messages.errors_urlTaken });
+					reject({ slug: messages.errors_urlTaken })
 				} else {
-					resolve();
+					resolve()
 				}
-			});
+			})
 		}
-	});
+	})
 
 class EditPageForm extends React.Component {
 	componentDidMount() {
-		this.props.onLoad();
+		this.props.onLoad()
 	}
 
 	componentWillUnmount() {
-		this.props.eraseData();
+		this.props.eraseData()
 	}
 
 	render() {
@@ -71,9 +70,9 @@ class EditPageForm extends React.Component {
 			pristine,
 			submitting,
 			initialValues,
-			pageId
-		} = this.props;
-		const isAdd = pageId === null || pageId === undefined;
+			pageId,
+		} = this.props
+		const isAdd = pageId === null || pageId === undefined
 
 		if (initialValues) {
 			return (
@@ -125,7 +124,7 @@ class EditPageForm extends React.Component {
 						</div>
 						<div
 							className={`buttons-box ${
-								pristine && !isAdd ? 'buttons-box-pristine' : 'buttons-box-show'
+								pristine && !isAdd ? "buttons-box-pristine" : "buttons-box-show"
 							}`}
 						>
 							<RaisedButton
@@ -138,16 +137,16 @@ class EditPageForm extends React.Component {
 						</div>
 					</Paper>
 				</form>
-			);
+			)
 		}
-		return null;
+		return null
 	}
 }
 
 export default reduxForm({
-	form: 'EditPageForm',
+	form: "EditPageForm",
 	validate,
 	asyncValidate,
-	asyncBlurFields: ['slug'],
-	enableReinitialize: true
-})(EditPageForm);
+	asyncBlurFields: ["slug"],
+	enableReinitialize: true,
+})(EditPageForm)

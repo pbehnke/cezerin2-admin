@@ -1,33 +1,33 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { TextField, RadioButtonGroup } from 'redux-form-material-ui';
+import React from "react"
+import { Field, reduxForm } from "redux-form"
+import { TextField, RadioButtonGroup } from "redux-form-material-ui"
 
-import messages from 'lib/text';
+import messages from "lib/text"
 
-import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
-import { RadioButton } from 'material-ui/RadioButton';
-import style from './style.css';
+import Paper from "material-ui/Paper"
+import RaisedButton from "material-ui/RaisedButton"
+import { RadioButton } from "material-ui/RadioButton"
+import style from "./style.css"
 
 const radioButtonStyle = {
 	marginTop: 14,
-	marginBottom: 14
-};
+	marginBottom: 14,
+}
 
 class CheckoutFieldForm extends React.Component {
 	componentDidMount() {
-		this.props.onLoad();
+		this.props.onLoad()
 	}
 
 	render() {
-		const { handleSubmit, pristine, submitting, initialValues } = this.props;
+		const { handleSubmit, pristine, submitting, initialValues } = this.props
 
 		return (
 			<form
 				onSubmit={handleSubmit}
 				style={{
-					display: 'initial',
-					width: '100%'
+					display: "initial",
+					width: "100%",
 				}}
 			>
 				<Paper className="paper-box" zDepth={1}>
@@ -80,11 +80,11 @@ class CheckoutFieldForm extends React.Component {
 					</div>
 				</Paper>
 			</form>
-		);
+		)
 	}
 }
 
 export default reduxForm({
-	form: 'CheckoutFieldForm',
-	enableReinitialize: true
-})(CheckoutFieldForm);
+	form: "CheckoutFieldForm",
+	enableReinitialize: true,
+})(CheckoutFieldForm)

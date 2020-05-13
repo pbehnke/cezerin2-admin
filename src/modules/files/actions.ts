@@ -1,24 +1,24 @@
-import api from 'lib/api';
-import messages from 'lib/text';
-import * as t from './actionTypes';
+import api from "lib/api"
+import messages from "lib/text"
+import * as t from "./actionTypes"
 
 function receiveFiles(files) {
 	return {
 		type: t.FILES_RECEIVE,
-		files
-	};
+		files,
+	}
 }
 
 function filesUploadStart() {
 	return {
-		type: t.FILES_UPLOAD_START
-	};
+		type: t.FILES_UPLOAD_START,
+	}
 }
 
 function filesUploadEnd() {
 	return {
-		type: t.FILES_UPLOAD_END
-	};
+		type: t.FILES_UPLOAD_END,
+	}
 }
 
 export function fetchFiles() {
@@ -26,24 +26,24 @@ export function fetchFiles() {
 		api.files
 			.list()
 			.then(({ status, json }) => {
-				dispatch(receiveFiles(json));
+				dispatch(receiveFiles(json))
 			})
-			.catch(error => {});
+			.catch(error => {})
 }
 
 export function uploadFiles(form) {
 	return (dispatch, getState) => {
-		dispatch(filesUploadStart());
+		dispatch(filesUploadStart())
 		return api.files
 			.upload(form)
 			.then(() => {
-				dispatch(filesUploadEnd());
-				dispatch(fetchFiles());
+				dispatch(filesUploadEnd())
+				dispatch(fetchFiles())
 			})
 			.catch(error => {
-				dispatch(filesUploadEnd());
-			});
-	};
+				dispatch(filesUploadEnd())
+			})
+	}
 }
 
 export function deleteFile(fileName) {
@@ -51,7 +51,7 @@ export function deleteFile(fileName) {
 		api.files
 			.delete(fileName)
 			.then(() => {
-				dispatch(fetchFiles());
+				dispatch(fetchFiles())
 			})
-			.catch(error => {});
+			.catch(error => {})
 }

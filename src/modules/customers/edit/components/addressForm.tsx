@@ -1,27 +1,27 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { TextField, SelectField } from 'redux-form-material-ui';
+import React from "react"
+import { Field, reduxForm } from "redux-form"
+import { TextField, SelectField } from "redux-form-material-ui"
 
-import { CustomToggle } from 'modules/shared/form';
-import messages from 'lib/text';
+import { CustomToggle } from "modules/shared/form"
+import messages from "lib/text"
 
-import Divider from 'material-ui/Divider';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import style from './style.css';
+import Divider from "material-ui/Divider"
+import RaisedButton from "material-ui/RaisedButton"
+import FlatButton from "material-ui/FlatButton"
+import style from "./style.css"
 
 const validate = values => {
-	const errors = {};
-	const requiredFields = ['city'];
+	const errors = {}
+	const requiredFields = ["city"]
 
 	requiredFields.map(field => {
 		if (values && !values[field]) {
-			errors[field] = messages.errors_required;
+			errors[field] = messages.errors_required
 		}
-	});
+	})
 
-	return errors;
-};
+	return errors
+}
 
 class CustomerAddressForm extends React.Component {
 	render() {
@@ -30,15 +30,15 @@ class CustomerAddressForm extends React.Component {
 			pristine,
 			submitting,
 			initialValues,
-			onCancel
-		} = this.props;
+			onCancel,
+		} = this.props
 
 		return (
 			<form
 				onSubmit={handleSubmit}
 				style={{
-					display: 'initial',
-					width: '100%'
+					display: "initial",
+					width: "100%",
 				}}
 			>
 				<div>
@@ -126,12 +126,12 @@ class CustomerAddressForm extends React.Component {
 					/>
 				</div>
 			</form>
-		);
+		)
 	}
 }
 
 export default reduxForm({
-	form: 'CustomerAddressForm',
+	form: "CustomerAddressForm",
 	validate,
-	enableReinitialize: true
-})(CustomerAddressForm);
+	enableReinitialize: true,
+})(CustomerAddressForm)

@@ -1,75 +1,75 @@
-import React from 'react';
-import messages from 'lib/text';
+import React from "react"
+import messages from "lib/text"
 
-import { Link } from 'react-router-dom';
-import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import Collapse from '@material-ui/core/Collapse';
-import Icon from '@material-ui/core/Icon';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import { Link } from "react-router-dom"
+import Typography from "@material-ui/core/Typography"
+import Toolbar from "@material-ui/core/Toolbar"
+import Divider from "@material-ui/core/Divider"
+import Drawer from "@material-ui/core/Drawer"
+import AppBar from "@material-ui/core/AppBar"
+import IconButton from "@material-ui/core/IconButton"
+import Collapse from "@material-ui/core/Collapse"
+import Icon from "@material-ui/core/Icon"
+import List from "@material-ui/core/List"
+import ListItem from "@material-ui/core/ListItem"
+import ListItemIcon from "@material-ui/core/ListItemIcon"
+import ListItemText from "@material-ui/core/ListItemText"
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
 // Must use the icons explicidly to keep right
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import style from './style.css';
+import ExpandLess from "@material-ui/icons/ExpandLess"
+import ExpandMore from "@material-ui/icons/ExpandMore"
+import style from "./style.css"
 
 const menuItems = [
 	{
 		title: messages.drawer_home,
-		url: '/',
-		icon: 'home'
+		url: "/",
+		icon: "home",
 	},
 	{
 		title: messages.drawer_products,
-		url: '/products',
-		icon: 'local_offer'
+		url: "/products",
+		icon: "local_offer",
 	},
 	{
 		title: messages.drawer_orders,
-		url: '/orders',
-		icon: 'shopping_cart'
+		url: "/orders",
+		icon: "shopping_cart",
 	},
 	{
 		title: messages.drawer_customers,
-		url: '/customers',
-		icon: 'person'
+		url: "/customers",
+		icon: "person",
 	},
 	{
 		title: messages.settings_pages,
-		url: '/pages',
-		icon: 'description'
+		url: "/pages",
+		icon: "description",
 	},
 	{
 		title: messages.files,
-		url: '/files',
-		icon: 'folder'
+		url: "/files",
+		icon: "folder",
 	},
 	{
-		title: '-',
-		url: 'settings'
+		title: "-",
+		url: "settings",
 	},
 	{
 		title: messages.drawer_settings,
-		url: '/settings',
-		icon: 'settings'
+		url: "/settings",
+		icon: "settings",
 	},
 	{
 		title: messages.apps,
-		url: '/apps',
-		icon: 'apps'
+		url: "/apps",
+		icon: "apps",
 	},
 	{
 		title: messages.drawer_logout,
-		url: '/logout',
-		icon: 'exit_to_app'
-	}
+		url: "/logout",
+		icon: "exit_to_app",
+	},
 	/*
 	Supports children nav (drop down lists)
 	Example:
@@ -89,7 +89,7 @@ const menuItems = [
 			},
 		]
 	} */
-];
+]
 
 const NavListItem = ({ currentUrl, item, subItem, onClick }) => (
 	<Link
@@ -111,14 +111,14 @@ const NavListItem = ({ currentUrl, item, subItem, onClick }) => (
 			<ListItemText primary={item.title} className={style.item} />
 		</ListItem>
 	</Link>
-);
+)
 
 const SubNavListItem = ({ currentUrl, item, onClick }) => {
-	const urlSelected = item.children.some(i => i.url === currentUrl);
-	const [open, setOpen] = React.useState(urlSelected);
+	const urlSelected = item.children.some(i => i.url === currentUrl)
+	const [open, setOpen] = React.useState(urlSelected)
 
 	function subMenuClick() {
-		setOpen(!open);
+		setOpen(!open)
 	}
 
 	return (
@@ -141,8 +141,8 @@ const SubNavListItem = ({ currentUrl, item, onClick }) => {
 				onClick={onClick}
 			/>
 		</div>
-	);
-};
+	)
+}
 
 const SubNavList = ({ currentUrl, items, onClick, open }) => (
 	<Collapse in={open} unmountOnExit>
@@ -158,7 +158,7 @@ const SubNavList = ({ currentUrl, items, onClick, open }) => (
 			))}
 		</List>
 	</Collapse>
-);
+)
 
 const DrawerMenu = ({ open, onClose, currentUrl }) => {
 	const items = menuItems.map((item, index) => {
@@ -170,10 +170,10 @@ const DrawerMenu = ({ open, onClose, currentUrl }) => {
 					item={item}
 					onClick={onClose}
 				/>
-			);
+			)
 		}
-		if (item.title === '-') {
-			return <Divider key={index} />;
+		if (item.title === "-") {
+			return <Divider key={index} />
 		}
 		return (
 			<NavListItem
@@ -182,12 +182,12 @@ const DrawerMenu = ({ open, onClose, currentUrl }) => {
 				item={item}
 				onClick={onClose}
 			/>
-		);
-	});
+		)
+	})
 
 	return (
 		<Drawer width="280px" anchor="left" className={style.drawer} open={open}>
-			<AppBar className={style.appBar} position='absolute'>
+			<AppBar className={style.appBar} position="absolute">
 				<Toolbar className={style.toolbar}>
 					<Typography variant="h6" className={style.appBarTitle}>
 						{messages.drawer_title}
@@ -201,7 +201,7 @@ const DrawerMenu = ({ open, onClose, currentUrl }) => {
 				{items}
 			</List>
 		</Drawer>
-	);
-};
+	)
+}
 
-export default DrawerMenu;
+export default DrawerMenu

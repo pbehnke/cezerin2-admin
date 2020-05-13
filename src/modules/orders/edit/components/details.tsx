@@ -1,25 +1,25 @@
-import React from 'react';
+import React from "react"
 
-import messages from 'lib/text';
-import Paper from 'material-ui/Paper';
-import style from './style.css';
+import messages from "lib/text"
+import Paper from "material-ui/Paper"
+import style from "./style.css"
 
-import OrderTotals from './totals';
-import OrderSummary from './summary';
-import OrderItems from './items';
-import OrderCustomer from './customer';
+import OrderTotals from "./totals"
+import OrderSummary from "./summary"
+import OrderItems from "./items"
+import OrderCustomer from "./customer"
 
 export default class OrderDetails extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
 	componentDidMount() {
-		this.props.fetchData();
+		this.props.fetchData()
 	}
 
 	componentWillUnmount() {
-		this.props.clearData();
+		this.props.clearData()
 	}
 
 	render() {
@@ -31,9 +31,9 @@ export default class OrderDetails extends React.Component {
 			onShippingAddressUpdate,
 			onOrderSummaryUpdate,
 			onCheckout,
-			processingCheckout
-		} = this.props;
-		if (!order) return null;
+			processingCheckout,
+		} = this.props
+		if (!order) return null
 
 		return (
 			<div className="row row--no-gutter col-full-height">
@@ -70,6 +70,6 @@ export default class OrderDetails extends React.Component {
 					</Paper>
 				</div>
 			</div>
-		);
+		)
 	}
 }

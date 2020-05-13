@@ -1,37 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react"
+import { Link } from "react-router-dom"
 
-import messages from 'lib/text';
+import messages from "lib/text"
 
-import Paper from 'material-ui/Paper';
-import FontIcon from 'material-ui/FontIcon';
-import IconButton from 'material-ui/IconButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import MenuItem from 'material-ui/MenuItem';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import style from './style.css';
+import Paper from "material-ui/Paper"
+import FontIcon from "material-ui/FontIcon"
+import IconButton from "material-ui/IconButton"
+import RaisedButton from "material-ui/RaisedButton"
+import MenuItem from "material-ui/MenuItem"
+import DropDownMenu from "material-ui/DropDownMenu"
+import style from "./style.css"
 
 class VariantInput extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
-			value: props.value
-		};
-		this.onChange = this.onChange.bind(this);
-		this.onBlur = this.onBlur.bind(this);
+			value: props.value,
+		}
+		this.onChange = this.onChange.bind(this)
+		this.onBlur = this.onBlur.bind(this)
 	}
 
 	onChange = e => {
-		this.setState({ value: e.target.value });
-	};
+		this.setState({ value: e.target.value })
+	}
 
 	onBlur = e => {
-		this.props.onChange(this.props.variantId, this.state.value);
-	};
+		this.props.onChange(this.props.variantId, this.state.value)
+	}
 
 	render() {
-		const { type, placeholder } = this.props;
-		const { value } = this.state;
+		const { type, placeholder } = this.props
+		const { value } = this.state
 
 		return (
 			<input
@@ -43,7 +43,7 @@ class VariantInput extends React.Component {
 				onBlur={this.onBlur}
 				min="0"
 			/>
-		);
+		)
 	}
 }
 
@@ -55,35 +55,35 @@ const VariantRow = ({
 	onStockChange,
 	onWeightChange,
 	onOptionChange,
-	onDeleteVariant
+	onDeleteVariant,
 }) => {
 	const cols = options.map((option, index) => {
-		const variantOption = variant.options.find(i => i.option_id === option.id);
-		const variantOptionValueId = variantOption ? variantOption.value_id : null;
+		const variantOption = variant.options.find(i => i.option_id === option.id)
+		const variantOptionValueId = variantOption ? variantOption.value_id : null
 
 		if (option.values && option.values.length > 0) {
 			const menuItems = option.values
 				.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
 				.map((value, index) => (
 					<MenuItem key={index} value={value.id} primaryText={value.name} />
-				));
+				))
 			return (
 				<div key={option.id} className={style.gridCol}>
 					<DropDownMenu
 						value={variantOptionValueId}
-						style={{ width: '100%' }}
-						underlineStyle={{ border: 'none' }}
+						style={{ width: "100%" }}
+						underlineStyle={{ border: "none" }}
 						onChange={(event, key, value) => {
-							onOptionChange(variant.id, option.id, value);
+							onOptionChange(variant.id, option.id, value)
 						}}
 					>
 						{menuItems}
 					</DropDownMenu>
 				</div>
-			);
+			)
 		}
-		return <div key={option.id} className={style.gridCol} />;
-	});
+		return <div key={option.id} className={style.gridCol} />
+	})
 
 	return (
 		<div className={style.gridRow}>
@@ -128,7 +128,7 @@ const VariantRow = ({
 				<IconButton
 					title={messages.actions_delete}
 					onClick={() => {
-						onDeleteVariant(variant.id);
+						onDeleteVariant(variant.id)
 					}}
 					tabIndex={-1}
 				>
@@ -138,8 +138,8 @@ const VariantRow = ({
 				</IconButton>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 const ProductVariantsGrid = ({
 	settings,
@@ -153,10 +153,10 @@ const ProductVariantsGrid = ({
 	onPriceChange,
 	onStockChange,
 	onWeightChange,
-	onOptionChange
+	onOptionChange,
 }) => {
-	const hasOptions = options && options.length > 0;
-	const hasVariants = variants && variants.length > 0;
+	const hasOptions = options && options.length > 0
+	const hasVariants = variants && variants.length > 0
 
 	const headRowCols = hasOptions
 		? options.map((option, index) => (
@@ -169,7 +169,7 @@ const ProductVariantsGrid = ({
 					</Link>
 				</div>
 		  ))
-		: null;
+		: null
 
 	const variantRows = hasVariants
 		? variants.map((variant, index) => (
@@ -185,7 +185,7 @@ const ProductVariantsGrid = ({
 					onDeleteVariant={deleteVariant}
 				/>
 		  ))
-		: null;
+		: null
 
 	return (
 		<Paper className="paper-box" zDepth={1}>
@@ -210,7 +210,7 @@ const ProductVariantsGrid = ({
 				<RaisedButton label={messages.addOption} onClick={createOption} />
 			</div>
 		</Paper>
-	);
-};
+	)
+}
 
-export default ProductVariantsGrid;
+export default ProductVariantsGrid

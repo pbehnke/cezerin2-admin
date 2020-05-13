@@ -1,14 +1,14 @@
-import React from 'react';
-import { Field, FieldArray, reduxForm } from 'redux-form';
-import messages from 'lib/text';
-import CategoryMultiselect from 'modules/productCategories/components/multiselectList';
-import FontIcon from 'material-ui/FontIcon';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import style from './style.css';
-const { Fragment } = React;
+import React from "react"
+import { Field, FieldArray, reduxForm } from "redux-form"
+import messages from "lib/text"
+import CategoryMultiselect from "modules/productCategories/components/multiselectList"
+import FontIcon from "material-ui/FontIcon"
+import Dialog from "@material-ui/core/Dialog"
+import DialogActions from "@material-ui/core/DialogActions"
+import FlatButton from "material-ui/FlatButton"
+import RaisedButton from "material-ui/RaisedButton"
+import style from "./style.css"
+const { Fragment } = React
 
 const CategoryItemActions = ({ fields, index }) => (
 	<a
@@ -16,72 +16,72 @@ const CategoryItemActions = ({ fields, index }) => (
 		onClick={() => fields.remove(index)}
 		className="react-tagsinput-remove"
 	/>
-);
+)
 
 const CategoryItem = ({ categoryName, actions }) => (
 	<span className="react-tagsinput-tag">
 		{categoryName}
 		{actions}
 	</span>
-);
+)
 
 export default class ProductCategoryMultiSelect extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
-			open: false
-		};
+			open: false,
+		}
 	}
 
 	close = () => {
-		this.setState({ open: false });
-	};
+		this.setState({ open: false })
+	}
 
 	open = () => {
-		this.setState({ open: true });
-	};
+		this.setState({ open: true })
+	}
 
 	handleCheck = categoryId => {
-		const selectedIds = this.props.fields.getAll();
+		const selectedIds = this.props.fields.getAll()
 		if (selectedIds && selectedIds.includes(categoryId)) {
 			// remove
 			this.props.fields.forEach((name, index, fields) => {
 				if (fields.get(index) === categoryId) {
-					fields.remove(index);
+					fields.remove(index)
 				}
-			});
+			})
 		} else {
 			// add
-			this.props.fields.push(categoryId);
+			this.props.fields.push(categoryId)
 		}
-	};
+	}
 
 	render() {
 		const {
 			categories,
 			fields,
-			meta: { touched, error, submitFailed }
-		} = this.props;
-		const { open } = this.state;
-		const selectedIds = fields.getAll();
+			meta: { touched, error, submitFailed },
+		} = this.props
+		const { open } = this.state
+		const selectedIds = fields.getAll()
 
 		return (
 			<div className="react-tagsinput">
 				<span>
 					{fields.map((field, index) => {
-						const categoryId = fields.get(index);
-						const category = categories.find(item => item.id === categoryId);
-						const categoryName = category ? category.name : '-';
+						const categoryId = fields.get(index)
+						const category = categories.find(item => item.id === categoryId)
+						const categoryName = category ? category.name : "-"
 						const actions = (
 							<CategoryItemActions fields={fields} index={index} />
-						);
+						)
 						return (
 							<CategoryItem
 								key={index}
 								categoryName={categoryName}
 								actions={actions}
 							/>
-						);
+						)
 					})}
 					<Dialog
 						title={messages.additionalCategories}
@@ -121,6 +121,6 @@ export default class ProductCategoryMultiSelect extends React.Component {
 					/>
 				</span>
 			</div>
-		);
+		)
 	}
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import Item from './item';
+import React from "react"
+import Item from "./item"
 
 const ServiceItem = ({ service }) => (
 	<Item
@@ -9,6 +9,6 @@ const ServiceItem = ({ service }) => (
 		developer={service.developer.name}
 		enabled={service.enabled}
 	/>
-);
+)
 
-export default ServiceItem;
+export default ServiceItem

@@ -1,30 +1,30 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { TextField } from 'redux-form-material-ui';
+import React from "react"
+import { Field, reduxForm } from "redux-form"
+import { TextField } from "redux-form-material-ui"
 
-import { CustomToggle } from 'modules/shared/form';
-import * as helper from 'lib/helper';
-import messages from 'lib/text';
+import { CustomToggle } from "modules/shared/form"
+import * as helper from "lib/helper"
+import messages from "lib/text"
 
-import Divider from 'material-ui/Divider';
-import FlatButton from 'material-ui/FlatButton';
-import style from './style.css';
+import Divider from "material-ui/Divider"
+import FlatButton from "material-ui/FlatButton"
+import style from "./style.css"
 
 const validate = values => {
-	const errors = {};
-	const requiredFields = [];
+	const errors = {}
+	const requiredFields = []
 
 	requiredFields.map(field => {
 		if (values && !values[field]) {
-			errors[field] = messages.errors_required;
+			errors[field] = messages.errors_required
 		}
-	});
+	})
 
-	return errors;
-};
+	return errors
+}
 
 const getShippingFieldLabel = ({ label, key }) =>
-	label && label.length > 0 ? label : helper.getOrderFieldLabelByKey(key);
+	label && label.length > 0 ? label : helper.getOrderFieldLabelByKey(key)
 
 class ShippingAddressForm extends React.Component {
 	render() {
@@ -34,17 +34,17 @@ class ShippingAddressForm extends React.Component {
 			submitting,
 			initialValues,
 			onCancel,
-			shippingMethod
-		} = this.props;
+			shippingMethod,
+		} = this.props
 
-		let shippingFields = null;
+		let shippingFields = null
 		if (
 			shippingMethod &&
 			shippingMethod.fields &&
 			shippingMethod.fields.length > 0
 		) {
 			shippingFields = shippingMethod.fields.map((field, index) => {
-				const fieldLabel = getShippingFieldLabel(field);
+				const fieldLabel = getShippingFieldLabel(field)
 
 				return (
 					<Field
@@ -54,8 +54,8 @@ class ShippingAddressForm extends React.Component {
 						name={field.key}
 						floatingLabelText={fieldLabel}
 					/>
-				);
-			});
+				)
+			})
 		}
 
 		return (
@@ -104,12 +104,12 @@ class ShippingAddressForm extends React.Component {
 					/>
 				</div>
 			</form>
-		);
+		)
 	}
 }
 
 export default reduxForm({
-	form: 'ShippingAddressForm',
+	form: "ShippingAddressForm",
 	validate,
-	enableReinitialize: true
-})(ShippingAddressForm);
+	enableReinitialize: true,
+})(ShippingAddressForm)

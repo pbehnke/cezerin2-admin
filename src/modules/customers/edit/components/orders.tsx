@@ -1,26 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import moment from 'moment';
+import React from "react"
+import { Link } from "react-router-dom"
+import moment from "moment"
 
-import api from 'lib/api';
-import messages from 'lib/text';
-import * as helper from 'lib/helper';
+import api from "lib/api"
+import messages from "lib/text"
+import * as helper from "lib/helper"
 
-import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
-import FontIcon from 'material-ui/FontIcon';
-import { List, ListItem } from 'material-ui/List';
-import style from './style.css';
+import Paper from "material-ui/Paper"
+import Divider from "material-ui/Divider"
+import FontIcon from "material-ui/FontIcon"
+import { List, ListItem } from "material-ui/List"
+import style from "./style.css"
 
 const getOrderStates = order => {
-	const states = [];
+	const states = []
 
 	if (order.hold) {
 		states.push(
 			<span key="hold" className={style.holdState}>
 				{messages.orders_hold}
 			</span>
-		);
+		)
 	}
 
 	if (order.paid) {
@@ -28,7 +28,7 @@ const getOrderStates = order => {
 			<span key="paid" className={style.paidState}>
 				{messages.orders_paid}
 			</span>
-		);
+		)
 	}
 
 	if (order.delivered) {
@@ -36,23 +36,23 @@ const getOrderStates = order => {
 			<span key="delivered" className={style.deliveredState}>
 				{messages.orders_delivered}
 			</span>
-		);
+		)
 	}
 
 	if (order.cancelled) {
 		return [
 			<span key="cancelled" className={style.cancelledState}>
 				{messages.orders_cancelled}
-			</span>
-		];
+			</span>,
+		]
 	}
 
 	if (order.closed) {
 		return [
 			<span key="closed" className={style.closedState}>
 				{messages.orders_closed}
-			</span>
-		];
+			</span>,
+		]
 	}
 
 	if (states.length === 0 && order.draft) {
@@ -60,25 +60,22 @@ const getOrderStates = order => {
 			<span key="draft" className={style.draftState}>
 				{messages.orders_draft}
 			</span>
-		);
+		)
 	}
 
-	return states;
-};
+	return states
+}
 
 const CustomerOrder = ({ order, settings }) => {
-	const grandTotalFormatted = helper.formatCurrency(
-		order.grand_total,
-		settings
-	);
-	const dateCreated = moment(order.date_placed || order.date_created);
-	const dateCreatedFormated = dateCreated.format(settings.date_format);
-	const states = getOrderStates(order);
+	const grandTotalFormatted = helper.formatCurrency(order.grand_total, settings)
+	const dateCreated = moment(order.date_placed || order.date_created)
+	const dateCreatedFormated = dateCreated.format(settings.date_format)
+	const states = getOrderStates(order)
 
 	return (
 		<div>
 			<Divider />
-			<Link to={`/order/${order.id}`} style={{ textDecoration: 'none' }}>
+			<Link to={`/order/${order.id}`} style={{ textDecoration: "none" }}>
 				<ListItem
 					rightIcon={
 						<FontIcon className="material-icons">keyboard_arrow_right</FontIcon>
@@ -86,13 +83,13 @@ const CustomerOrder = ({ order, settings }) => {
 					primaryText={
 						<div className="row">
 							<div className="col-xs-2">{order.number}</div>
-							<div className="col-xs-3" style={{ color: 'rgba(0, 0, 0, 0.4)' }}>
+							<div className="col-xs-3" style={{ color: "rgba(0, 0, 0, 0.4)" }}>
 								{dateCreatedFormated}
 							</div>
 							<div className="col-xs-4">
 								<div className={style.states}>{states}</div>
 							</div>
-							<div className="col-xs-3" style={{ textAlign: 'right' }}>
+							<div className="col-xs-3" style={{ textAlign: "right" }}>
 								{grandTotalFormatted}
 							</div>
 						</div>
@@ -100,34 +97,34 @@ const CustomerOrder = ({ order, settings }) => {
 				/>
 			</Link>
 		</div>
-	);
-};
+	)
+}
 
 export default class CustomerOrders extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
-			orders: []
-		};
+			orders: [],
+		}
 	}
 
 	componentDidMount() {
 		api.orders
 			.list({ customer_id: this.props.customerId })
 			.then(({ status, json }) => {
-				this.setState({ orders: json.data });
-			});
+				this.setState({ orders: json.data })
+			})
 	}
 
 	render() {
-		const { customerId, settings } = this.props;
-		const { orders } = this.state;
+		const { customerId, settings } = this.props
+		const { orders } = this.state
 
-		let orderItems = [];
+		let orderItems = []
 		if (orders.length > 0) {
 			orderItems = orders.map((order, index) => (
 				<CustomerOrder key={index} order={order} settings={settings} />
-			));
+			))
 		}
 
 		return (
@@ -140,6 +137,6 @@ export default class CustomerOrders extends React.Component {
 				</div>
 				<List style={{ padding: 0 }}>{orderItems}</List>
 			</Paper>
-		);
+		)
 	}
 }

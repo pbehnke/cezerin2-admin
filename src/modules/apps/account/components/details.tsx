@@ -1,16 +1,16 @@
-import React from 'react';
-import style from './style.css';
-import Account from './account';
-import Developer from './developer';
+import React from "react"
+import style from "./style.css"
+import Account from "./account"
+import Developer from "./developer"
 
 export default class WebStoreAccountDetails extends React.Component {
 	componentDidMount() {
-		this.props.fetchData();
+		this.props.fetchData()
 	}
 
 	render() {
-		const { account, onAccountSubmit, onDeveloperSubmit } = this.props;
-		const developerData = account ? account.developer : null;
+		const { account, onAccountSubmit, onDeveloperSubmit } = this.props
+		const developerData = account ? account.developer : null
 
 		if (account) {
 			return (
@@ -23,8 +23,8 @@ export default class WebStoreAccountDetails extends React.Component {
 						/>
 					)}
 				</div>
-			);
+			)
 		}
-		return null;
+		return null
 	}
 }

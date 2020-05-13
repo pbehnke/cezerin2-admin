@@ -1,60 +1,60 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import messages from 'lib/text';
-import GroupSelect from 'modules/customerGroups/select';
-import DeleteConfirmation from 'modules/shared/deleteConfirmation';
-import FontIcon from 'material-ui/FontIcon';
-import IconMenu from 'material-ui/IconMenu';
-import IconButton from 'material-ui/IconButton';
-import MenuItem from 'material-ui/MenuItem';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import Search from './search';
+import React from "react"
+import { Link } from "react-router-dom"
+import messages from "lib/text"
+import GroupSelect from "modules/customerGroups/select"
+import DeleteConfirmation from "modules/shared/deleteConfirmation"
+import FontIcon from "material-ui/FontIcon"
+import IconMenu from "material-ui/IconMenu"
+import IconButton from "material-ui/IconButton"
+import MenuItem from "material-ui/MenuItem"
+import Dialog from "@material-ui/core/Dialog"
+import DialogActions from "@material-ui/core/DialogActions"
+import FlatButton from "material-ui/FlatButton"
+import RaisedButton from "material-ui/RaisedButton"
+import TextField from "material-ui/TextField"
+import Search from "./search"
 
-const Fragment = React.Fragment;
+const Fragment = React.Fragment
 
 export default class Buttons extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			groupId: null,
 			openSetGroup: false,
-			openDelete: false
-		};
+			openDelete: false,
+		}
 	}
 
 	showSetGroup = () => {
-		this.setState({ openSetGroup: true });
-	};
+		this.setState({ openSetGroup: true })
+	}
 
 	showDelete = () => {
-		this.setState({ openDelete: true });
-	};
+		this.setState({ openDelete: true })
+	}
 
 	closeSetGroup = () => {
-		this.setState({ openSetGroup: false });
-	};
+		this.setState({ openSetGroup: false })
+	}
 
 	closeDelete = () => {
-		this.setState({ openDelete: false });
-	};
+		this.setState({ openDelete: false })
+	}
 
 	deleteCustomers = () => {
-		this.setState({ openDelete: false });
-		this.props.onDelete();
-	};
+		this.setState({ openDelete: false })
+		this.props.onDelete()
+	}
 
 	saveSetGroup = () => {
-		this.setState({ openSetGroup: false });
-		this.props.onSetGroup(this.state.groupId);
-	};
+		this.setState({ openSetGroup: false })
+		this.props.onSetGroup(this.state.groupId)
+	}
 
 	selectSetGroup = groupId => {
-		this.setState({ groupId });
-	};
+		this.setState({ groupId })
+	}
 
 	render() {
 		const {
@@ -63,8 +63,8 @@ export default class Buttons extends React.Component {
 			selectedCount,
 			onDelete,
 			onCreate,
-			onEdit
-		} = this.props;
+			onEdit,
+		} = this.props
 
 		return (
 			<Fragment>
@@ -152,6 +152,6 @@ export default class Buttons extends React.Component {
 					</IconButton>
 				)}
 			</Fragment>
-		);
+		)
 	}
 }

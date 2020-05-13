@@ -1,26 +1,26 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { TextField } from 'redux-form-material-ui';
+import React from "react"
+import { Field, reduxForm } from "redux-form"
+import { TextField } from "redux-form-material-ui"
 
-import messages from 'lib/text';
+import messages from "lib/text"
 
-import Paper from 'material-ui/Paper';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import style from './style.css';
+import Paper from "material-ui/Paper"
+import FlatButton from "material-ui/FlatButton"
+import RaisedButton from "material-ui/RaisedButton"
+import style from "./style.css"
 
 const validate = values => {
-	const errors = {};
-	const requiredFields = ['name'];
+	const errors = {}
+	const requiredFields = ["name"]
 
 	requiredFields.forEach(field => {
 		if (values && !values[field]) {
-			errors[field] = messages.errors_required;
+			errors[field] = messages.errors_required
 		}
-	});
+	})
 
-	return errors;
-};
+	return errors
+}
 
 class Form extends React.Component {
 	render() {
@@ -29,13 +29,13 @@ class Form extends React.Component {
 			pristine,
 			submitting,
 			isSaving,
-			initialValues
-		} = this.props;
+			initialValues,
+		} = this.props
 
-		let statusId = null;
+		let statusId = null
 
 		if (initialValues) {
-			statusId = initialValues.id;
+			statusId = initialValues.id
 		}
 
 		return (
@@ -74,12 +74,12 @@ class Form extends React.Component {
 					</div>
 				</form>
 			</Paper>
-		);
+		)
 	}
 }
 
 export default reduxForm({
-	form: 'FormOrderStatus',
+	form: "FormOrderStatus",
 	validate,
-	enableReinitialize: true
-})(Form);
+	enableReinitialize: true,
+})(Form)

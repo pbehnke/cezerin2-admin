@@ -1,34 +1,34 @@
-import React from 'react';
-import ServiceDescription from './description';
-import ServiceSettings from './settings';
-import ServiceActions from './actions';
-import ServiceLogs from './logs';
-import style from './style.css';
+import React from "react"
+import ServiceDescription from "./description"
+import ServiceSettings from "./settings"
+import ServiceActions from "./actions"
+import ServiceLogs from "./logs"
+import style from "./style.css"
 
 export default class ServiceDetails extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
-			timer: null
-		};
+			timer: null,
+		}
 	}
 
 	componentDidMount() {
-		this.props.fetchData();
+		this.props.fetchData()
 
 		// refresh logs every 5 sec
 		const timer = setInterval(() => {
-			const { service, fetchServiceLogs } = this.props;
+			const { service, fetchServiceLogs } = this.props
 			if (service && service.enabled) {
-				fetchServiceLogs();
+				fetchServiceLogs()
 			}
-		}, 5000);
+		}, 5000)
 
-		this.setState({ timer });
+		this.setState({ timer })
 	}
 
 	componentWillUnmount() {
-		clearInterval(this.state.timer);
+		clearInterval(this.state.timer)
 	}
 
 	render() {
@@ -41,17 +41,17 @@ export default class ServiceDetails extends React.Component {
 			enableService,
 			disableService,
 			updateSettings,
-			fetchServiceLogs
-		} = this.props;
-		let actions = null;
-		const serviceError = serviceSettings && serviceSettings.error === true;
+			fetchServiceLogs,
+		} = this.props
+		let actions = null
+		const serviceError = serviceSettings && serviceSettings.error === true
 		if (
 			service &&
 			service.actions &&
 			Array.isArray(service.actions) &&
 			service.actions.length > 0
 		) {
-			actions = service.actions;
+			actions = service.actions
 		}
 
 		return (
@@ -63,7 +63,7 @@ export default class ServiceDetails extends React.Component {
 					disableService={disableService}
 				/>
 				{serviceError && (
-					<div style={{ color: '#FC3246', fontSize: '24px', margin: '30px' }}>
+					<div style={{ color: "#FC3246", fontSize: "24px", margin: "30px" }}>
 						Service error
 					</div>
 				)}
@@ -85,6 +85,6 @@ export default class ServiceDetails extends React.Component {
 					serviceLogs &&
 					serviceLogs.length > 0 && <ServiceLogs logs={serviceLogs} />}
 			</div>
-		);
+		)
 	}
 }

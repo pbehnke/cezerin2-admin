@@ -1,22 +1,22 @@
-import React from 'react';
-import Dropzone from 'react-dropzone';
-import messages from 'lib/text';
+import React from "react"
+import Dropzone from "react-dropzone"
+import messages from "lib/text"
 
-import Snackbar from 'material-ui/Snackbar';
-import FlatButton from 'material-ui/FlatButton';
-import style from './style.css';
+import Snackbar from "material-ui/Snackbar"
+import FlatButton from "material-ui/FlatButton"
+import style from "./style.css"
 
 export default class MultiUploader extends React.Component {
 	onDrop = files => {
-		const form = new FormData();
+		const form = new FormData()
 		files.map(file => {
-			form.append('file', file);
-		});
-		this.props.onUpload(form);
-	};
+			form.append("file", file)
+		})
+		this.props.onUpload(form)
+	}
 
 	render() {
-		const { uploading } = this.props;
+		const { uploading } = this.props
 		return (
 			<div>
 				<Dropzone
@@ -24,32 +24,32 @@ export default class MultiUploader extends React.Component {
 					multiple
 					disableClick
 					ref={node => {
-						this.dropzone = node;
+						this.dropzone = node
 					}}
 					style={{}}
-					className={style.dropzone + (uploading ? ` ${style.uploading}` : '')}
+					className={style.dropzone + (uploading ? ` ${style.uploading}` : "")}
 					activeClassName={style.dropzoneActive}
 					rejectClassName={style.dropzoneReject}
 				>
-					{({getRootProps,getInputProps}) => (
-					  <div {...getRootProps()}>
-					<input {...getInputProps()} />
-					<div className={style.dropzoneEmpty}>
-						{messages.help_dropHere}
-						<FlatButton
-							label={messages.chooseImage}
-							className={style.button}
-							onClick={() => {
-								this.dropzone.open();
-							}}
-						/>
-					</div>
-					</div>
+					{({ getRootProps, getInputProps }) => (
+						<div {...getRootProps()}>
+							<input {...getInputProps()} />
+							<div className={style.dropzoneEmpty}>
+								{messages.help_dropHere}
+								<FlatButton
+									label={messages.chooseImage}
+									className={style.button}
+									onClick={() => {
+										this.dropzone.open()
+									}}
+								/>
+							</div>
+						</div>
 					)}
 				</Dropzone>
 
 				<Snackbar open={uploading} message={messages.messages_uploading} />
 			</div>
-		);
+		)
 	}
 }

@@ -1,26 +1,26 @@
-import React from 'react';
-import messages from 'lib/text';
+import React from "react"
+import messages from "lib/text"
 
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import Toggle from 'material-ui/Toggle';
-import style from './style.css';
+import SelectField from "material-ui/SelectField"
+import MenuItem from "material-ui/MenuItem"
+import Toggle from "material-ui/Toggle"
+import style from "./style.css"
 
 const Filter = ({
 	filter,
 	setEnabled,
 	setDiscontinued,
 	setOnSale,
-	setStock
+	setStock,
 }) => {
-	const { enabled, discontinued, onSale, stockStatus } = filter;
+	const { enabled, discontinued, onSale, stockStatus } = filter
 
 	return (
 		<div className={style.filter}>
 			<SelectField
 				value={enabled}
 				onChange={(event, index, value) => {
-					setEnabled(value);
+					setEnabled(value)
 				}}
 				floatingLabelText={messages.enabled}
 				fullWidth
@@ -33,7 +33,7 @@ const Filter = ({
 			<SelectField
 				value={discontinued}
 				onChange={(event, index, value) => {
-					setDiscontinued(value);
+					setDiscontinued(value)
 				}}
 				floatingLabelText={messages.products_discontinued}
 				fullWidth
@@ -46,7 +46,7 @@ const Filter = ({
 			<SelectField
 				value={onSale}
 				onChange={(event, index, value) => {
-					setOnSale(value);
+					setOnSale(value)
 				}}
 				floatingLabelText={messages.products_onSale}
 				fullWidth
@@ -59,7 +59,7 @@ const Filter = ({
 			<SelectField
 				value={stockStatus}
 				onChange={(event, index, value) => {
-					setStock(value);
+					setStock(value)
 				}}
 				floatingLabelText={messages.products_stockStatus}
 				fullWidth
@@ -78,7 +78,7 @@ const Filter = ({
 				/>
 			</SelectField>
 		</div>
-	);
-};
+	)
+}
 
-export default Filter;
+export default Filter

@@ -1,40 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Field, FieldArray, reduxForm } from 'redux-form';
-import { TextField } from 'redux-form-material-ui';
+import React from "react"
+import { Link } from "react-router-dom"
+import { Field, FieldArray, reduxForm } from "redux-form"
+import { TextField } from "redux-form-material-ui"
 
-import api from 'lib/api';
-import * as helper from 'lib/helper';
-import messages from 'lib/text';
+import api from "lib/api"
+import * as helper from "lib/helper"
+import messages from "lib/text"
 
-import TagsInput from 'react-tagsinput';
-import ProductSearchDialog from 'modules/shared/productSearch';
+import TagsInput from "react-tagsinput"
+import ProductSearchDialog from "modules/shared/productSearch"
 
-import Paper from 'material-ui/Paper';
-import FontIcon from 'material-ui/FontIcon';
-import IconButton from 'material-ui/IconButton';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import ProductCategoryMultiSelect from './productCategoryMultiSelect';
-import ProductCategorySelect from './productCategorySelect';
-import style from './style.css';
-const { Fragment } = React;
+import Paper from "material-ui/Paper"
+import FontIcon from "material-ui/FontIcon"
+import IconButton from "material-ui/IconButton"
+import FlatButton from "material-ui/FlatButton"
+import RaisedButton from "material-ui/RaisedButton"
+import IconMenu from "material-ui/IconMenu"
+import MenuItem from "material-ui/MenuItem"
+import ProductCategoryMultiSelect from "./productCategoryMultiSelect"
+import ProductCategorySelect from "./productCategorySelect"
+import style from "./style.css"
+const { Fragment } = React
 
 const TagsField = ({ input, placeholder }) => {
-	const tagsArray =
-		input.value && Array.isArray(input.value) ? input.value : [];
+	const tagsArray = input.value && Array.isArray(input.value) ? input.value : []
 	return (
 		<TagsInput
 			value={tagsArray}
 			inputProps={{ placeholder }}
 			onChange={tags => {
-				input.onChange(tags);
+				input.onChange(tags)
 			}}
 		/>
-	);
-};
+	)
+}
 
 const ProductShort = ({
 	id,
@@ -43,18 +42,18 @@ const ProductShort = ({
 	priceFormatted,
 	enabled,
 	discontinued,
-	actions
+	actions,
 }) => (
 	<div
 		className={
 			style.relatedProduct +
 			(enabled === false || discontinued === true
 				? ` ${style.relatedProductDisabled}`
-				: '')
+				: "")
 		}
 	>
 		<div className={style.relatedProductImage}>
-			{thumbnailUrl && thumbnailUrl !== '' && <img src={`${thumbnailUrl}`} />}
+			{thumbnailUrl && thumbnailUrl !== "" && <img src={`${thumbnailUrl}`} />}
 		</div>
 		<div className={style.relatedProductText}>
 			<Link to={`/product/${id}`}>{name}</Link>
@@ -63,12 +62,12 @@ const ProductShort = ({
 		</div>
 		<div className={style.relatedProductActions}>{actions}</div>
 	</div>
-);
+)
 
 const RelatedProductActions = ({ fields, index }) => (
 	<IconMenu
-		targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-		anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+		targetOrigin={{ horizontal: "right", vertical: "top" }}
+		anchorOrigin={{ horizontal: "right", vertical: "top" }}
 		iconButtonElement={
 			<IconButton touch>
 				<FontIcon color="#777" className="material-icons">
@@ -94,14 +93,14 @@ const RelatedProductActions = ({ fields, index }) => (
 			/>
 		)}
 	</IconMenu>
-);
+)
 
 const RelatedProduct = ({ settings, product, actions }) => {
 	if (product) {
-		const priceFormatted = helper.formatCurrency(product.price, settings);
+		const priceFormatted = helper.formatCurrency(product.price, settings)
 		const imageUrl =
-			product && product.images.length > 0 ? product.images[0].url : null;
-		const thumbnailUrl = helper.getThumbnailUrl(imageUrl, 100);
+			product && product.images.length > 0 ? product.images[0].url : null
+		const thumbnailUrl = helper.getThumbnailUrl(imageUrl, 100)
 		return (
 			<ProductShort
 				id={product.id}
@@ -112,7 +111,7 @@ const RelatedProduct = ({ settings, product, actions }) => {
 				discontinued={product.discontinued}
 				actions={actions}
 			/>
-		);
+		)
 	}
 	// product doesn't exist
 	return (
@@ -123,42 +122,42 @@ const RelatedProduct = ({ settings, product, actions }) => {
 			priceFormatted=""
 			actions={actions}
 		/>
-	);
-};
+	)
+}
 
 class ProductsArray extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			showAddItem: false,
-			products: []
-		};
+			products: [],
+		}
 	}
 
 	showAddItem = () => {
-		this.setState({ showAddItem: true });
-	};
+		this.setState({ showAddItem: true })
+	}
 
 	hideAddItem = () => {
-		this.setState({ showAddItem: false });
-	};
+		this.setState({ showAddItem: false })
+	}
 
 	addItem = productId => {
-		this.hideAddItem();
-		this.props.fields.push(productId);
-	};
+		this.hideAddItem()
+		this.props.fields.push(productId)
+	}
 
 	componentDidMount() {
-		const ids = this.props.fields.getAll();
-		this.fetchProducts(ids);
+		const ids = this.props.fields.getAll()
+		this.fetchProducts(ids)
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const currentIds = this.props.fields.getAll();
-		const newIds = nextProps.fields.getAll();
+		const currentIds = this.props.fields.getAll()
+		const newIds = nextProps.fields.getAll()
 
 		if (currentIds !== newIds) {
-			this.fetchProducts(newIds);
+			this.fetchProducts(newIds)
 		}
 	}
 
@@ -168,26 +167,26 @@ class ProductsArray extends React.Component {
 				.list({
 					limit: 50,
 					fields:
-						'id,name,enabled,discontinued,price,on_sale,regular_price,images',
-					ids
+						"id,name,enabled,discontinued,price,on_sale,regular_price,images",
+					ids,
 				})
 				.then(productsResponse => {
-					this.setState({ products: productsResponse.json.data });
-				});
+					this.setState({ products: productsResponse.json.data })
+				})
 		} else {
 			this.setState({
-				products: []
-			});
+				products: [],
+			})
 		}
-	};
+	}
 
 	render() {
 		const {
 			settings,
 			fields,
-			meta: { touched, error, submitFailed }
-		} = this.props;
-		const { products } = this.state;
+			meta: { touched, error, submitFailed },
+		} = this.props
+		const { products } = this.state
 
 		return (
 			<div>
@@ -195,9 +194,9 @@ class ProductsArray extends React.Component {
 					{fields.map((field, index) => {
 						const actions = (
 							<RelatedProductActions fields={fields} index={index} />
-						);
-						const productId = fields.get(index);
-						const product = products.find(item => item.id === productId);
+						)
+						const productId = fields.get(index)
+						const product = products.find(item => item.id === productId)
 						return (
 							<RelatedProduct
 								key={index}
@@ -205,7 +204,7 @@ class ProductsArray extends React.Component {
 								product={product}
 								actions={actions}
 							/>
-						);
+						)
 					})}
 
 					<ProductSearchDialog
@@ -226,7 +225,7 @@ class ProductsArray extends React.Component {
 					/>
 				</div>
 			</div>
-		);
+		)
 	}
 }
 
@@ -237,7 +236,7 @@ const ProductAdditionalForm = ({
 	submitting,
 	initialValues,
 	settings,
-	categories
+	categories,
 }) => (
 	<form onSubmit={handleSubmit}>
 		<Paper className="paper-box" zDepth={1}>
@@ -245,9 +244,9 @@ const ProductAdditionalForm = ({
 				<div
 					className="row middle-xs"
 					style={{
-						padding: '0 0 15px 0',
-						borderBottom: '1px solid #e0e0e0',
-						marginBottom: 20
+						padding: "0 0 15px 0",
+						borderBottom: "1px solid #e0e0e0",
+						marginBottom: 20,
 					}}
 				>
 					<div className="col-xs-12 col-sm-4">{messages.category}</div>
@@ -263,9 +262,9 @@ const ProductAdditionalForm = ({
 				<div
 					className="row middle-xs"
 					style={{
-						padding: '0 0 15px 0',
-						borderBottom: '1px solid #e0e0e0',
-						marginBottom: 25
+						padding: "0 0 15px 0",
+						borderBottom: "1px solid #e0e0e0",
+						marginBottom: 25,
 					}}
 				>
 					<div className="col-xs-12 col-sm-4">
@@ -282,7 +281,7 @@ const ProductAdditionalForm = ({
 
 				<div
 					className="row middle-xs"
-					style={{ padding: '0 0 20px 0', borderBottom: '1px solid #e0e0e0' }}
+					style={{ padding: "0 0 20px 0", borderBottom: "1px solid #e0e0e0" }}
 				>
 					<div className="col-xs-12 col-sm-4">{messages.tags}</div>
 					<div className="col-xs-12 col-sm-8">
@@ -296,7 +295,7 @@ const ProductAdditionalForm = ({
 
 				<div
 					className="row middle-xs"
-					style={{ borderBottom: '1px solid #e0e0e0', marginBottom: 20 }}
+					style={{ borderBottom: "1px solid #e0e0e0", marginBottom: 20 }}
 				>
 					<div className="col-xs-12 col-sm-4">{messages.position}</div>
 					<div className="col-xs-12 col-sm-8">
@@ -320,7 +319,7 @@ const ProductAdditionalForm = ({
 			</div>
 			<div
 				className={`buttons-box ${
-					pristine ? 'buttons-box-pristine' : 'buttons-box-show'
+					pristine ? "buttons-box-pristine" : "buttons-box-show"
 				}`}
 			>
 				<FlatButton
@@ -339,9 +338,9 @@ const ProductAdditionalForm = ({
 			</div>
 		</Paper>
 	</form>
-);
+)
 
 export default reduxForm({
-	form: 'ProductAdditionalForm',
-	enableReinitialize: true
-})(ProductAdditionalForm);
+	form: "ProductAdditionalForm",
+	enableReinitialize: true,
+})(ProductAdditionalForm)

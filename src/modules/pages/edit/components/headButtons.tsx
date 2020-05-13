@@ -1,39 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import messages from 'lib/text';
-import DeleteConfirmation from 'modules/shared/deleteConfirmation';
-import FontIcon from 'material-ui/FontIcon';
-import IconButton from 'material-ui/IconButton';
-import FlatButton from 'material-ui/FlatButton';
-const { Fragment } = React;
+import React from "react"
+import { Link } from "react-router-dom"
+import messages from "lib/text"
+import DeleteConfirmation from "modules/shared/deleteConfirmation"
+import FontIcon from "material-ui/FontIcon"
+import IconButton from "material-ui/IconButton"
+import FlatButton from "material-ui/FlatButton"
+const { Fragment } = React
 
 export default class Buttons extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
-			openDelete: false
-		};
+			openDelete: false,
+		}
 	}
 
 	openDelete = () => {
-		this.setState({ openDelete: true });
-	};
+		this.setState({ openDelete: true })
+	}
 
 	closeDelete = () => {
-		this.setState({ openDelete: false });
-	};
+		this.setState({ openDelete: false })
+	}
 
 	deletePage = () => {
-		this.setState({ openDelete: false });
-		this.props.onDelete(this.props.page.id);
-	};
+		this.setState({ openDelete: false })
+		this.props.onDelete(this.props.page.id)
+	}
 
 	render() {
-		const { page } = this.props;
+		const { page } = this.props
 		const pageName =
 			page && page.meta_title && page.meta_title.length > 0
 				? page.meta_title
-				: 'Draft';
+				: "Draft"
 
 		if (page && !page.is_system) {
 			return (
@@ -70,8 +70,8 @@ export default class Buttons extends React.Component {
 						onDelete={this.deletePage}
 					/>
 				</Fragment>
-			);
+			)
 		}
-		return null;
+		return null
 	}
 }

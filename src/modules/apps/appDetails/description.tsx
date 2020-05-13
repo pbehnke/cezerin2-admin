@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react"
 
-import messages from 'lib/text';
+import messages from "lib/text"
 
-import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
-import style from './style.css';
+import Paper from "material-ui/Paper"
+import RaisedButton from "material-ui/RaisedButton"
+import style from "./style.css"
 
 const AppDescription = ({
 	name,
 	description,
 	coverUrl,
 	developer,
-	enabled
+	enabled,
 }) => (
-	<div style={{ maxWidth: 720, width: '100%' }}>
+	<div style={{ maxWidth: 720, width: "100%" }}>
 		<Paper className="paper-box" zDepth={1}>
 			<div className={style.innerBox}>
 				<div className="row">
@@ -38,6 +38,6 @@ const AppDescription = ({
 			</div>
 		</Paper>
 	</div>
-);
+)
 
-export default AppDescription;
+export default AppDescription

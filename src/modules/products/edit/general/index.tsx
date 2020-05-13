@@ -1,11 +1,11 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { updateProduct } from '../../actions';
-import ProductGeneralForm from './components/form';
+import { connect } from "react-redux"
+import { withRouter } from "react-router"
+import { updateProduct } from "../../actions"
+import ProductGeneralForm from "./components/form"
 
 const mapStateToProps = (state, ownProps) => ({
-	initialValues: state.products.editProduct
-});
+	initialValues: state.products.editProduct,
+})
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	onSubmit: values => {
@@ -16,15 +16,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 				slug: values.slug,
 				meta_title: values.meta_title,
 				meta_description: values.meta_description,
-				description: values.description
+				description: values.description,
 			})
-		);
-	}
-});
+		)
+	},
+})
 
 export default withRouter(
-	connect(
-		mapStateToProps,
-		mapDispatchToProps
-	)(ProductGeneralForm)
-);
+	connect(mapStateToProps, mapDispatchToProps)(ProductGeneralForm)
+)

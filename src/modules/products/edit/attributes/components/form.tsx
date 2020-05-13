@@ -1,14 +1,14 @@
-import React from 'react';
-import { Field, FieldArray, reduxForm } from 'redux-form';
+import React from "react"
+import { Field, FieldArray, reduxForm } from "redux-form"
 
-import messages from 'lib/text';
+import messages from "lib/text"
 
-import Paper from 'material-ui/Paper';
-import FontIcon from 'material-ui/FontIcon';
-import IconButton from 'material-ui/IconButton';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import style from './style.css';
+import Paper from "material-ui/Paper"
+import FontIcon from "material-ui/FontIcon"
+import IconButton from "material-ui/IconButton"
+import FlatButton from "material-ui/FlatButton"
+import RaisedButton from "material-ui/RaisedButton"
+import style from "./style.css"
 
 const AttributesGrid = ({ fields, meta: { touched, error, submitFailed } }) => (
 	<div>
@@ -22,13 +22,13 @@ const AttributesGrid = ({ fields, meta: { touched, error, submitFailed } }) => (
 		</div>
 
 		{fields.map((field, index) => {
-			const fieldName = `${field}.name`;
-			const fieldValue = `${field}.value`;
+			const fieldName = `${field}.name`
+			const fieldValue = `${field}.value`
 			return (
 				<div
 					className="row row--no-gutter middle-xs"
 					key={index}
-					style={{ borderBottom: '1px solid rgb(224, 224, 224)' }}
+					style={{ borderBottom: "1px solid rgb(224, 224, 224)" }}
 				>
 					<div className="col-xs-5 col--no-gutter">
 						<Field
@@ -64,7 +64,7 @@ const AttributesGrid = ({ fields, meta: { touched, error, submitFailed } }) => (
 						</IconButton>
 					</div>
 				</div>
-			);
+			)
 		})}
 
 		<div style={{ margin: 30 }}>
@@ -74,21 +74,21 @@ const AttributesGrid = ({ fields, meta: { touched, error, submitFailed } }) => (
 			/>
 		</div>
 	</div>
-);
+)
 
 const ProductAttributesForm = ({
 	handleSubmit,
 	pristine,
 	reset,
 	submitting,
-	initialValues
+	initialValues,
 }) => (
 	<form onSubmit={handleSubmit}>
 		<Paper className="paper-box" zDepth={1}>
 			<FieldArray name="attributes" component={AttributesGrid} />
 			<div
 				className={`buttons-box ${
-					pristine ? 'buttons-box-pristine' : 'buttons-box-show'
+					pristine ? "buttons-box-pristine" : "buttons-box-show"
 				}`}
 			>
 				<FlatButton
@@ -107,9 +107,9 @@ const ProductAttributesForm = ({
 			</div>
 		</Paper>
 	</form>
-);
+)
 
 export default reduxForm({
-	form: 'ProductAttributesForm',
-	enableReinitialize: true
-})(ProductAttributesForm);
+	form: "ProductAttributesForm",
+	enableReinitialize: true,
+})(ProductAttributesForm)

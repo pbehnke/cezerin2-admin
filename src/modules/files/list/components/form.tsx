@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react"
 
-import moment from 'moment';
-import messages from 'lib/text';
-import * as helper from 'lib/helper';
-import DeleteConfirmation from 'modules/shared/deleteConfirmation';
+import moment from "moment"
+import messages from "lib/text"
+import * as helper from "lib/helper"
+import DeleteConfirmation from "modules/shared/deleteConfirmation"
 
-import Paper from 'material-ui/Paper';
-import FontIcon from 'material-ui/FontIcon';
-import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import FileUploader from './fileUploader';
-import style from './style.css';
-const { Fragment } = React;
+import Paper from "material-ui/Paper"
+import FontIcon from "material-ui/FontIcon"
+import IconButton from "material-ui/IconButton"
+import IconMenu from "material-ui/IconMenu"
+import MenuItem from "material-ui/MenuItem"
+import FileUploader from "./fileUploader"
+import style from "./style.css"
+const { Fragment } = React
 
 const iconButtonElement = (
 	<IconButton touch>
@@ -20,37 +20,37 @@ const iconButtonElement = (
 			more_vert
 		</FontIcon>
 	</IconButton>
-);
+)
 
 class FileItem extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
-			openDelete: false
-		};
+			openDelete: false,
+		}
 	}
 
 	showDelete = () => {
-		this.setState({ openDelete: true });
-	};
+		this.setState({ openDelete: true })
+	}
 
 	hideDelete = () => {
-		this.setState({ openDelete: false });
-	};
+		this.setState({ openDelete: false })
+	}
 
 	handleDelete = () => {
-		const fileName = this.props.file.file;
-		this.props.onDelete(fileName);
-		this.hideDelete();
-	};
+		const fileName = this.props.file.file
+		this.props.onDelete(fileName)
+		this.hideDelete()
+	}
 
 	render() {
-		const { file, settings } = this.props;
-		const fileName = file.file;
-		const fileUrl = `${settings.assetServerDomain}/${file.file}`;
-		const modifiedDate = moment(file.modified);
-		const modifiedDateFormated = modifiedDate.format(`${settings.date_format}`);
-		const fileSizeFormated = helper.formatFileSize(file.size);
+		const { file, settings } = this.props
+		const fileName = file.file
+		const fileUrl = `${settings.assetServerDomain}/${file.file}`
+		const modifiedDate = moment(file.modified)
+		const modifiedDateFormated = modifiedDate.format(`${settings.date_format}`)
+		const fileSizeFormated = helper.formatFileSize(file.size)
 
 		return (
 			<div className={`${style.item} row row--no-gutter middle-xs`}>
@@ -77,17 +77,17 @@ class FileItem extends React.Component {
 					/>
 				</div>
 			</div>
-		);
+		)
 	}
 }
 
 export default class FileList extends React.Component {
 	componentDidMount() {
-		this.props.onLoad();
+		this.props.onLoad()
 	}
 
 	render() {
-		const { files, settings, onDelete, onUpload, uploading } = this.props;
+		const { files, settings, onDelete, onUpload, uploading } = this.props
 		const listItems = files.map((file, index) => (
 			<FileItem
 				key={index}
@@ -95,7 +95,7 @@ export default class FileList extends React.Component {
 				settings={settings}
 				onDelete={onDelete}
 			/>
-		));
+		))
 
 		return (
 			<Fragment>
@@ -110,6 +110,6 @@ export default class FileList extends React.Component {
 				</Paper>
 				<FileUploader onUpload={onUpload} uploading={uploading} />
 			</Fragment>
-		);
+		)
 	}
 }

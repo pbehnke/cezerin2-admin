@@ -1,10 +1,10 @@
-import React from 'react';
-import messages from 'lib/text';
+import React from "react"
+import messages from "lib/text"
 
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import Toggle from 'material-ui/Toggle';
-import style from './style.css';
+import SelectField from "material-ui/SelectField"
+import MenuItem from "material-ui/MenuItem"
+import Toggle from "material-ui/Toggle"
+import style from "./style.css"
 
 export default ({
 	active,
@@ -14,13 +14,13 @@ export default ({
 	setActive,
 	setDiscontinued,
 	setOnSale,
-	setStock
+	setStock,
 }) => (
 	<div className={style.filter}>
 		<Toggle
 			label={messages.products_onlyEnabled}
 			onToggle={(e, value) => {
-				setActive(value);
+				setActive(value)
 			}}
 			toggled={active}
 			className={style.toggle}
@@ -28,7 +28,7 @@ export default ({
 		<Toggle
 			label={messages.products_onlyDiscontinued}
 			onToggle={(e, value) => {
-				setDiscontinued(value);
+				setDiscontinued(value)
 			}}
 			toggled={discontinued}
 			className={style.toggle}
@@ -36,7 +36,7 @@ export default ({
 		<Toggle
 			label={messages.products_onlyOnSale}
 			onToggle={(e, value) => {
-				setOnSale(value);
+				setOnSale(value)
 			}}
 			toggled={on_sale}
 			className={style.toggle}
@@ -44,7 +44,7 @@ export default ({
 		<SelectField
 			value={stock_status}
 			onChange={(event, index, value) => {
-				setStock(value);
+				setStock(value)
 			}}
 			floatingLabelText={messages.products_stockStatus}
 			fullWidth
@@ -63,4 +63,4 @@ export default ({
 			/>
 		</SelectField>
 	</div>
-);
+)

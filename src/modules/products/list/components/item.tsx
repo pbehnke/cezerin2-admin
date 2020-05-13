@@ -1,88 +1,88 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Divider from 'material-ui/Divider';
-import FontIcon from 'material-ui/FontIcon';
-import messages from 'lib/text';
-import * as helper from 'lib/helper';
-import style from './style.css';
+import React from "react"
+import { Link } from "react-router-dom"
+import Divider from "material-ui/Divider"
+import FontIcon from "material-ui/FontIcon"
+import messages from "lib/text"
+import * as helper from "lib/helper"
+import style from "./style.css"
 
-const THUMBNAIL_WIDTH = 100;
+const THUMBNAIL_WIDTH = 100
 const ImagePlaceholder = (
 	<FontIcon
-		style={{ fontSize: 30, color: '#cccccc' }}
+		style={{ fontSize: 30, color: "#cccccc" }}
 		className="material-icons"
 	>
 		photo_camera
 	</FontIcon>
-);
+)
 
 const ItemImage = ({ images }) => {
 	if (images && images.length > 0) {
-		const imageUrl = helper.getThumbnailUrl(images[0].url, THUMBNAIL_WIDTH);
-		return <img src={`${imageUrl}`} className={style.image} />;
+		const imageUrl = helper.getThumbnailUrl(images[0].url, THUMBNAIL_WIDTH)
+		return <img src={`${imageUrl}`} className={style.image} />
 	}
-	return ImagePlaceholder;
-};
+	return ImagePlaceholder
+}
 
 const ItemPrice = ({ product, settings }) => {
-	const priceFormatted = helper.formatCurrency(product.price, settings);
+	const priceFormatted = helper.formatCurrency(product.price, settings)
 	const priceOldFormatted = product.on_sale
 		? helper.formatCurrency(product.regular_price, settings)
-		: '';
+		: ""
 
 	return (
 		<div>
 			<small>{priceOldFormatted}</small>
 			{priceFormatted}
 		</div>
-	);
-};
+	)
+}
 
 const ItemStock = ({ status, quantity }) => {
-	let stockValue = '';
-	let stockClass = '';
+	let stockValue = ""
+	let stockClass = ""
 	switch (status) {
-		case 'discontinued':
-			stockValue = messages.products_discontinued;
-			stockClass = style.discontinued;
-			break;
-		case 'backorder':
-			stockValue = messages.products_backorder;
-			stockClass = style.backorder;
-			break;
-		case 'preorder':
-			stockValue = messages.products_preorder;
-			stockClass = style.preorder;
-			break;
-		case 'available':
-			stockValue = quantity;
-			stockClass = style.inStock;
-			break;
-		case 'out_of_stock':
+		case "discontinued":
+			stockValue = messages.products_discontinued
+			stockClass = style.discontinued
+			break
+		case "backorder":
+			stockValue = messages.products_backorder
+			stockClass = style.backorder
+			break
+		case "preorder":
+			stockValue = messages.products_preorder
+			stockClass = style.preorder
+			break
+		case "available":
+			stockValue = quantity
+			stockClass = style.inStock
+			break
+		case "out_of_stock":
 		default:
-			stockValue = messages.products_outOfStock;
-			stockClass = style.outOfStock;
-			break;
+			stockValue = messages.products_outOfStock
+			stockClass = style.outOfStock
+			break
 	}
 
-	return <div className={stockClass}>{stockValue}</div>;
-};
+	return <div className={stockClass}>{stockValue}</div>
+}
 
 const ProductItem = ({ product, onSelect, selected, settings }) => {
-	let productClass = style.productName;
+	let productClass = style.productName
 	if (!product.enabled || product.discontinued) {
-		productClass += ` ${style.productInactive}`;
+		productClass += ` ${style.productInactive}`
 	} else {
-		productClass += ` ${style.productActive}`;
+		productClass += ` ${style.productActive}`
 	}
 
 	const productName =
 		product.name && product.name.length > 0
 			? product.name
-			: `<${messages.draft}>`;
+			: `<${messages.draft}>`
 
 	return (
-		<div className={`products-item${selected === true ? ' selected' : ''}`}>
+		<div className={`products-item${selected === true ? " selected" : ""}`}>
 			<div className={`row row--no-gutter middle-xs ${style.innerItem}`}>
 				<div className="col-xs-6 col--no-gutter">
 					<div className="row row--no-gutter middle-xs">
@@ -125,7 +125,7 @@ const ProductItem = ({ product, onSelect, selected, settings }) => {
 			</div>
 			<Divider />
 		</div>
-	);
-};
+	)
+}
 
-export default ProductItem;
+export default ProductItem
