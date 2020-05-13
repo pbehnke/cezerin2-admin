@@ -1,8 +1,8 @@
 import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
-import api from "../lib/api"
-import messages from "../lib/text"
+import api from "../../../../lib/api"
+import messages from "../../../../lib/text"
 import style from "./style.css"
 
 class ActionComponent extends React.Component {

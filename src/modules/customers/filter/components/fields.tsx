@@ -2,7 +2,7 @@ import MenuItem from "material-ui/MenuItem"
 import SelectField from "material-ui/SelectField"
 import Toggle from "material-ui/Toggle"
 import React from "react"
-import messages from "../lib/text"
+import messages from "../../../../lib/text"
 import style from "./style.css"
 
 export default ({

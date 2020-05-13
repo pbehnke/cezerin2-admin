@@ -1,7 +1,7 @@
 import Divider from "material-ui/Divider"
 import React from "react"
-import * as helper from "../lib/helper"
-import messages from "../lib/text"
+import * as helper from "../../../../lib/helper"
+import messages from "../../../../lib/text"
 import style from "./style.css"
 
 const OrderTotals = ({ order, settings }) => {

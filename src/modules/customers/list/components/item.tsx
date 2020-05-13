@@ -4,7 +4,7 @@ import FontIcon from "material-ui/FontIcon"
 import { ListItem } from "material-ui/List"
 import React from "react"
 import { Link } from "react-router-dom"
-import * as helper from "../lib/helper"
+import * as helper from "../../../../lib/helper"
 import style from "./style.css"
 
 const CustomersListItem = ({ customer, onSelect, selected, settings }) => {

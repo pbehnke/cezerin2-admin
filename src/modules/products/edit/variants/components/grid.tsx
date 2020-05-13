@@ -6,7 +6,7 @@ import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import { Link } from "react-router-dom"
-import messages from "../lib/text"
+import messages from "../../../../../lib/text"
 import style from "./style.css"
 
 class VariantInput extends React.Component {

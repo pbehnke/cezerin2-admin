@@ -3,8 +3,8 @@
 import FlatButton from "material-ui/FlatButton"
 import Paper from "material-ui/Paper"
 import React from "react"
-import api from "../lib/api"
-import messages from "../lib/text"
+import api from "../../../../../lib/api"
+import messages from "../../../../../lib/text"
 
 const Fragment = React.Fragment
 const updateProductArray = []

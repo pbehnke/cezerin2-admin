@@ -1,6 +1,6 @@
 import TextField from "material-ui/TextField"
 import React from "react"
-import messages from "../lib/text"
+import messages from "../../../../lib/text"
 
 export default ({ value, setSearch }) => (
   <TextField

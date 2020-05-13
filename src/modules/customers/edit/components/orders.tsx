@@ -5,9 +5,9 @@ import Paper from "material-ui/Paper"
 import moment from "moment"
 import React from "react"
 import { Link } from "react-router-dom"
-import api from "../lib/api"
-import * as helper from "../lib/helper"
-import messages from "../lib/text"
+import api from "../../../../lib/api"
+import * as helper from "../../../../lib/helper"
+import messages from "../../../../lib/text"
 import style from "./style.css"
 
 const getOrderStates = order => {

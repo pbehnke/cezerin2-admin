@@ -9,8 +9,8 @@ import MenuItem from "material-ui/MenuItem"
 import SelectField from "material-ui/SelectField"
 import React from "react"
 import { Link } from "react-router-dom"
-import * as helper from "../lib/helper"
-import messages from "../lib/text"
+import * as helper from "../../../../lib/helper"
+import messages from "../../../../lib/text"
 import style from "./style.css"
 
 const iconButtonElement = (

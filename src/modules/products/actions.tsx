@@ -1,5 +1,5 @@
 import moment from "moment"
-import api from "../lib/api"
+import api from "../../lib/api"
 import * as t from "./actionTypes"
 
 function requestProduct() {

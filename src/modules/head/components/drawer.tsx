@@ -16,8 +16,9 @@ import ExpandLess from "@material-ui/icons/ExpandLess"
 import ExpandMore from "@material-ui/icons/ExpandMore"
 import React from "react"
 import { Link } from "react-router-dom"
-import messages from "../lib/text"
+import messages from "../../../lib/text"
 import style from "./style.css"
+// Must use the icons explicidly to keep right
 
 // Must use the icons explicidly to keep right
 

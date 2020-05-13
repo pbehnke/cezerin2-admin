@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem"
 import Select from "@material-ui/core/Select"
 import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers"
 import React from "react"
-import messages from "../lib/text"
+import messages from "../../../../lib/text"
 import style from "./style.css"
 
 const empty_string_if_null = value => (value != null ? value : "")

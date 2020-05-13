@@ -5,7 +5,7 @@ import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import { Field, FieldArray, reduxForm } from "redux-form"
-import messages from "../lib/text"
+import messages from "../../../../../lib/text"
 import style from "./style.css"
 
 const AttributesGrid = ({ fields, meta: { touched, error, submitFailed } }) => (
