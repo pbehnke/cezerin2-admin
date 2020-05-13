@@ -4,7 +4,7 @@ import Paper from "material-ui/Paper"
 import Snackbar from "material-ui/Snackbar"
 import React from "react"
 import Dropzone from "react-dropzone"
-import messages from "../lib/text"
+import messages from "../../../lib/text"
 import style from "./style.css"
 
 export default class ImageUpload extends React.Component {

@@ -2,8 +2,8 @@ import Divider from "material-ui/Divider"
 import FontIcon from "material-ui/FontIcon"
 import React from "react"
 import { Link } from "react-router-dom"
-import * as helper from "../lib/helper"
-import messages from "../lib/text"
+import * as helper from "../../../../lib/helper"
+import messages from "../../../../lib/text"
 import style from "./style.css"
 
 const THUMBNAIL_WIDTH = 100

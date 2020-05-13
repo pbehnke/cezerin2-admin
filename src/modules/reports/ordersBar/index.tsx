@@ -1,7 +1,7 @@
 import moment from "moment"
 import React from "react"
-import api from "../lib/api"
-import messages from "../lib/text"
+import api from "../../../lib/api"
+import messages from "../../../lib/text"
 import BarChart from "./barChart"
 import * as utils from "./utils"
 

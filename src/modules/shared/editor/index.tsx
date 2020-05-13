@@ -1,5 +1,5 @@
 import React from "react"
-import settings from "../lib/settings"
+import settings from "../../../lib/settings"
 import TinyMCE from "../tinymce"
 
 const config = {

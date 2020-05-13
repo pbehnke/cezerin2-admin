@@ -4,9 +4,9 @@ import FlatButton from "material-ui/FlatButton"
 import { Table, TableBody, TableRow, TableRowColumn } from "material-ui/Table"
 import TextField from "material-ui/TextField"
 import React from "react"
-import api from "../lib/api"
-import * as helper from "../lib/helper"
-import messages from "../lib/text"
+import api from "../../../lib/api"
+import * as helper from "../../../lib/helper"
+import messages from "../../../lib/text"
 
 const SearchBox = ({ text, onChange }) => (
   <TextField
