@@ -11,7 +11,10 @@
     "noEmitOnError": false,
     "removeComments": true,
     "jsx": "react",
-    "allowJs": true
+    "allowJs": true,
+
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+
     // // Older
     //  "lib": ["dom", "dom.iterable", "esnext"],
     // "allowJs": true,
