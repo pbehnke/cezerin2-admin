@@ -1,7 +1,7 @@
 import Paper from "material-ui/Paper"
 import moment from "moment"
 import React from "react"
-import messages from "../lib/text"
+import messages from "../../../../lib/text"
 import style from "./style.css"
 
 const ServiceLogs = ({ logs }) => {

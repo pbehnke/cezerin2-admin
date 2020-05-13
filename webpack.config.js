@@ -60,6 +60,30 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        use: {
+          loader: "ts-loader",
+          options: {
+            compilerOptions: {
+              module: "commonjs",
+              noImplicitReturns: false,
+              noUnusedLocals: false,
+              outDir: "build",
+              sourceMap: true,
+              strict: false,
+              target: "es2017",
+              esModuleInterop: true,
+              noEmitOnError: false,
+              removeComments: true,
+              jsx: "react",
+              allowJs: true,
+
+              plugins: [{ name: "typescript-plugin-css-modules" }],
+            },
+          },
+        },
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {

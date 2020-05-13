@@ -3,8 +3,8 @@ import MenuItem from "material-ui/MenuItem"
 import React from "react"
 import { Field, reduxForm } from "redux-form"
 import { SelectField, TextField } from "redux-form-material-ui"
-import api from "../lib/api"
-import messages from "../lib/text"
+import api from "../../../../lib/api"
+import messages from "../../../../lib/text"
 import style from "./style.css"
 
 const validate = values => {
