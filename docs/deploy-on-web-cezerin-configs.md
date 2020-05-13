@@ -2,7 +2,7 @@
 
 You must edit cezerin configs and setup new domain name at configs.
 
-/cezerin2/config/server.js
+/cezerin2/src/config.ts
 
 Change:
 
@@ -20,7 +20,7 @@ Change:
 http://localhost:3001 to https://your-domain-name.com
 ```
 
-/cezerin2-admin/config/admin.js
+/cezerin2-admin/src/config.tsx
 
 Change:
 
