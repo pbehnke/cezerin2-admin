@@ -1,5 +1,3 @@
-import { connectToWebSocket } from "lib/apiWebSocket"
-import { fetchSettings } from "modules/settings/actions"
 import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
@@ -8,11 +6,12 @@ import thunkMiddleware from "redux-thunk"
 import "../public/css/flexboxgrid.min.css"
 import "../public/css/style.css"
 import App from "./app"
+import { connectToWebSocket } from "./lib/apiWebSocket"
 import * as auth from "./lib/auth"
 import settings from "./lib/settings"
+import { fetchSettings } from "./modules/settings/actions"
 import reducers from "./rootReducer"
 
-a
 const DEVELOPER_MODE = settings.developerMode === true
 if (DEVELOPER_MODE === false) {
 	auth.validateCurrentToken()
