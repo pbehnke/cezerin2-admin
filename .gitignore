@@ -9,4 +9,4 @@ npm-debug.log*
 .idea
 build
 *.log
-!*.css
+!build/**/style.css
