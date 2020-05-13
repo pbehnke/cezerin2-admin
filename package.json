@@ -1,7 +1,7 @@
 {
   "name": "cezerin2-admin",
   "version": "0.35.0",
-  "description": "Cezerin2 is React and Node.js based eCommerce platform. https://cezerin.com",
+  "description": "Cezerin2 is React and Node.js based eCommerce platform. https://cezerin.org",
   "keywords": [
     "cezerin2",
     "cezerin2-admin",
@@ -11,48 +11,26 @@
     "shop",
     "cms"
   ],
-  "homepage": "https://cezerin.com",
-  "bugs": "https://github.com/cezerin2/cezerin2-admin/issues",
-  "license": "MIT",
-  "author": {
-    "name": "Restmount <jsonmount@gmail.com>",
-    "url": "https://github.com/restmount"
-  },
-  "contributors": [
-    {
-      "name": "Luke Busstra <luke.busstra@gmail.com>",
-      "url": "https://github.com/lubuss"
-    },
-    {
-      "name": "Nitin Goyal <nitingoyal.dev@gmail.com>",
-      "url": "https://github.com/ngoyal16"
-    },
-    {
-      "name": "Restmount <jsonmount@gmail.com>",
-      "url": "https://github.com/restmount"
-    },
-    {
-      "name": "Sergey Onufrienko <sergey@onufrienko.com>",
-      "url": "https://github.com/sonufrienko"
-    }
-  ],
+  "homepage": "https://cezerin.org",
+  "bugs": "https://github.com/Cezerin2/cezerin2-admin/issues",
+  "license": "Unlicense",
+  "author": "Restmount, Himadu, Community",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cezerin2/cezerin2-admin"
+    "url": "https://github.com/Cezerin2/cezerin2-admin"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js --mode production",
     "build:watch": "webpack --config webpack.config.js --mode development --watch",
     "start": "webpack-dev-server  --open --config webpack.config.js --mode development --port 3002",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint:fix": "eslint --fix .",
     "prettier": "prettier --write \"src/**/*.js\"",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
+    "*": [
+      "prettier --write .",
+      "git add ."
     ]
   },
   "dependencies": {
