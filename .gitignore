@@ -7,6 +7,6 @@ npm-debug.log*
 *.zip
 *lock.json
 .idea
-build
 *.log
-!build/**/style.css
+*.js
+*.js.map
