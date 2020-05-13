@@ -10,3 +10,5 @@ npm-debug.log*
 *.log
 *.js
 *.js.map
+*.css
+*.html
