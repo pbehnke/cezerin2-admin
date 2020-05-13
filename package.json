@@ -23,9 +23,9 @@
     "test": "jest",
     "compile": "tsc",
     "dev": "tsc -w && yarn start",
-    "build": "webpack --config webpack.config.js --mode production",
+    "build": "tsc && webpack --config webpack.config.js --mode production",
     "build:watch": "webpack --config webpack.config.js --mode development --watch",
-    "start": "webpack-dev-server  --open --config webpack.config.js --mode development --port 3002",
+    "start": "tsc && webpack-dev-server  --open --config webpack.config.js --mode development --port 3002",
     "lint": "eslint --fix .",
     "prettier": "prettier --write \"src/**/*.js\"",
     "precommit": "lint-staged"
