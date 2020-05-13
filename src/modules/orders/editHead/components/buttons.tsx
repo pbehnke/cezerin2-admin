@@ -4,10 +4,10 @@ import IconButton from "material-ui/IconButton"
 import IconMenu from "material-ui/IconMenu"
 import MenuItem from "material-ui/MenuItem"
 import React from "react"
-import messages from "../lib/text"
-import ConfirmationDialog from "../modules/shared/confirmation"
-import DeleteConfirmation from "../modules/shared/deleteConfirmation"
-import ProductSearchDialog from "../modules/shared/productSearch"
+import messages from "../../../../lib/text"
+import ConfirmationDialog from "../../../../modules/shared/confirmation"
+import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
+import ProductSearchDialog from "../../../../modules/shared/productSearch"
 
 export default class Buttons extends React.Component {
   constructor(props) {

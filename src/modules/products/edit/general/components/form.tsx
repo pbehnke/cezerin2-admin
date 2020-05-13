@@ -4,9 +4,9 @@ import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import { Field, reduxForm } from "redux-form"
 import { TextField } from "redux-form-material-ui"
-import api from "../lib/api"
-import messages from "../lib/text"
-import Editor from "../modules/shared/editor"
+import api from "../../../../../lib/api"
+import messages from "../../../../../lib/text"
+import Editor from "../../../../../modules/shared/editor"
 import style from "./style.css"
 
 const validate = values => {

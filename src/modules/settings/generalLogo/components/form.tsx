@@ -1,6 +1,6 @@
 import Paper from "material-ui/Paper"
 import React from "react"
-import ImageUpload from "../modules/shared/imageUpload"
+import ImageUpload from "../../../../modules/shared/imageUpload"
 
 export default class GeneralLogoSettingsForm extends React.Component {
   componentDidMount() {

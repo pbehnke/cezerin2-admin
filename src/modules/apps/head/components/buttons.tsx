@@ -4,7 +4,7 @@ import IconMenu from "material-ui/IconMenu"
 import MenuItem from "material-ui/MenuItem"
 import React from "react"
 import { Link } from "react-router-dom"
-import messages from "../lib/text"
+import messages from "../../../../lib/text"
 
 const WebStoreMenu = () => (
   <IconMenu

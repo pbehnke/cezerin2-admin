@@ -8,9 +8,9 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { Field, reduxForm } from "redux-form"
 import { SelectField, TextField } from "redux-form-material-ui"
-import data from "../lib/data"
-import messages from "../lib/text"
-import { CustomToggle } from "../modules/shared/form"
+import data from "../../../../lib/data"
+import messages from "../../../../lib/text"
+import { CustomToggle } from "../../../../modules/shared/form"
 import style from "./style.css"
 
 class GeneralSettings extends React.Component {

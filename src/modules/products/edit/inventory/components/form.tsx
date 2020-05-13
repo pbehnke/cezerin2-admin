@@ -5,9 +5,9 @@ import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import { Field, reduxForm } from "redux-form"
 import { DatePicker, TextField } from "redux-form-material-ui"
-import api from "../lib/api"
-import messages from "../lib/text"
-import { CustomToggle } from "../modules/shared/form"
+import api from "../../../../../lib/api"
+import messages from "../../../../../lib/text"
+import { CustomToggle } from "../../../../../modules/shared/form"
 import style from "./style.css"
 
 const validate = values => {

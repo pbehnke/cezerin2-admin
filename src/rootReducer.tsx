@@ -12,15 +12,15 @@ import products from "./modules/products/reducer"
 import settings from "./modules/settings/reducer"
 
 export default combineReducers({
-	form: formReducer,
-	productCategories,
-	products,
-	settings,
-	customerGroups,
-	customers,
-	orders,
-	orderStatuses,
-	pages,
-	apps,
-	files,
+  form: formReducer,
+  productCategories,
+  products,
+  settings,
+  customerGroups,
+  customers,
+  orders,
+  orderStatuses,
+  pages,
+  apps,
+  files,
 })

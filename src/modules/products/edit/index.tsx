@@ -1,15 +1,15 @@
 import React from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router"
+import messages from "../../../lib/text"
+import { fetchCategoriesIfNeeded } from "../../../modules/productCategories/actions"
+import ProductAdditional from "../../../modules/products/edit/additional"
+import ProductAttributes from "../../../modules/products/edit/attributes"
+import ProductGeneral from "../../../modules/products/edit/general"
+import ProductImages from "../../../modules/products/edit/images"
+import ProductInventory from "../../../modules/products/edit/inventory"
+import ProductVariants from "../../../modules/products/edit/variants"
 import { cancelProductEdit, fetchProduct } from "../actions"
-import messages from "../lib/text"
-import { fetchCategoriesIfNeeded } from "../modules/productCategories/actions"
-import ProductAdditional from "../modules/products/edit/additional"
-import ProductAttributes from "../modules/products/edit/attributes"
-import ProductGeneral from "../modules/products/edit/general"
-import ProductImages from "../modules/products/edit/images"
-import ProductInventory from "../modules/products/edit/inventory"
-import ProductVariants from "../modules/products/edit/variants"
 
 class ProductEditContainer extends React.Component {
   componentDidMount() {

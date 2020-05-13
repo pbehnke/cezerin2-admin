@@ -4,8 +4,8 @@ import FlatButton from "material-ui/FlatButton"
 import Paper from "material-ui/Paper"
 import TextField from "material-ui/TextField"
 import React from "react"
-import messages from "../lib/text"
-import Gallery from "../modules/shared/imageUploadMultiple"
+import messages from "../../../../../lib/text"
+import Gallery from "../../../../../modules/shared/imageUploadMultiple"
 
 export default class ProductImages extends React.Component {
   constructor(props) {

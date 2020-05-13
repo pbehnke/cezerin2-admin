@@ -7,8 +7,8 @@ import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import { Field } from "redux-form"
 import { TextField } from "redux-form-material-ui"
-import messages from "../lib/text"
-import { CustomToggle } from "../modules/shared/form"
+import messages from "../../../../lib/text"
+import { CustomToggle } from "../../../../modules/shared/form"
 
 const FieldsEditor = ({ fields, meta: { touched, error, submitFailed } }) => (
   <div>

@@ -5,9 +5,9 @@ import * as FacebookSDKApp from "./facebook-sdk"
 import * as FacebookCustomerChatApp from "./facebook-customer-chat"
 
 export default [
-	GoogleAnalyticsApp,
-	SiteVerificationApp,
-	JivositeApp,
-	FacebookSDKApp,
-	FacebookCustomerChatApp,
+  GoogleAnalyticsApp,
+  SiteVerificationApp,
+  JivositeApp,
+  FacebookSDKApp,
+  FacebookCustomerChatApp,
 ]

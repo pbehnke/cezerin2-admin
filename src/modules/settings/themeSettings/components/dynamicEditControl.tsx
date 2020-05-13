@@ -2,7 +2,11 @@ import MenuItem from "material-ui/MenuItem"
 import React from "react"
 import { Field, FieldArray } from "redux-form"
 import { SelectField, TextField } from "redux-form-material-ui"
-import { ColorField, CustomToggle, NumberField } from "../modules/shared/form"
+import {
+  ColorField,
+  CustomToggle,
+  NumberField,
+} from "../../../../modules/shared/form"
 import ArrayEditor from "./arrayEditor"
 import ImageEditor from "./imageEditor"
 import style from "./style.css"
