@@ -8,4 +8,4 @@ npm-debug.log*
 *lock.json
 .idea
 build
-.log
+*.log
