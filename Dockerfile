@@ -15,7 +15,6 @@ RUN echo "deb http://nginx.org/packages/debian/ ${NGINX_CODENAME} nginx" >> /etc
 	nginx
 
 # copy project - LOCAL CODE
-RUN mkdir -p /var/www/cezerin2-admin
 ADD . /var/www/cezerin2-admin
 
 WORKDIR /var/www/cezerin2-admin
