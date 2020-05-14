@@ -1,7 +1,7 @@
 {
   "name": "cezerin2-admin",
   "version": "0.35.0",
-  "description": "Cezerin2 is React and Node.js based eCommerce platform. https://cezerin.com",
+  "description": "Cezerin2 is React and Node.js based eCommerce platform. https://cezerin.org",
   "keywords": [
     "cezerin2",
     "cezerin2-admin",
@@ -11,48 +11,29 @@
     "shop",
     "cms"
   ],
-  "homepage": "https://cezerin.com",
-  "bugs": "https://github.com/cezerin2/cezerin2-admin/issues",
-  "license": "MIT",
-  "author": {
-    "name": "Restmount <jsonmount@gmail.com>",
-    "url": "https://github.com/restmount"
-  },
-  "contributors": [
-    {
-      "name": "Luke Busstra <luke.busstra@gmail.com>",
-      "url": "https://github.com/lubuss"
-    },
-    {
-      "name": "Nitin Goyal <nitingoyal.dev@gmail.com>",
-      "url": "https://github.com/ngoyal16"
-    },
-    {
-      "name": "Restmount <jsonmount@gmail.com>",
-      "url": "https://github.com/restmount"
-    },
-    {
-      "name": "Sergey Onufrienko <sergey@onufrienko.com>",
-      "url": "https://github.com/sonufrienko"
-    }
-  ],
+  "homepage": "https://cezerin.org",
+  "bugs": "https://github.com/Cezerin2/cezerin2-admin/issues",
+  "license": "Unlicense",
+  "author": "Restmount, Himadu, Community",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cezerin2/cezerin2-admin"
+    "url": "https://github.com/Cezerin2/cezerin2-admin"
   },
   "scripts": {
+    "test": "jest",
+    "compile": "tsc",
+    "dev": "tsc -w && yarn start",
     "build": "webpack --config webpack.config.js --mode production",
     "build:watch": "webpack --config webpack.config.js --mode development --watch",
     "start": "webpack-dev-server  --open --config webpack.config.js --mode development --port 3002",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint --fix .",
     "prettier": "prettier --write \"src/**/*.js\"",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
+    "*": [
+      "prettier --write .",
+      "git add ."
     ]
   },
   "dependencies": {
@@ -92,6 +73,7 @@
     "sitemap": "^6.1.0",
     "slug": "^2.1.1",
     "stripe": "^8.39.0",
+    "typescript": "^3.9.2",
     "ua-parser-js": "^0.7.21",
     "workbox-webpack-plugin": "^5.1.2",
     "ws": "^7.2.3"
@@ -103,6 +85,9 @@
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
+    "@types/material-ui": "^0.21.7",
+    "@types/react-redux": "^7.1.8",
+    "@types/redux-form": "^8.2.5",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -126,6 +111,8 @@
     "postcss-loader": "^3.0.0",
     "prettier": "^2.0.4",
     "sass-loader": "^8.0.2",
+    "ts-loader": "^7.0.4",
+    "typescript-plugin-css-modules": "^2.3.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
