@@ -47,15 +47,13 @@ class EditShippingMethodForm extends React.Component {
                 <div className="blue-title">{messages.description}</div>
               </div>
               <div className="col-xs-12 col-sm-8">
-                <div>
+                <>
                   <Field
                     component={TextField}
                     fullWidth
                     name="name"
                     floatingLabelText={messages.settings_shippingMethodName}
                   />
-                </div>
-                <div>
                   <Field
                     component={TextField}
                     fullWidth
@@ -63,7 +61,7 @@ class EditShippingMethodForm extends React.Component {
                     multiLine
                     floatingLabelText={messages.description}
                   />
-                </div>
+                </>
 
                 <div className="row">
                   <div className="col-xs-6">
@@ -93,7 +91,7 @@ class EditShippingMethodForm extends React.Component {
                 <div className="blue-title">{messages.settings_conditions}</div>
               </div>
               <div className="col-xs-12 col-sm-8">
-                <div>
+                <>
                   <Field
                     component={TextField}
                     fullWidth
@@ -101,8 +99,6 @@ class EditShippingMethodForm extends React.Component {
                     floatingLabelText={messages.settings_countries}
                     hintText="US,UK,AU,SG"
                   />
-                </div>
-                <div>
                   <Field
                     component={TextField}
                     fullWidth
@@ -110,8 +106,6 @@ class EditShippingMethodForm extends React.Component {
                     floatingLabelText={messages.settings_states}
                     hintText="California,Nevada,Oregon"
                   />
-                </div>
-                <div>
                   <Field
                     component={TextField}
                     fullWidth
@@ -119,7 +113,7 @@ class EditShippingMethodForm extends React.Component {
                     floatingLabelText={messages.settings_cities}
                     hintText="Los Angeles,San Diego,San Jose"
                   />
-                </div>
+                </>
 
                 <div className="row">
                   <div className="col-xs-6">

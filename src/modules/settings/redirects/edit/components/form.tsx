@@ -29,7 +29,7 @@ class EditRedirectForm extends React.Component {
     const isAdd = redirectId === null || redirectId === undefined
 
     return (
-      <div>
+      <>
         <form onSubmit={handleSubmit}>
           <Paper className="paper-box" zDepth={1}>
             <div className={style.innerBox}>
@@ -61,7 +61,7 @@ class EditRedirectForm extends React.Component {
             </div>
           </Paper>
         </form>
-      </div>
+      </>
     )
   }
 }

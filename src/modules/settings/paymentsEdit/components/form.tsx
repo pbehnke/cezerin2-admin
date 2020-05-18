@@ -83,7 +83,7 @@ class EditPaymentMethodForm extends React.Component {
                 <div className="blue-title">{messages.paymentGateway}</div>
               </div>
               <div className="col-xs-12 col-sm-8">
-                <div>
+                <>
                   <Field
                     component={SelectField}
                     autoWidth
@@ -97,7 +97,7 @@ class EditPaymentMethodForm extends React.Component {
                   >
                     {paymentGateways}
                   </Field>
-                </div>
+                </>
                 <PaymentGateway gateway={this.state.gateway} />
               </div>
             </div>
@@ -107,15 +107,13 @@ class EditPaymentMethodForm extends React.Component {
                 <div className="blue-title">{messages.description}</div>
               </div>
               <div className="col-xs-12 col-sm-8">
-                <div>
+                <>
                   <Field
                     component={TextField}
                     fullWidth
                     name="name"
                     floatingLabelText={messages.settings_paymentMethodName}
                   />
-                </div>
-                <div>
                   <Field
                     component={TextField}
                     fullWidth
@@ -123,15 +121,13 @@ class EditPaymentMethodForm extends React.Component {
                     multiLine
                     floatingLabelText={messages.description}
                   />
-                </div>
-                <div>
                   <Field
                     component={CustomToggle}
                     name="enabled"
                     label={messages.enabled}
                     style={{ paddingTop: 16, paddingBottom: 20 }}
                   />
-                </div>
+                </>
                 <Divider />
               </div>
             </div>
@@ -141,7 +137,7 @@ class EditPaymentMethodForm extends React.Component {
                 <div className="blue-title">{messages.settings_conditions}</div>
               </div>
               <div className="col-xs-12 col-sm-8">
-                <div>
+                <>
                   <Field
                     component={TextField}
                     fullWidth
@@ -149,7 +145,7 @@ class EditPaymentMethodForm extends React.Component {
                     floatingLabelText={messages.settings_countries}
                     hintText="US,UK,AU,SG"
                   />
-                </div>
+                </>
                 <div className="row">
                   <div className="col-xs-6">
                     <Field

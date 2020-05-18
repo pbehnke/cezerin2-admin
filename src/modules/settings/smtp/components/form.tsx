@@ -24,7 +24,7 @@ class EmailSettings extends React.Component {
       >
         <Paper className="paper-box" zDepth={1}>
           <div className={style.innerBox}>
-            <div>
+            <>
               <Field
                 component={TextField}
                 fullWidth
@@ -32,8 +32,6 @@ class EmailSettings extends React.Component {
                 hintText="smtp.server.com"
                 floatingLabelText={messages.settings_smtpHost}
               />
-            </div>
-            <div>
               <Field
                 component={TextField}
                 fullWidth
@@ -42,16 +40,12 @@ class EmailSettings extends React.Component {
                 hintText="465"
                 floatingLabelText={messages.settings_smtpPort}
               />
-            </div>
-            <div>
               <Field
                 component={TextField}
                 fullWidth
                 name="user"
                 floatingLabelText={messages.settings_smtpUser}
               />
-            </div>
-            <div>
               <Field
                 component={TextField}
                 fullWidth
@@ -59,16 +53,12 @@ class EmailSettings extends React.Component {
                 type="password"
                 floatingLabelText={messages.settings_smtpPass}
               />
-            </div>
-            <div>
               <Field
                 component={TextField}
                 fullWidth
                 name="from_name"
                 floatingLabelText={messages.settings_emailFromName}
               />
-            </div>
-            <div>
               <Field
                 component={TextField}
                 fullWidth
@@ -76,7 +66,7 @@ class EmailSettings extends React.Component {
                 type="email"
                 floatingLabelText={messages.settings_emailFromAddress}
               />
-            </div>
+            </>
           </div>
           <div className="buttons-box">
             <RaisedButton

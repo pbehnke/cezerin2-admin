@@ -49,7 +49,7 @@ export default class Theme extends React.Component {
     const { exportInProcess, installInProcess } = this.props
 
     return (
-      <div>
+      <>
         <Paper className="paper-box" zDepth={1}>
           <div className={style.innerBox}>
             <div className="row between-xs middle-xs">
@@ -108,7 +108,7 @@ export default class Theme extends React.Component {
         </Paper>
 
         <ThemeSettings />
-      </div>
+      </>
     )
   }
 }

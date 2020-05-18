@@ -128,7 +128,7 @@ export default class ConfirmationDialog extends React.Component {
         open={this.state.open}
         onRequestClose={this.handleCancel}
       >
-        <div>
+        <>
           <SearchBox text={this.state.search} onChange={this.handleSearch} />
           <SearchResult
             products={this.state.products}
@@ -136,7 +136,7 @@ export default class ConfirmationDialog extends React.Component {
             onSelect={this.handleRowSelection}
             settings={settings}
           />
-        </div>
+        </>
         <DialogActions>
           <FlatButton
             label={cancelLabel}

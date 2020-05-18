@@ -48,7 +48,7 @@ class EditWebhookForm extends React.Component {
     const isAdd = webhookId === null || webhookId === undefined
 
     return (
-      <div>
+      <>
         <form onSubmit={handleSubmit}>
           <Paper className="paper-box" zDepth={1}>
             <div className={style.innerBox}>
@@ -102,7 +102,7 @@ class EditWebhookForm extends React.Component {
             </div>
           </Paper>
         </form>
-      </div>
+      </>
     )
   }
 }

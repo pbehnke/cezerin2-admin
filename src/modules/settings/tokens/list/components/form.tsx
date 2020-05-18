@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 import messages from "../../../../../lib/text"
 
 const TokenItem = ({ token }) => (
-  <div>
+  <>
     <Divider />
     <Link
       to={`/settings/tokens/${token.id}`}
@@ -27,7 +27,7 @@ const TokenItem = ({ token }) => (
         }
       />
     </Link>
-  </div>
+  </>
 )
 
 export default class TokensList extends React.Component {
@@ -42,7 +42,7 @@ export default class TokensList extends React.Component {
     ))
 
     return (
-      <div>
+      <>
         <div style={{ margin: 20, color: "rgba(0, 0, 0, 0.52)" }}>
           {messages.settings_tokenHelp}
         </div>
@@ -51,7 +51,7 @@ export default class TokensList extends React.Component {
             <List style={{ padding: 0 }}>{listItems}</List>
           </div>
         </Paper>
-      </div>
+      </>
     )
   }
 }

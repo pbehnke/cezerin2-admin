@@ -21,7 +21,7 @@ export default class ThemeImageUpload extends React.Component {
     const { input, label } = this.props
 
     return (
-      <div>
+      <>
         <p>{label}</p>
         <ImageUpload
           uploading={false}
@@ -29,7 +29,7 @@ export default class ThemeImageUpload extends React.Component {
           onDelete={this.onDelete}
           onUpload={this.onUpload}
         />
-      </div>
+      </>
     )
   }
 }

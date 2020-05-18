@@ -19,7 +19,7 @@ const GatewaySettings = ({ gateway }) => {
 export default GatewaySettings
 
 const PayPalButton = props => (
-  <div>
+  <>
     <Field
       component={SelectField}
       name="env"
@@ -82,7 +82,7 @@ const PayPalButton = props => (
       hintText="https://<domain>/api/v1/notifications/paypal-checkout"
       fullWidth
     />
-  </div>
+  </>
 )
 
 const LiqPay = props => (
