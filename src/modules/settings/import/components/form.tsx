@@ -18,7 +18,7 @@ export default class ImportSettings extends React.Component {
     const { importSettings } = this.props
 
     return (
-      <div>
+      <>
         <Paper className="paper-box" zDepth={1}>
           <div style={{ width: "100%" }}>
             <List style={{ padding: 0 }}>
@@ -44,7 +44,7 @@ export default class ImportSettings extends React.Component {
             </List>
           </div>
         </Paper>
-      </div>
+      </>
     )
   }
 }

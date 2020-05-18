@@ -21,30 +21,24 @@ const AccountForm = ({ handleSubmit, pristine, submitting, initialValues }) => (
     >
       <Paper style={{ margin: "0px 20px" }} zDepth={1}>
         <div style={{ padding: "10px 30px 30px 30px" }}>
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="email"
-              floatingLabelText={messages.email}
-            />
-          </div>
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="shop_url"
-              floatingLabelText={messages.shopUrl}
-            />
-          </div>
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="admin_url"
-              floatingLabelText={messages.adminUrl}
-            />
-          </div>
+          <Field
+            component={TextField}
+            fullWidth
+            name="email"
+            floatingLabelText={messages.email}
+          />
+          <Field
+            component={TextField}
+            fullWidth
+            name="shop_url"
+            floatingLabelText={messages.shopUrl}
+          />
+          <Field
+            component={TextField}
+            fullWidth
+            name="admin_url"
+            floatingLabelText={messages.adminUrl}
+          />
           <Field
             component={CustomToggle}
             name="is_developer"

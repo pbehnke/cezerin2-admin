@@ -7,7 +7,6 @@ import React from "react"
 import messages from "../../../../lib/text"
 import CategorySelect from "../../../../modules/productCategories/select"
 import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
-const { Fragment } = React
 
 export default class Buttons extends React.Component {
   constructor(props) {
@@ -59,7 +58,7 @@ export default class Buttons extends React.Component {
     return (
       <span>
         {selected && (
-          <Fragment>
+          <>
             <IconButton
               touch
               tooltipPosition="bottom-left"
@@ -135,7 +134,7 @@ export default class Buttons extends React.Component {
               onCancel={this.closeDelete}
               onDelete={this.deleteCategory}
             />
-          </Fragment>
+          </>
         )}
         <IconButton
           touch

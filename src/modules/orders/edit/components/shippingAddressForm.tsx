@@ -56,7 +56,7 @@ class ShippingAddressForm extends React.Component {
 
     return (
       <form onSubmit={handleSubmit}>
-        <div>
+        <>
           {shippingFields}
           <Field
             component={TextField}
@@ -88,7 +88,7 @@ class ShippingAddressForm extends React.Component {
             name="country"
             floatingLabelText={messages.country}
           />
-        </div>
+        </>
         <div className={style.shippingButtons}>
           <FlatButton label={messages.cancel} onClick={onCancel} />
           <FlatButton

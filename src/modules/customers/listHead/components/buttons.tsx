@@ -9,8 +9,6 @@ import GroupSelect from "../../../../modules/customerGroups/select"
 import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
 import Search from "./search"
 
-const Fragment = React.Fragment
-
 export default class Buttons extends React.Component {
   constructor(props) {
     super(props)
@@ -62,10 +60,10 @@ export default class Buttons extends React.Component {
     } = this.props
 
     return (
-      <Fragment>
+      <>
         <Search value={search} setSearch={setSearch} />
         {selectedCount > 0 && (
-          <Fragment>
+          <>
             {selectedCount == 1 && (
               <IconButton
                 touch={true}
@@ -132,7 +130,7 @@ export default class Buttons extends React.Component {
                 />
               </DialogActions>
             </Dialog>
-          </Fragment>
+          </>
         )}
         {selectedCount < 1 && (
           <IconButton
@@ -146,7 +144,7 @@ export default class Buttons extends React.Component {
             </FontIcon>
           </IconButton>
         )}
-      </Fragment>
+      </>
     )
   }
 }

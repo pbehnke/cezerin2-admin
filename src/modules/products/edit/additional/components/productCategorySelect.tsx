@@ -5,9 +5,8 @@ import FontIcon from "material-ui/FontIcon"
 import React from "react"
 import messages from "../../../../../lib/text"
 import CategorySelect from "../../../../../modules/productCategories/select"
-const { Fragment } = React
 
-export default class ProductCategorySelect extends React.Component {
+class ProductCategorySelect extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -39,7 +38,7 @@ export default class ProductCategorySelect extends React.Component {
     const categoryName = category ? category.name : ""
 
     return (
-      <Fragment>
+      <>
         <Dialog
           title={messages.category}
           modal={false}
@@ -75,7 +74,8 @@ export default class ProductCategorySelect extends React.Component {
             </FontIcon>
           }
         />
-      </Fragment>
+      </>
     )
   }
 }
+export default ProductCategorySelect

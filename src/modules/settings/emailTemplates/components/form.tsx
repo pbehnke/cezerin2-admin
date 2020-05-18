@@ -24,15 +24,13 @@ class EmailTemplate extends React.Component {
       >
         <Paper className="paper-box" zDepth={1}>
           <div className={style.innerBox}>
-            <div>
+            <>
               <Field
                 component={TextField}
                 fullWidth
                 name="subject"
                 floatingLabelText={messages.settings_emailSubject}
               />
-            </div>
-            <div>
               <Field
                 component={TextField}
                 fullWidth
@@ -40,7 +38,7 @@ class EmailTemplate extends React.Component {
                 multiLine
                 floatingLabelText={messages.settings_emailBody}
               />
-            </div>
+            </>
           </div>
           <div className="buttons-box">
             <RaisedButton

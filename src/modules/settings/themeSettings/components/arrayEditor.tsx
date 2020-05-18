@@ -13,7 +13,7 @@ const ArrayEditor = ({
   fields,
   meta: { touched, error, submitFailed },
 }) => (
-  <div>
+  <>
     <div className={style.arrayTitle}>
       {label}
       <FloatingActionButton
@@ -74,7 +74,7 @@ const ArrayEditor = ({
         </li>
       ))}
     </ol>
-  </div>
+  </>
 )
 
 export default ArrayEditor

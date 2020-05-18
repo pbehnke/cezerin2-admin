@@ -18,7 +18,7 @@ export default class EmailSettings extends React.Component {
         : "none"
 
     return (
-      <div>
+      <>
         <Paper className="paper-box" zDepth={1}>
           <div style={{ width: "100%" }}>
             <List style={{ padding: 0 }}>
@@ -150,7 +150,7 @@ export default class EmailSettings extends React.Component {
             </List>
           </div>
         </Paper>
-      </div>
+      </>
     )
   }
 }

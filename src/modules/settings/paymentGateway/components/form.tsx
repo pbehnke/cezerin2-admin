@@ -42,7 +42,7 @@ class EditPaymentGatewayForm extends React.Component {
 
     if (this.props.gateway && this.props.gateway.length > 0) {
       return (
-        <div>
+        <>
           <RaisedButton
             onClick={this.handleOpen}
             label={messages.drawer_settings}
@@ -81,7 +81,7 @@ class EditPaymentGatewayForm extends React.Component {
               </form>
             </div>
           </Dialog>
-        </div>
+        </>
       )
     }
     return null

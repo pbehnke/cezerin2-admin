@@ -11,7 +11,7 @@ import messages from "../../../../lib/text"
 import { CustomToggle } from "../../../../modules/shared/form"
 
 const FieldsEditor = ({ fields, meta: { touched, error, submitFailed } }) => (
-  <div>
+  <>
     {fields.map((field, index) => {
       const fieldKey = `${field}.key`
       const fieldLabel = `${field}.label`
@@ -94,7 +94,7 @@ const FieldsEditor = ({ fields, meta: { touched, error, submitFailed } }) => (
     <div style={{ margin: "20px 0px" }}>
       <RaisedButton label={messages.add} onClick={() => fields.push({})} />
     </div>
-  </div>
+  </>
 )
 
 export default FieldsEditor

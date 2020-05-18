@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 import messages from "../../../../lib/text"
 
 const CheckoutFieldItem = ({ name, status, path }) => (
-  <div>
+  <>
     <Divider />
     <Link
       to={`/settings/checkout/fields/${path}`}
@@ -27,7 +27,7 @@ const CheckoutFieldItem = ({ name, status, path }) => (
         }
       />
     </Link>
-  </div>
+  </>
 )
 
 export default class EmailSettings extends React.Component {
@@ -55,7 +55,7 @@ export default class EmailSettings extends React.Component {
     const { checkoutFields } = this.props
 
     return (
-      <div>
+      <>
         <div style={{ margin: 20, color: "rgba(0, 0, 0, 0.52)" }}>
           {messages.settings_checkoutFields}
         </div>
@@ -130,7 +130,7 @@ export default class EmailSettings extends React.Component {
             </List>
           </div>
         </Paper>
-      </div>
+      </>
     )
   }
 }

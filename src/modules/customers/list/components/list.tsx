@@ -35,7 +35,7 @@ export default class CustomersList extends React.Component {
     ))
 
     return (
-      <div>
+      <>
         <List>
           <Head onSelectAll={onSelectAll} />
           <Divider />
@@ -51,7 +51,7 @@ export default class CustomersList extends React.Component {
             />
           </div>
         </List>
-      </div>
+      </>
     )
   }
 }

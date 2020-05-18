@@ -1,12 +1,12 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import Paper from "material-ui/Paper"
 import Divider from "material-ui/Divider"
 import FontIcon from "material-ui/FontIcon"
 import { List, ListItem } from "material-ui/List"
+import Paper from "material-ui/Paper"
+import React from "react"
+import { Link } from "react-router-dom"
 
 const MethodItem = ({ method }) => (
-  <div>
+  <>
     <Divider />
     <Link
       to={`/settings/payments/${method.id}`}
@@ -27,7 +27,7 @@ const MethodItem = ({ method }) => (
         }
       />
     </Link>
-  </div>
+  </>
 )
 
 export default class EmailSettings extends React.Component {

@@ -11,8 +11,6 @@ import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
 import FileUploader from "./fileUploader"
 import style from "./style.css"
 
-const { Fragment } = React
-
 const iconButtonElement = (
   <IconButton touch>
     <FontIcon color="rgb(189, 189, 189)" className="material-icons">
@@ -80,7 +78,7 @@ class FileItem extends React.Component {
   }
 }
 
-export default class FileList extends React.Component {
+class FileList extends React.Component {
   componentDidMount() {
     this.props.onLoad()
   }
@@ -97,7 +95,7 @@ export default class FileList extends React.Component {
     ))
 
     return (
-      <Fragment>
+      <>
         <div className={`${style.head} row row--no-gutter`}>
           <div className="col-xs-5">{messages.fileName}</div>
           <div className="col-xs-3">{messages.fileModified}</div>
@@ -108,7 +106,9 @@ export default class FileList extends React.Component {
           {listItems}
         </Paper>
         <FileUploader onUpload={onUpload} uploading={uploading} />
-      </Fragment>
+      </>
     )
   }
 }
+
+export default FileList

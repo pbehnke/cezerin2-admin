@@ -35,7 +35,7 @@ export default class OrdersList extends React.Component {
     ))
 
     return (
-      <div>
+      <>
         <List>
           <Head onSelectAll={onSelectAll} />
           <Divider />
@@ -51,7 +51,7 @@ export default class OrdersList extends React.Component {
             />
           </div>
         </List>
-      </div>
+      </>
     )
   }
 }

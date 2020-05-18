@@ -4,9 +4,7 @@ import React from "react"
 import messages from "../../../../lib/text"
 import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
 import Search from "./search"
-const { Fragment } = React
-
-export default class Buttons extends React.Component {
+class Buttons extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -31,10 +29,10 @@ export default class Buttons extends React.Component {
     const { search, setSearch, selectedCount, onDelete, onCreate } = this.props
 
     return (
-      <Fragment>
+      <>
         <Search value={search} setSearch={setSearch} />
         {selectedCount > 0 && (
-          <Fragment>
+          <>
             <IconButton
               touch
               tooltipPosition="bottom-left"
@@ -52,7 +50,7 @@ export default class Buttons extends React.Component {
               onCancel={this.closeDelete}
               onDelete={this.deleteOrders}
             />
-          </Fragment>
+          </>
         )}
         <IconButton
           touch
@@ -64,7 +62,8 @@ export default class Buttons extends React.Component {
             add
           </FontIcon>
         </IconButton>
-      </Fragment>
+      </>
     )
   }
 }
+export default Buttons

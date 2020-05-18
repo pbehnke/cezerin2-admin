@@ -83,7 +83,7 @@ class SummaryForm extends React.Component {
           width: "100%",
         }}
       >
-        <div>
+        <>
           <Field
             component={SelectField}
             fullWidth
@@ -93,15 +93,12 @@ class SummaryForm extends React.Component {
             {statusItems}
           </Field>
 
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="tracking_number"
-              floatingLabelText={messages.trackingNumber}
-            />
-          </div>
-
+          <Field
+            component={TextField}
+            fullWidth
+            name="tracking_number"
+            floatingLabelText={messages.trackingNumber}
+          />
           <Field
             component={SelectField}
             fullWidth
@@ -119,43 +116,31 @@ class SummaryForm extends React.Component {
           >
             {paymentItems}
           </Field>
-
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="comments"
-              floatingLabelText={messages.customerComment}
-            />
-          </div>
-
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="note"
-              floatingLabelText={messages.note}
-            />
-          </div>
-
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="email"
-              floatingLabelText={messages.email}
-            />
-          </div>
-
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="mobile"
-              floatingLabelText={messages.mobile}
-            />
-          </div>
-        </div>
+          <Field
+            component={TextField}
+            fullWidth
+            name="comments"
+            floatingLabelText={messages.customerComment}
+          />
+          <Field
+            component={TextField}
+            fullWidth
+            name="note"
+            floatingLabelText={messages.note}
+          />
+          <Field
+            component={TextField}
+            fullWidth
+            name="email"
+            floatingLabelText={messages.email}
+          />
+          <Field
+            component={TextField}
+            fullWidth
+            name="mobile"
+            floatingLabelText={messages.mobile}
+          />
+        </>
         <div className={style.shippingButtons}>
           <FlatButton label={messages.cancel} onClick={onCancel} />
           <FlatButton

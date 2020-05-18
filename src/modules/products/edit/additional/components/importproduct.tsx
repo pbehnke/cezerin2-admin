@@ -6,7 +6,6 @@ import React from "react"
 import api from "../../../../../lib/api"
 import messages from "../../../../../lib/text"
 
-const Fragment = React.Fragment
 const updateProductArray = []
 const categoryIdArray = []
 const imageFilesArray = []
@@ -497,7 +496,7 @@ export default class ProductImport extends React.Component {
       display: "none",
     }
     return (
-      <Fragment>
+      <>
         <div style={{ width: "100%" }}>
           <div
             className="spread-sheet-container"
@@ -583,7 +582,7 @@ export default class ProductImport extends React.Component {
             </Paper>
           </div>
         </div>
-      </Fragment>
+      </>
     )
   }
 }

@@ -124,7 +124,7 @@ const SubNavListItem = ({ currentUrl, item, onClick }) => {
   }
 
   return (
-    <div>
+    <>
       <ListItem button onClick={subMenuClick} className={style.itemInnerDiv}>
         {item.icon && (
           <ListItemIcon className={style.icon}>
@@ -142,7 +142,7 @@ const SubNavListItem = ({ currentUrl, item, onClick }) => {
         open={open}
         onClick={onClick}
       />
-    </div>
+    </>
   )
 }
 

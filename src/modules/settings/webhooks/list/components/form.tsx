@@ -12,7 +12,7 @@ const WebhookItem = ({ webhook }) => {
       ? webhook.events.join(", ")
       : "none"
   return (
-    <div>
+    <>
       <Divider />
       <Link
         to={`/settings/webhooks/${webhook.id}`}
@@ -33,7 +33,7 @@ const WebhookItem = ({ webhook }) => {
           }
         />
       </Link>
-    </div>
+    </>
   )
 }
 
@@ -49,7 +49,7 @@ export default class WebhooksList extends React.Component {
     ))
 
     return (
-      <div>
+      <>
         <div style={{ margin: 20, color: "rgba(0, 0, 0, 0.52)" }}>
           {messages.webhooksAbout}
         </div>
@@ -58,7 +58,7 @@ export default class WebhooksList extends React.Component {
             <List style={{ padding: 0 }}>{listItems}</List>
           </div>
         </Paper>
-      </div>
+      </>
     )
   }
 }

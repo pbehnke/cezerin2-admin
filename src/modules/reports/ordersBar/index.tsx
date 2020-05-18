@@ -46,7 +46,7 @@ export default class OrdersBar extends React.Component {
   render() {
     const { ordersData, salesData } = this.state
     return (
-      <div>
+      <>
         <BarChart
           data={ordersData}
           legendDisplay
@@ -57,7 +57,7 @@ export default class OrdersBar extends React.Component {
           legendDisplay={false}
           title={messages.salesReport}
         />
-      </div>
+      </>
     )
   }
 }

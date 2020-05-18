@@ -82,7 +82,7 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <TextField
           type="text"
           fullWidth
@@ -108,7 +108,7 @@ export class App extends React.Component {
             onClick={this.updateSettings}
           />
         </div>
-      </div>
+      </>
     )
   }
 }

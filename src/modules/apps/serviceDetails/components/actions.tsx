@@ -68,7 +68,7 @@ const ServiceActions = ({ actions, serviceId, fetchServiceLogs }) => {
         {messages.serviceActions}
       </div>
       <Paper className="paper-box" zDepth={1}>
-        <div>{buttons}</div>
+        <>{buttons}</>
       </Paper>
     </div>
   )
