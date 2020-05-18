@@ -8,9 +8,8 @@ import messages from "../../../../lib/text"
 import CategorySelect from "../../../../modules/productCategories/select"
 import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
 import Search from "./search"
-const { Fragment } = React
 
-export default class Buttons extends React.Component {
+class Buttons extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -61,10 +60,10 @@ export default class Buttons extends React.Component {
     } = this.props
 
     return (
-      <Fragment>
+      <>
         <Search value={search} setSearch={setSearch} />
         {selectedCount > 0 && (
-          <Fragment>
+          <>
             <IconButton
               touch
               tooltipPosition="bottom-left"
@@ -118,7 +117,7 @@ export default class Buttons extends React.Component {
                 />
               </DialogActions>
             </Dialog>
-          </Fragment>
+          </>
         )}
         <IconButton
           touch
@@ -130,7 +129,8 @@ export default class Buttons extends React.Component {
             add
           </FontIcon>
         </IconButton>
-      </Fragment>
+      </>
     )
   }
 }
+export default Buttons

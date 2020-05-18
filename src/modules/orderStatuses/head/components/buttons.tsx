@@ -3,9 +3,8 @@ import IconButton from "material-ui/IconButton"
 import React from "react"
 import messages from "../../../../lib/text"
 import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
-const { Fragment } = React
 
-export default class Buttons extends React.Component {
+class Buttons extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -36,7 +35,7 @@ export default class Buttons extends React.Component {
     return (
       <span>
         {selected && (
-          <Fragment>
+          <>
             <IconButton
               touch
               tooltip={messages.actions_delete}
@@ -55,7 +54,7 @@ export default class Buttons extends React.Component {
               onCancel={this.closeDelete}
               onDelete={this.deleteStatus}
             />
-          </Fragment>
+          </>
         )}
         <IconButton
           touch
@@ -71,3 +70,4 @@ export default class Buttons extends React.Component {
     )
   }
 }
+export default Buttons

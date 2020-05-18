@@ -3,7 +3,6 @@ import IconButton from "material-ui/IconButton"
 import React from "react"
 import messages from "../../../../../lib/text"
 import DeleteConfirmation from "../../../../../modules/shared/deleteConfirmation"
-const { Fragment } = React
 
 export default class Buttons extends React.Component {
   constructor(props) {
@@ -33,7 +32,7 @@ export default class Buttons extends React.Component {
 
     if (webhook) {
       return (
-        <Fragment>
+        <>
           <IconButton
             touch
             tooltipPosition="bottom-left"
@@ -52,7 +51,7 @@ export default class Buttons extends React.Component {
             onCancel={this.closeDelete}
             onDelete={this.deletePage}
           />
-        </Fragment>
+        </>
       )
     }
     return null

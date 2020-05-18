@@ -5,7 +5,6 @@ import FontIcon from "material-ui/FontIcon"
 import React from "react"
 import messages from "../../../../../lib/text"
 import CategoryMultiselect from "../../../../../modules/productCategories/components/multiselectList"
-const { Fragment } = React
 
 const CategoryItemActions = ({ fields, index }) => (
   <a
