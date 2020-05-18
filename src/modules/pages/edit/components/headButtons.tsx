@@ -7,10 +7,6 @@ import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
 const Buttons = props => {
   const [openDelete, setOpenDelete] = useState(false)
 
-  const openDeletes = () => {
-    setOpenDelete(true)
-  }
-
   const closeDelete = () => {
     setOpenDelete(false)
   }
@@ -33,7 +29,7 @@ const Buttons = props => {
           touch
           tooltipPosition="bottom-left"
           tooltip={messages.actions_delete}
-          onClick={openDeletes}
+          onClick={() => setOpenDelete(true)}
         >
           <FontIcon color="#fff" className="material-icons">
             delete
@@ -53,7 +49,7 @@ const Buttons = props => {
           </a>
         )}
         <DeleteConfirmation
-          open={openDeletes}
+          open={openDelete}
           isSingle
           itemsCount={1}
           itemName={pageName}
