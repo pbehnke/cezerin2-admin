@@ -22,7 +22,7 @@ class ProductEditContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <div style={{ margin: 20, color: "rgba(0, 0, 0, 0.52)" }}>
           {messages.description}
         </div>
@@ -52,7 +52,7 @@ class ProductEditContainer extends React.Component {
           {messages.images}
         </div>
         <ProductImages />
-      </div>
+      </>
     )
   }
 }

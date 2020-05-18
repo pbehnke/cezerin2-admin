@@ -31,10 +31,10 @@ const ItemPrice = ({ product, settings }) => {
     : ""
 
   return (
-    <div>
+    <>
       <small>{priceOldFormatted}</small>
       {priceFormatted}
-    </div>
+    </>
   )
 }
 

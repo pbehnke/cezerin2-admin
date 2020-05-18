@@ -12,17 +12,17 @@ import style from "./style.css"
 
 const Address = ({ address }) => (
   <div className={style.address}>
-    <div>{address.full_name}</div>
-    <div>{address.company}</div>
-    <div>{address.address1}</div>
-    <div>{address.address2}</div>
-    <div>
+    <>{address.full_name}</>
+    <>{address.company}</>
+    <>{address.address1}</>
+    <>{address.address2}</>
+    <>
       {address.city},{" "}
       {address.state && address.state.length > 0 ? `${address.state}, ` : ""}
       {address.postal_code}
-    </div>
-    <div>{address.country}</div>
-    <div>{address.phone}</div>
+    </>
+    <>{address.country}</>
+    <>{address.phone}</>
   </div>
 )
 
@@ -166,7 +166,7 @@ const CustomerAddresses = ({
         onSetDefaultShippingAddress={onSetDefaultShippingAddress}
       />
     ))
-    return <div>{addresses}</div>
+    return <>{addresses}</>
   }
   return null
 }

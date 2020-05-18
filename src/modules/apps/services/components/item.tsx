@@ -49,7 +49,7 @@ const Item = ({ path, coverUrl, title, developer, enabled }) => (
       <CardTitle
         title={title}
         subtitle={
-          <div>
+          <>
             {developer}
             {enabled && (
               <FontIcon
@@ -59,7 +59,7 @@ const Item = ({ path, coverUrl, title, developer, enabled }) => (
                 check_circle
               </FontIcon>
             )}
-          </div>
+          </>
         }
         titleStyle={styles.title}
         subtitleStyle={styles.subtitle}

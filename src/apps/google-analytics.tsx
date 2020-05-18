@@ -83,11 +83,11 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <>
+        <>
           Enter your Google Analytics Tracking ID to track page views and other
           events.
-        </div>
+        </>
 
         <TextField
           type="text"
@@ -105,7 +105,7 @@ export class App extends React.Component {
             onClick={this.updateSettings}
           />
         </div>
-      </div>
+      </>
     )
   }
 }

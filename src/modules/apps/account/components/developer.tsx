@@ -25,40 +25,32 @@ const DeveloperForm = ({
     >
       <Paper style={{ margin: "0px 20px" }} zDepth={1}>
         <div style={{ padding: "10px 30px 30px 30px" }}>
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="name"
-              floatingLabelText={messages.fullName}
-            />
-          </div>
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="description"
-              floatingLabelText={messages.description}
-              multiLine
-              rows={1}
-            />
-          </div>
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="website"
-              floatingLabelText={messages.website}
-            />
-          </div>
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="email"
-              floatingLabelText={messages.email}
-            />
-          </div>
+          <Field
+            component={TextField}
+            fullWidth
+            name="name"
+            floatingLabelText={messages.fullName}
+          />
+          <Field
+            component={TextField}
+            fullWidth
+            name="description"
+            floatingLabelText={messages.description}
+            multiLine
+            rows={1}
+          />
+          <Field
+            component={TextField}
+            fullWidth
+            name="website"
+            floatingLabelText={messages.website}
+          />
+          <Field
+            component={TextField}
+            fullWidth
+            name="email"
+            floatingLabelText={messages.email}
+          />
         </div>
         <div
           className="buttons-box"

@@ -9,7 +9,7 @@ import messages from "../../../../../lib/text"
 import style from "./style.css"
 
 const AttributesGrid = ({ fields, meta: { touched, error, submitFailed } }) => (
-  <div>
+  <>
     <div className="row row--no-gutter middle-xs">
       <div className={`col-xs-5 col--no-gutter ${style.head}`}>
         {messages.attributeName}
@@ -71,7 +71,7 @@ const AttributesGrid = ({ fields, meta: { touched, error, submitFailed } }) => (
         onClick={() => fields.push({})}
       />
     </div>
-  </div>
+  </>
 )
 
 const ProductAttributesForm = ({

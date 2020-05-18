@@ -30,14 +30,14 @@ const ShippingFields = ({ order, shippingMethod }) => {
     })
   }
 
-  return <div>{rows}</div>
+  return <>{rows}</>
 }
 
 const ShippingFieldDiv = ({ label, value }) => (
-  <div>
+  <>
     <label>{label}: </label>
     {value}
-  </div>
+  </>
 )
 
 const ShippingAddress = ({ order, settings }) => {
@@ -47,18 +47,18 @@ const ShippingAddress = ({ order, settings }) => {
   return (
     <div className={style.address} style={{ marginBottom: 20 }}>
       <ShippingFields order={order} shippingMethod={shippingMethod} />
-      <div>
+      <>
         <label>{messages.city}: </label>
         {address.city}
         {address.state && address.state.length > 0 ? `, ${address.state}` : ""}
         {address.postal_code && address.postal_code.length > 0
           ? `, ${address.postal_code}`
           : ""}
-      </div>
-      <div>
+      </>
+      <>
         <label>{messages.country}: </label>
         {address.country}
-      </div>
+      </>
     </div>
   )
 }
@@ -81,7 +81,7 @@ const BillingAddress = ({ address, settings }) => {
   }
   if (billinsAddressIsEmpty && !settings.hide_billing_address) {
     return (
-      <div>
+      <>
         <Divider
           style={{
             marginTop: 30,
@@ -96,11 +96,11 @@ const BillingAddress = ({ address, settings }) => {
         <div className={style.address}>
           <label>{messages.sameAsShipping}</label>
         </div>
-      </div>
+      </>
     )
   }
   return (
-    <div>
+    <>
       <Divider
         style={{
           marginTop: 30,
@@ -113,21 +113,21 @@ const BillingAddress = ({ address, settings }) => {
         {messages.billingAddress}
       </div>
       <div className={style.address}>
-        <div>{address.full_name}</div>
-        <div>{address.company}</div>
-        <div>{address.address1}</div>
-        <div>{address.address2}</div>
-        <div>
+        <>{address.full_name}</>
+        <>{address.company}</>
+        <>{address.address1}</>
+        <>{address.address2}</>
+        <>
           {address.city},{" "}
           {address.state && address.state.length > 0
             ? `${address.state}, `
             : ""}
           {address.postal_code}
-        </div>
-        <div>{address.country}</div>
-        <div>{address.phone}</div>
+        </>
+        <>{address.country}</>
+        <>{address.phone}</>
       </div>
-    </div>
+    </>
   )
 }
 
@@ -161,27 +161,27 @@ export default class OrderCustomer extends React.Component {
     const mapUrl = `https://www.google.com/maps/place/${mapAddress}`
 
     return (
-      <div>
+      <>
         <div style={{ margin: 20, color: "rgba(0, 0, 0, 0.52)" }}>
           {messages.customer}
         </div>
         <Paper className="paper-box" zDepth={1}>
           <div className={style.innerBox}>
             <div className={style.address}>
-              <div>
+              <>
                 <Link
                   to={`/customer/${order.customer_id}`}
                   className={style.link}
                 >
                   {order.customer && order.customer.full_name}
                 </Link>
-              </div>
-              <div>
+              </>
+              <>
                 <a href={`MailTo:${order.email}`} className={style.link}>
                   {order.email}
                 </a>
-              </div>
-              <div>{order.mobile}</div>
+              </>
+              <>{order.mobile}</>
             </div>
 
             <Divider
@@ -233,7 +233,7 @@ export default class OrderCustomer extends React.Component {
             </Dialog>
           </div>
         </Paper>
-      </div>
+      </>
     )
   }
 }

@@ -86,7 +86,7 @@ const PayPalButton = props => (
 )
 
 const LiqPay = props => (
-  <div>
+  <>
     <Field
       component={TextField}
       name="public_key"
@@ -120,11 +120,11 @@ const LiqPay = props => (
       hintText="https://<domain>/api/v1/notifications/liqpay"
       fullWidth
     />
-  </div>
+  </>
 )
 
 const StripeElements = props => (
-  <div>
+  <>
     <Field
       component={SelectField}
       name="env"
@@ -147,5 +147,5 @@ const StripeElements = props => (
       floatingLabelText="Secret key"
       fullWidth
     />
-  </div>
+  </>
 )

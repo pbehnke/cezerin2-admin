@@ -40,9 +40,9 @@ export default class CustomerSummary extends React.Component {
             style={{ paddingBottom: 26, paddingTop: 0 }}
           >
             {customer.full_name}
-            <div>
+            <>
               <small>{customer.group_name}</small>
-            </div>
+            </>
           </div>
 
           <div className={`${style.summaryRow} row`}>

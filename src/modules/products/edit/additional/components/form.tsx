@@ -56,7 +56,7 @@ const ProductShort = ({
     <div className={style.relatedProductText}>
       <Link to={`/product/${id}`}>{name}</Link>
       <br />
-      <div>{priceFormatted}</div>
+      <>{priceFormatted}</>
     </div>
     <div className={style.relatedProductActions}>{actions}</div>
   </div>
@@ -187,7 +187,7 @@ class ProductsArray extends React.Component {
     const { products } = this.state
 
     return (
-      <div>
+      <>
         <Paper className={style.relatedProducts} zDepth={1}>
           {fields.map((field, index) => {
             const actions = (
@@ -216,13 +216,13 @@ class ProductsArray extends React.Component {
           />
         </Paper>
 
-        <div>
+        <>
           <RaisedButton
             label={messages.addOrderItem}
             onClick={this.showAddItem}
           />
-        </div>
-      </div>
+        </>
+      </>
     )
   }
 }

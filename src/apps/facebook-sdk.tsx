@@ -95,8 +95,8 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>You can find App ID using the Facebook App Dashboard.</div>
+      <>
+        <>You can find App ID using the Facebook App Dashboard.</>
 
         <TextField
           type="text"
@@ -123,7 +123,7 @@ export class App extends React.Component {
             onClick={this.updateSettings}
           />
         </div>
-      </div>
+      </>
     )
   }
 }
