@@ -136,12 +136,9 @@ module.exports = {
   },
 
   plugins: [
-    new copyWebpackPlugin([
-      {
-        from: "public",
-        to: "assets",
-      },
-    ]),
+    new CopyPlugin({
+      patterns: [{ from: "public", to: "assets" }],
+    }),
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       APPLICATION_CONFIG: JSON.stringify(applicationConfig),
