@@ -1,5 +1,5 @@
-import RaisedButton from "material-ui/RaisedButton"
-import TextField from "material-ui/TextField"
+import RaisedButton from "@material-ui/core/RaisedButton"
+import TextField from "@material-ui/core/TextField"
 import React from "react"
 import api from "../lib/api"
 import messages from "../lib/text"

@@ -1,6 +1,6 @@
-import RaisedButton from "material-ui/RaisedButton"
-import TextField from "material-ui/TextField"
-import React from "react"
+import RaisedButton from "@material-ui/core/RaisedButton"
+import TextField from "@material-ui/core/TextField"
+import React, { useEffect, useState } from "react"
 import api from "../lib/api"
 import messages from "../lib/text"
 
@@ -11,27 +11,20 @@ export const Description = {
   description: `JivoSite – чат для сайта и инструмент для общения с клиентами в социальных сетях, мессенджерах и мобильных приложениях. Зарабатывайте больше, не упуская ни одного обращения.`,
 }
 
-export class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      code: "",
-    }
+export const App = () => {
+  const [code, setCode] = useState("")
+
+  const handleChange = event => {
+    setCode(event.target.value)
   }
 
-  handleChange = event => {
-    this.setState({
-      code: event.target.value,
-    })
-  }
-
-  fetchSettings = () => {
+  const fetchSettings = () => {
     api.apps.settings
       .retrieve("jivosite")
-      .then(({ status, json }) => {
+      .then(({ json }) => {
         const appSettings = json
         if (appSettings) {
-          this.setState({ code: appSettings.code })
+          setCode(appSettings.code)
         }
       })
       .catch(error => {
@@ -39,9 +32,7 @@ export class App extends React.Component {
       })
   }
 
-  updateSettings = () => {
-    const { code } = this.state
-
+  const updateSettings = () => {
     api.apps.settings.update("jivosite", { code })
     api.theme.placeholders.update("jivosite", {
       place: "body_end",
@@ -49,35 +40,33 @@ export class App extends React.Component {
     })
   }
 
-  componentDidMount() {
-    this.fetchSettings()
-  }
+  useEffect(() => {
+    fetchSettings()
+  }, [])
 
-  render() {
-    return (
-      <>
-        <>Введите код JivoSite</>
+  return (
+    <>
+      <>Введите код JivoSite</>
 
-        <TextField
-          type="text"
-          multiLine
-          fullWidth
-          rows={10}
-          value={this.state.code}
-          onChange={this.handleChange}
-          floatingLabelText="Код чата JivoSite"
-          hintText="<!-- BEGIN JIVOSITE CODE {literal} -->..."
+      <TextField
+        type="text"
+        multiLine
+        fullWidth
+        rows={10}
+        value={code}
+        onChange={handleChange}
+        floatingLabelText="Код чата JivoSite"
+        hintText="<!-- BEGIN JIVOSITE CODE {literal} -->..."
+      />
+
+      <div style={{ textAlign: "right" }}>
+        <RaisedButton
+          label={messages.save}
+          primary
+          disabled={false}
+          onClick={updateSettings}
         />
-
-        <div style={{ textAlign: "right" }}>
-          <RaisedButton
-            label={messages.save}
-            primary
-            disabled={false}
-            onClick={this.updateSettings}
-          />
-        </div>
-      </>
-    )
-  }
+      </div>
+    </>
+  )
 }
