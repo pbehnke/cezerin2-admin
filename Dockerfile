@@ -29,9 +29,9 @@ RUN chmod +x "/usr/local/bin/docker-entrypoint.sh"
 
 # build project
 RUN cd /var/www/cezerin2-admin \
-	&& npm install \
+	&& yarn \
 	&& npm cache clean --force \
-	&& npm run build
+	&& yarn build
 
 EXPOSE 80
 

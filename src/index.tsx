@@ -5,12 +5,14 @@ import { applyMiddleware, createStore } from "redux"
 import thunkMiddleware from "redux-thunk"
 import "../public/css/flexboxgrid.min.css"
 import "../public/css/style.css"
-import App from "./app"
+import App from "./App"
+import "./index.css"
 import { connectToWebSocket } from "./lib/apiWebSocket"
 import * as auth from "./lib/auth"
 import settings from "./lib/settings"
 import { fetchSettings } from "./modules/settings/actions"
 import reducers from "./rootReducer"
+import * as serviceWorker from "./serviceWorker"
 
 const DEVELOPER_MODE = settings.developerMode === true
 if (DEVELOPER_MODE === false) {
@@ -28,7 +30,14 @@ if (window.WebSocket) {
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </Provider>,
-  document.getElementById("app")
+  document.getElementById("root")
 )
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister()

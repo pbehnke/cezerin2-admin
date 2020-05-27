@@ -13,6 +13,7 @@ import getMuiTheme from "material-ui/styles/getMuiTheme"
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import "./App.css"
 import Head from "./modules/head"
 import Apps from "./routes/apps"
 import Customers from "./routes/customers"
@@ -53,46 +54,54 @@ const muiTheme = getMuiTheme({
   appBar: {},
 })
 
-export default () => (
-  <Router>
-    <MuiThemeProvider muiTheme={muiTheme}>
-      <div id="container">
-        <div id="headContainer">
-          <Head />
+function App() {
+  return (
+    <Router>
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <div id="container">
+          <div id="headContainer">
+            <Head />
+          </div>
+          <div id="bodyContainer">
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/login" component={Login} />
+              <Route path="/logout" component={Logout} />
+              <Route path="/products" exact component={Products} />
+              <Route path="/products/import" component={ProductImport} />
+              <Route
+                path="/products/categories"
+                exact
+                component={ProductCategories}
+              />
+              <Route path="/orders" exact component={Orders} />
+              <Route path="/orders/statuses" exact component={OrderStatuses} />
+              <Route path="/order/:orderId" exact component={OrderDetails} />
+              <Route path="/customers" exact component={Customers} />
+              <Route
+                path="/customers/groups"
+                exact
+                component={CustomerGroups}
+              />
+              <Route
+                path="/customer/:customerId"
+                exact
+                component={CustomerDetails}
+              />
+              <Route path="/product/:productId" component={ProductDetails} />
+              <Route path="/pages" exact component={Pages} />
+              <Route path="/pages/add" exact component={PagesDetails} />
+              <Route path="/pages/:pageId" component={PagesDetails} />
+              <Route path="/settings" component={Settings} />
+              <Route path="/apps" component={Apps} />
+              <Route path="/files" exact component={Files} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
         </div>
-        <div id="bodyContainer">
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/login" component={Login} />
-            <Route path="/logout" component={Logout} />
-            <Route path="/products" exact component={Products} />
-            <Route path="/products/import" component={ProductImport} />
-            <Route
-              path="/products/categories"
-              exact
-              component={ProductCategories}
-            />
-            <Route path="/orders" exact component={Orders} />
-            <Route path="/orders/statuses" exact component={OrderStatuses} />
-            <Route path="/order/:orderId" exact component={OrderDetails} />
-            <Route path="/customers" exact component={Customers} />
-            <Route path="/customers/groups" exact component={CustomerGroups} />
-            <Route
-              path="/customer/:customerId"
-              exact
-              component={CustomerDetails}
-            />
-            <Route path="/product/:productId" component={ProductDetails} />
-            <Route path="/pages" exact component={Pages} />
-            <Route path="/pages/add" exact component={PagesDetails} />
-            <Route path="/pages/:pageId" component={PagesDetails} />
-            <Route path="/settings" component={Settings} />
-            <Route path="/apps" component={Apps} />
-            <Route path="/files" exact component={Files} />
-            <Route component={NotFound} />
-          </Switch>
-        </div>
-      </div>
-    </MuiThemeProvider>
-  </Router>
-)
+      </MuiThemeProvider>
+    </Router>
+  )
+}
+
+export default App
