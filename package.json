@@ -68,13 +68,6 @@
     "@types/react-redux": "^7.1.8",
     "@types/redux-form": "^8.2.5",
     "cssnano": "^4.1.10",
-    "eslint": "^7.0.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
     "node-sass": "^4.13.1",
     "pm2": "^4.4.0",
     "prettier": "^2.0.4"
