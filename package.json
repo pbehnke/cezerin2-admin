@@ -30,7 +30,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "typescript": "~3.9.3"
+    "typescript": "~3.9.3",
+    "cezerin2-client": "^0.38.0"
   },
   "devDependencies": {
     "@date-io/moment": "^2.6.0",
@@ -42,7 +43,7 @@
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "@types/redux-form": "^8.2.6",
-    "cezerin2-client": "^0.37.0",
+    "body-parser": "^1.19.0",
     "chart.js": "^2.9.3",
     "cssnano": "^4.1.10",
     "lodash": "^4.17.15",
