@@ -31,7 +31,8 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "typescript": "~3.9.3",
-    "cezerin2-client": "^0.38.0"
+    "cezerin2-client": "^0.38.0",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@date-io/moment": "^2.6.0",
@@ -43,17 +44,13 @@
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "@types/redux-form": "^8.2.6",
-    "body-parser": "^1.19.0",
     "chart.js": "^2.9.3",
     "cssnano": "^4.1.10",
-    "lodash": "^4.17.15",
     "lru-cache": "^5.1.1",
     "moment": "^2.26.0",
-    "node-fetch": "^2.6.0",
     "node-sass": "^4.14.1",
     "pm2": "^4.4.0",
     "prettier": "^2.0.5",
-    "prop-types": "^15.7.2",
     "react-chartjs-2": "^2.9.0",
     "react-dropzone": "^11.0.1",
     "react-helmet": "^6.0.0",
