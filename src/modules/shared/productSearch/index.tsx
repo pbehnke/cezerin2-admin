@@ -1,8 +1,13 @@
 import Dialog from "@material-ui/core/Dialog"
 import DialogActions from "@material-ui/core/DialogActions"
-import FlatButton from "material-ui/FlatButton"
-import { Table, TableBody, TableRow, TableRowColumn } from "material-ui/Table"
-import TextField from "material-ui/TextField"
+import FlatButton from "@material-ui/core/FlatButton"
+import {
+  Table,
+  TableBody,
+  TableRow,
+  TableRowColumn,
+} from "@material-ui/core/Table"
+import TextField from "@material-ui/core/TextField"
 import React from "react"
 import api from "../../../lib/api"
 import * as helper from "../../../lib/helper"

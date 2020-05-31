@@ -1,5 +1,5 @@
-import Checkbox from "material-ui/Checkbox"
-import Subheader from "material-ui/Subheader"
+import Checkbox from "@material-ui/core/Checkbox"
+import Subheader from "@material-ui/core/Subheader"
 import React from "react"
 import messages from "../../../../lib/text"
 

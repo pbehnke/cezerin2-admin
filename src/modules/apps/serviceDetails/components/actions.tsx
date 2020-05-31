@@ -1,5 +1,5 @@
-import Paper from "material-ui/Paper"
-import RaisedButton from "material-ui/RaisedButton"
+import Paper from "@material-ui/core/Paper"
+import RaisedButton from "@material-ui/core/RaisedButton"
 import React, { useState } from "react"
 import api from "../../../../lib/api"
 import messages from "../../../../lib/text"

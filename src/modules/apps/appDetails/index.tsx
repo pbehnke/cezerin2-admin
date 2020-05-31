@@ -1,4 +1,4 @@
-import Paper from "material-ui/Paper"
+import Paper from "@material-ui/core/Paper"
 import React from "react"
 import apps from "../../../apps"
 import AppDescription from "./description"

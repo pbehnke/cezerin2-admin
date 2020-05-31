@@ -1,4 +1,4 @@
-import RaisedButton from "material-ui/RaisedButton"
+import RaisedButton from "@material-ui/core/RaisedButton"
 import React from "react"
 import { Link } from "react-router-dom"
 import apps from "../../../../apps"

@@ -1,4 +1,4 @@
-import Subheader from "material-ui/Subheader"
+import Subheader from "@material-ui/core/Subheader"
 import React from "react"
 import messages from "../../../../lib/text"
 

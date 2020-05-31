@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-import FlatButton from "material-ui/FlatButton"
-import Paper from "material-ui/Paper"
+import FlatButton from "@material-ui/core/FlatButton"
+import Paper from "@material-ui/core/Paper"
 import React from "react"
 import api from "../../../../../lib/api"
 import messages from "../../../../../lib/text"

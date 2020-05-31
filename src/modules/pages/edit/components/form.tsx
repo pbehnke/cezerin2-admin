@@ -1,5 +1,5 @@
-import Paper from "material-ui/Paper"
-import RaisedButton from "material-ui/RaisedButton"
+import Paper from "@material-ui/core/Paper"
+import RaisedButton from "@material-ui/core/RaisedButton"
 import React from "react"
 import TagsInput from "react-tagsinput"
 import { Field, reduxForm } from "redux-form"

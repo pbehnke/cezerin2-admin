@@ -1,6 +1,6 @@
-import Checkbox from "material-ui/Checkbox"
-import FontIcon from "material-ui/FontIcon"
-import { List, ListItem } from "material-ui/List"
+import Checkbox from "@material-ui/core/Checkbox"
+import FontIcon from "@material-ui/core/FontIcon"
+import { List, ListItem } from "@material-ui/core/List"
 import React from "react"
 
 const styles = {

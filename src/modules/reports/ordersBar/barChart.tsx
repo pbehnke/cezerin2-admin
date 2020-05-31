@@ -1,5 +1,5 @@
+import Paper from "@material-ui/core/Paper"
 import React from "react"
-import Paper from "material-ui/Paper"
 import { Bar } from "react-chartjs-2"
 import style from "./style.css"
 

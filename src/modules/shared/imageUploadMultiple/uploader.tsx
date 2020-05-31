@@ -1,5 +1,5 @@
-import RaisedButton from "material-ui/RaisedButton"
-import Snackbar from "material-ui/Snackbar"
+import RaisedButton from "@material-ui/core/RaisedButton"
+import Snackbar from "@material-ui/core/Snackbar"
 import React from "react"
 import Dropzone from "react-dropzone"
 import messages from "../../../lib/text"

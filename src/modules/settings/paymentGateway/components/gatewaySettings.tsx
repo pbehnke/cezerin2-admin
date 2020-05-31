@@ -1,4 +1,4 @@
-import MenuItem from "material-ui/MenuItem"
+import MenuItem from "@material-ui/core/MenuItem"
 import React from "react"
 import { Field } from "redux-form"
 import { SelectField, TextField } from "redux-form-material-ui"
