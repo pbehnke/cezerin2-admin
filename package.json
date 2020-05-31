@@ -32,11 +32,11 @@
     "react-scripts": "3.4.1",
     "typescript": "~3.9.3",
     "cezerin2-client": "^0.38.0",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "@material-ui/core": "^4.10.0"
   },
   "devDependencies": {
     "@date-io/moment": "^2.6.0",
-    "@material-ui/core": "^4.10.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/pickers": "^3.2.10",
     "@types/lodash": "^4.14.154",
