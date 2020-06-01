@@ -1,8 +1,8 @@
-import Checkbox from "@material-ui/core/Checkbox"
-import { List, ListItem } from "@material-ui/core/List"
-import TextField from "@material-ui/core/TextField"
-import Toggle from "@material-ui/core/Toggle"
 import React from "react"
+import Toggle from "material-ui/Toggle"
+import TextField from "material-ui/TextField"
+import Checkbox from "material-ui/Checkbox"
+import { List, ListItem } from "material-ui/List"
 
 export const CustomToggle = ({
   input,

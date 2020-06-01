@@ -1,5 +1,5 @@
-import FontIcon from "@material-ui/core/FontIcon"
-import { List, ListItem } from "@material-ui/core/List"
+import FontIcon from "material-ui/FontIcon"
+import { List, ListItem } from "material-ui/List"
 import React from "react"
 import { NavLink, Route, Switch } from "react-router-dom"
 import messages from "../lib/text"

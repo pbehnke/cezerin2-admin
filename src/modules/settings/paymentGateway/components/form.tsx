@@ -1,6 +1,6 @@
 import Dialog from "@material-ui/core/Dialog"
-import FlatButton from "@material-ui/core/FlatButton"
-import RaisedButton from "@material-ui/core/RaisedButton"
+import FlatButton from "material-ui/FlatButton"
+import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import { reduxForm } from "redux-form"
 import messages from "../../../../lib/text"

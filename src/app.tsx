@@ -8,9 +8,9 @@ import {
   grey400,
   pinkA200,
   white,
-} from "@material-ui/styles/colors"
-import getMuiTheme from "@material-ui/styles/getMuiTheme"
-import MuiThemeProvider from "@material-ui/styles/MuiThemeProvider"
+} from "material-ui/styles/colors"
+import getMuiTheme from "material-ui/styles/getMuiTheme"
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import "./App.css"

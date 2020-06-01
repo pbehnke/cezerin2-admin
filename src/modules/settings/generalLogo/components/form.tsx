@@ -1,4 +1,4 @@
-import Paper from "@material-ui/core/Paper"
+import Paper from "material-ui/Paper"
 import React from "react"
 import ImageUpload from "../../../../modules/shared/imageUpload"
 

@@ -1,5 +1,5 @@
-import MenuItem from "@material-ui/core/MenuItem"
-import SelectField from "@material-ui/core/SelectField"
+import MenuItem from "material-ui/MenuItem"
+import SelectField from "material-ui/SelectField"
 import React from "react"
 import messages from "../../../../lib/text"
 import style from "./style.css"
