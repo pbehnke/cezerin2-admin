@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const applicationConfig = require("./build/config.js")
 const applicationText = require(`./locales/${applicationConfig.language}.json`)
-const copyWebpackPlugin = require("copy-webpack-plugin")
+const CopyPlugin = require("copy-webpack-plugin")
 
 module.exports = {
   entry: {
