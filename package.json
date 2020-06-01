@@ -84,7 +84,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.9.0",
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.9.0",
-    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-react": "^7.10.1",
     "@types/material-ui": "^0.21.7",
     "@types/react-redux": "^7.1.8",
     "@types/redux-form": "^8.2.5",
