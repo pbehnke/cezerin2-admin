@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 import * as helper from "../../../../lib/helper"
 import messages from "../../../../lib/text"
 import ShippingAddressForm from "./shippingAddressForm.js"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 const getShippingFieldLabel = ({ label, key }) =>
   label && label.length > 0 ? label : helper.getOrderFieldLabelByKey(key)

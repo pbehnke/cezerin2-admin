@@ -4,7 +4,7 @@ import RaisedButton from "material-ui/RaisedButton"
 import moment from "moment"
 import React from "react"
 import messages from "../../../../lib/text"
-import style from "./style.css"
+import style from "./style.module.sass"
 import SummaryForm from "./summaryForm"
 
 const getOrderStates = order => {
