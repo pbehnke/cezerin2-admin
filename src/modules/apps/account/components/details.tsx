@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import Account from "./account"
 import Developer from "./developer"
-import style from "./style.css"
+import style from "./style.module.css"
 
 const WebStoreAccountDetails = props => {
   useEffect(() => {

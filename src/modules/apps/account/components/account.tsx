@@ -5,7 +5,7 @@ import { Field, reduxForm } from "redux-form"
 import { TextField } from "redux-form-material-ui"
 import messages from "../../../../lib/text"
 import { CustomToggle } from "../../../../modules/shared/form"
-import style from "./style.css"
+import style from "./style.module.css"
 
 const AccountForm = ({ handleSubmit, pristine, submitting, initialValues }) => (
   <div style={{ maxWidth: 720, width: "100%" }}>
