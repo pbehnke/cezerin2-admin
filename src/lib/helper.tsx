@@ -45,7 +45,7 @@ export const getThumbnailUrl = (originalUrl, width) => {
   return ""
 }
 
-export const getOrderFieldLabelByKey = key => {
+export const getOrderFieldLabelByKey = (key: string) => {
   switch (key) {
     case "full_name":
       return messages.fullName

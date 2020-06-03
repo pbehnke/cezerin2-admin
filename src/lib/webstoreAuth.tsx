@@ -3,7 +3,7 @@ import messages from "./text"
 const LOGIN_PATH = "/apps/login"
 const HOME_PATH = "/apps"
 
-const getParameterByName = (name, url) => {
+const getParameterByName = (name: string, url: string) => {
   if (!url) url = window.location.href
   name = name.replace(/[\[\]]/g, "\\$&")
   const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`)
@@ -23,7 +23,7 @@ export const validateCurrentToken = () => {
 
 export const checkTokenFromUrl = () => {
   if (location.pathname === LOGIN_PATH) {
-    const token = getParameterByName("webstoretoken")
+    const token = getParameterByName("webstoretoken", "")
     if (token && token !== "") {
       const tokenData = parseJWT(token)
 
@@ -44,7 +44,7 @@ export const checkTokenFromUrl = () => {
   }
 }
 
-const parseJWT = jwt => {
+const parseJWT = (jwt: string) => {
   try {
     const payload = jwt.split(".")[1]
     const tokenData = JSON.parse(atob(payload))
@@ -54,7 +54,11 @@ const parseJWT = jwt => {
   }
 }
 
-const saveToken = data => {
+const saveToken = (data: {
+  token: string
+  email: string
+  expiration_date: string
+}) => {
   localStorage.setItem("webstore_token", data.token)
   localStorage.setItem("webstore_email", data.email)
   localStorage.setItem("webstore_exp", data.expiration_date)

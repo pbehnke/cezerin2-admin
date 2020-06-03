@@ -1,7 +1,7 @@
-import settings from "../lib/settings"
-import messages from "../lib/text"
 import { fetchOrders } from "../modules/orders/actions"
 import { installReceive } from "../modules/settings/actions"
+import settings from "./settings"
+import messages from "./text"
 
 const AUTO_RECONNECT_INTERVAL = 1000 // 1 seconds
 const ORDER_CREATED = "order.created"
