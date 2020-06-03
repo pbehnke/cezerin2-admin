@@ -2,7 +2,7 @@ import React from "react"
 import api from "../../../../lib/api"
 import ImageUpload from "../../../../modules/shared/imageUpload"
 
-export default class ThemeImageUpload extends React.Component {
+class ThemeImageUpload extends React.Component {
   onDelete = () => {
     const fileName = this.props.input.value
     api.theme.assets.deleteFile(fileName).then(() => {
@@ -33,3 +33,4 @@ export default class ThemeImageUpload extends React.Component {
     )
   }
 }
+export default ThemeImageUpload

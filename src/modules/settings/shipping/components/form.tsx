@@ -30,7 +30,7 @@ const MethodItem = ({ method }) => (
   </>
 )
 
-export default class EmailSettings extends React.Component {
+class EmailSettings extends React.Component {
   componentDidMount() {
     this.props.onLoad()
   }
@@ -50,3 +50,4 @@ export default class EmailSettings extends React.Component {
     )
   }
 }
+export default EmailSettings

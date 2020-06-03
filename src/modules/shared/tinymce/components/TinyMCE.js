@@ -72,7 +72,7 @@ const EVENTS = [
 
 const HANDLER_NAMES = EVENTS.map(event => `on${ucFirst(event)}`)
 
-export default class TinyMCE extends React.Component {
+class TinyMCE extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -174,3 +174,4 @@ export default class TinyMCE extends React.Component {
     this._isInit = false
   }
 }
+export default TinyMCE

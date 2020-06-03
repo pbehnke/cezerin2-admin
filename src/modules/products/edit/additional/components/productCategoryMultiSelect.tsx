@@ -21,7 +21,7 @@ const CategoryItem = ({ categoryName, actions }) => (
   </span>
 )
 
-export default class ProductCategoryMultiSelect extends React.Component {
+class ProductCategoryMultiSelect extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -120,3 +120,4 @@ export default class ProductCategoryMultiSelect extends React.Component {
     )
   }
 }
+export default ProductCategoryMultiSelect

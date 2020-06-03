@@ -31,7 +31,7 @@ const RedirectItem = ({ redirect }) => (
   </>
 )
 
-export default class RedirectsList extends React.Component {
+class RedirectsList extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -60,3 +60,4 @@ export default class RedirectsList extends React.Component {
     )
   }
 }
+export default RedirectsList

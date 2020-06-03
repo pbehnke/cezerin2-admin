@@ -8,7 +8,7 @@ import Head from "./head"
 import ProductsListItem from "./item"
 import style from "./style.css"
 
-export default class ProductsList extends React.Component {
+class ProductsList extends React.Component {
   componentDidMount() {
     this.props.onLoad()
   }
@@ -61,3 +61,4 @@ export default class ProductsList extends React.Component {
     )
   }
 }
+export default ProductsList

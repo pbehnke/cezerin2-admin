@@ -5,7 +5,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import messages from "../../../../lib/text"
 
-export default class ImportSettings extends React.Component {
+class ImportSettings extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -48,3 +48,4 @@ export default class ImportSettings extends React.Component {
     )
   }
 }
+export default ImportSettings

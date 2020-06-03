@@ -8,7 +8,7 @@ import Head from "./head"
 import CustomersListItem from "./item"
 import style from "./style.css"
 
-export default class CustomersList extends React.Component {
+class CustomersList extends React.Component {
   componentDidMount() {
     this.props.onLoad()
   }
@@ -55,3 +55,4 @@ export default class CustomersList extends React.Component {
     )
   }
 }
+export default CustomersList

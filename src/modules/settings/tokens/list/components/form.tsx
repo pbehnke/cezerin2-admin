@@ -30,7 +30,7 @@ const TokenItem = ({ token }) => (
   </>
 )
 
-export default class TokensList extends React.Component {
+class TokensList extends React.Component {
   componentDidMount() {
     this.props.onLoad()
   }
@@ -55,3 +55,4 @@ export default class TokensList extends React.Component {
     )
   }
 }
+export default TokensList

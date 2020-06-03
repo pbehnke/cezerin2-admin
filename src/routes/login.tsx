@@ -7,7 +7,7 @@ import * as auth from "../lib/auth"
 import settings from "../lib/settings"
 import messages from "../lib/text"
 
-export default class LoginForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -111,3 +111,4 @@ export default class LoginForm extends React.Component {
     )
   }
 }
+export default LoginForm

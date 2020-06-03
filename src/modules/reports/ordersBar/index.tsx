@@ -5,7 +5,7 @@ import messages from "../../../lib/text"
 import BarChart from "./barChart"
 import * as utils from "./utils"
 
-export default class OrdersBar extends React.Component {
+class OrdersBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -61,3 +61,4 @@ export default class OrdersBar extends React.Component {
     )
   }
 }
+export default OrdersBar

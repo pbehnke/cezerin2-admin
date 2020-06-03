@@ -36,7 +36,7 @@ const PageItem = ({ page }) => {
   )
 }
 
-export default class PagesList extends React.Component {
+class PagesList extends React.Component {
   componentDidMount() {
     this.props.onLoad()
   }
@@ -56,3 +56,4 @@ export default class PagesList extends React.Component {
     )
   }
 }
+export default PagesList
