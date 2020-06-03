@@ -1,6 +1,6 @@
 import Paper from "@material-ui/core/Paper"
 import React from "react"
-import style from "./style.module.css"
+import style from "./style.module.sass"
 
 const AppDescription = ({
   name,
