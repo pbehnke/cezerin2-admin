@@ -3,7 +3,7 @@ import CustomerAddresses from "./addresses"
 import CustomerOrders from "./orders"
 import CustomerSummary from "./summary"
 
-export default class CustomerDetails extends React.Component {
+class CustomerDetails extends React.Component {
   componentDidMount() {
     this.props.fetchData()
   }
@@ -49,3 +49,4 @@ export default class CustomerDetails extends React.Component {
     )
   }
 }
+export default CustomerDetails
