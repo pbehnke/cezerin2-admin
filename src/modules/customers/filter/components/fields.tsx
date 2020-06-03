@@ -3,7 +3,7 @@ import SelectField from "material-ui/SelectField"
 import Toggle from "material-ui/Toggle"
 import React from "react"
 import messages from "../../../../lib/text"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 export default ({
   active,
