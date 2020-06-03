@@ -3,7 +3,7 @@ import RaisedButton from "material-ui/RaisedButton"
 import React, { useState } from "react"
 import api from "../../../../lib/api"
 import messages from "../../../../lib/text"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 const ActionComponent = props => {
   const [loading, setLoading] = useState(false)
