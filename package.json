@@ -42,6 +42,7 @@
     "@types/lodash": "^4.14.154",
     "@types/material-ui": "^0.21.7",
     "@types/react-redux": "^7.1.9",
+    "@types/react-router": "^5.1.7",
     "@types/react-router-dom": "^5.1.5",
     "@types/redux-form": "^8.2.6",
     "chart.js": "^2.9.3",
