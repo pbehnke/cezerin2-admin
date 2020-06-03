@@ -1,6 +1,6 @@
+import Paper from "@material-ui/core/Paper"
 import sortBy from "lodash/sortBy"
 import FlatButton from "material-ui/FlatButton"
-import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import { reduxForm } from "redux-form"

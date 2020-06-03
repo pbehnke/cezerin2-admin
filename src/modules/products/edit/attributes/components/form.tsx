@@ -1,7 +1,7 @@
+import Paper from "@material-ui/core/Paper"
 import FlatButton from "material-ui/FlatButton"
 import FontIcon from "material-ui/FontIcon"
 import IconButton from "material-ui/IconButton"
-import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import { Field, FieldArray, reduxForm } from "redux-form"

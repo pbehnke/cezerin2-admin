@@ -1,6 +1,6 @@
+import Paper from "@material-ui/core/Paper"
 import FontIcon from "material-ui/FontIcon"
 import { List, ListItem } from "material-ui/List"
-import Paper from "material-ui/Paper"
 import React from "react"
 import { Link } from "react-router-dom"
 import messages from "../../../../lib/text"

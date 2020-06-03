@@ -1,4 +1,4 @@
-import Paper from "material-ui/Paper"
+import Paper from "@material-ui/core/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import TextField from "material-ui/TextField"
 import React, { useEffect, useState } from "react"

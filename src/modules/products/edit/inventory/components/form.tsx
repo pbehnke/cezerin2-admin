@@ -1,6 +1,6 @@
+import Paper from "@material-ui/core/Paper"
 import Divider from "material-ui/Divider"
 import FlatButton from "material-ui/FlatButton"
-import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import { Field, reduxForm } from "redux-form"

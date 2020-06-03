@@ -1,6 +1,6 @@
+import Paper from "@material-ui/core/Paper"
 import FontIcon from "material-ui/FontIcon"
 import IconButton from "material-ui/IconButton"
-import Paper from "material-ui/Paper"
 import Snackbar from "material-ui/Snackbar"
 import React from "react"
 import Dropzone from "react-dropzone"

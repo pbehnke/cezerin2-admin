@@ -1,5 +1,5 @@
+import Paper from "@material-ui/core/Paper"
 import Divider from "material-ui/Divider"
-import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import api from "../../../../lib/api"

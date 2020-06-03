@@ -1,4 +1,4 @@
-import Paper from "material-ui/Paper"
+import Paper from "@material-ui/core/Paper"
 import { RadioButton } from "material-ui/RadioButton"
 import RaisedButton from "material-ui/RaisedButton"
 import React from "react"

@@ -1,5 +1,5 @@
 import Dialog from "@material-ui/core/Dialog"
-import Paper from "material-ui/Paper"
+import Paper from "@material-ui/core/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import * as helper from "../../../../lib/helper"
