@@ -2,7 +2,7 @@ import Paper from "@material-ui/core/Paper"
 import React from "react"
 import apps from "../../../apps"
 import AppDescription from "./description"
-import style from "./style.css"
+import style from "./style.module.css"
 
 const AppDetails = ({ match }) => {
   const { appKey } = match.params
