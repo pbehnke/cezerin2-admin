@@ -6,7 +6,7 @@ import { reduxForm } from "redux-form"
 import messages from "../../../../lib/text"
 import { AVAILABLE_PAYMENT_GATEWAYS } from "../availablePaymentGateways"
 import GatewaySettings from "./gatewaySettings.js"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 class EditPaymentGatewayForm extends React.Component {
   constructor(props) {

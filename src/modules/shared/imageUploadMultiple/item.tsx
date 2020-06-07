@@ -3,7 +3,7 @@ import FontIcon from "material-ui/FontIcon"
 import IconButton from "material-ui/IconButton"
 import React from "react"
 import messages from "../../../lib/text"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 const GalleryItem = ({ url, alt, id, onDelete, onImageEdit }) => (
   <Paper zDepth={1} rounded={false}>

@@ -16,7 +16,7 @@ import messages from "../../../../../lib/text"
 import ProductSearchDialog from "../../../../../modules/shared/productSearch"
 import ProductCategoryMultiSelect from "./productCategoryMultiSelect"
 import ProductCategorySelect from "./productCategorySelect"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 const TagsField = ({ input, placeholder }) => {
   const tagsArray = input.value && Array.isArray(input.value) ? input.value : []

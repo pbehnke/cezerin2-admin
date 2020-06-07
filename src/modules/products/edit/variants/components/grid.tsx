@@ -7,7 +7,7 @@ import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import { Link } from "react-router-dom"
 import messages from "../../../../../lib/text"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 class VariantInput extends React.Component {
   constructor(props) {

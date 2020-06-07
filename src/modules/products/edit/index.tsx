@@ -57,7 +57,7 @@ class ProductEditContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   product: state.products.editProduct,
 })
 

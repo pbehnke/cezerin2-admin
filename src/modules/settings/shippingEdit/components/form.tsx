@@ -7,7 +7,7 @@ import { TextField } from "redux-form-material-ui"
 import messages from "../../../../lib/text"
 import { CustomToggle } from "../../../../modules/shared/form"
 import FieldsEditor from "./fieldsEditor"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 const validate = values => {
   const errors = {}

@@ -5,7 +5,7 @@ import { Field, reduxForm } from "redux-form"
 import { TextField } from "redux-form-material-ui"
 import messages from "../../../../../lib/text"
 import { CustomToggle, MultiSelect } from "../../../../../modules/shared/form"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 const WEBHOOK_EVENTS = [
   "order.created",

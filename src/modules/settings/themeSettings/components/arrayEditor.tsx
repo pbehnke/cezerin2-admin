@@ -5,7 +5,7 @@ import FontIcon from "material-ui/FontIcon"
 import React from "react"
 import messages from "../../../../lib/text"
 import DynamicEditControl from "./dynamicEditControl"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 const ArrayEditor = ({
   label,
