@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 import api from "../../../../lib/api"
 import * as helper from "../../../../lib/helper"
 import messages from "../../../../lib/text"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 const getOrderStates = order => {
   const states = []

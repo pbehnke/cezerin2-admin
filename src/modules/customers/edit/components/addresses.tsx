@@ -8,7 +8,7 @@ import React from "react"
 import messages from "../../../../lib/text"
 import ConfirmationDialog from "../../../../modules/shared/confirmation"
 import AddressForm from "./addressForm.js"
-import style from "./style.css"
+import style from "./style.module.sass"
 
 const Address = ({ address }) => (
   <div className={style.address}>

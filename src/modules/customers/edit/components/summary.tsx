@@ -4,8 +4,8 @@ import RaisedButton from "material-ui/RaisedButton"
 import React, { useState } from "react"
 import * as helper from "../../../../lib/helper"
 import messages from "../../../../lib/text"
-import style from "./style.css"
-import SummaryForm from "./summaryForm.js"
+import style from "./style.module.sass"
+import SummaryForm from "./summaryForm"
 
 const CustomerSummary = props => {
   const [openSummaryEdit, setOpenSummaryEdit] = useState(false)
