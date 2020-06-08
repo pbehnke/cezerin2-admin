@@ -1,10 +1,10 @@
 import { connect } from "react-redux"
 import {
-  disableService, enableService, fetchService,
-
-
-
-  fetchServiceLogs, updateServiceSettings
+  disableService,
+  enableService,
+  fetchService,
+  fetchServiceLogs,
+  updateServiceSettings
 } from "../actions"
 import Details from "./components/details"
 
