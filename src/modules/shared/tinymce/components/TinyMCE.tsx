@@ -1,8 +1,8 @@
+import { clone, isEqual } from "lodash"
 import React from "react"
 import { findDOMNode } from "react-dom"
-import { isEqual, clone } from "lodash"
-import uuid from "../helpers/uuid"
 import ucFirst from "../helpers/ucFirst"
+import uuid from "../helpers/uuid"
 
 const EVENTS = [
   "focusin",
@@ -161,8 +161,8 @@ class TinyMCE extends React.Component {
         setupCallback(editor)
       }
     }
-
-    tinymce.init(config)
+    // was tinymce
+    TinyMCE.init(config)
 
     findDOMNode(this).style.hidden = ""
 

@@ -4,19 +4,18 @@ import {
   createProduct,
   deleteProducts,
   fetchProducts,
-  importProducts,
   setCategory,
   setFilter,
 } from "../actions"
 import Buttons from "./components/buttons"
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   search: state.products.filter.search,
   selectedCount: state.products.selected.length,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  setSearch: (event, value) => {
+  setSearch: value => {
     dispatch(setFilter({ search: value }))
     dispatch(fetchProducts())
   },
@@ -30,7 +29,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(createProduct(ownProps.history))
   },
   onImportProducts: () => {
-    dispatch(importProducts(ownProps.history))
+    dispatch(ownProps.history)
   },
 })
 
