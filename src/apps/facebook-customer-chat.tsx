@@ -35,18 +35,20 @@ export const App = () => {
   }
 
   const fetchSettings = () => {
-    api.apps.settings.retrieve("facebook-customer-chat")
-    try {
-      ;({ json }) => {
-        const appSettings = json
-        if (appSettings) {
-          setPageID(appSettings.pageId)
-          setMinimized(appSettings.minimized)
-        }
-      }
-    } catch (error) {
-      console.error(error)
-    }
+    api.apps.settings
+			.retrieve('facebook-customer-chat')
+			.then(({ status, json }) => {
+				const appSettings = json;
+				if (appSettings) {
+					this.setState({
+						pageId: appSettings.pageId,
+						minimized: appSettings.minimized
+					});
+				}
+			})
+			.catch(error => {
+				console.log(error);
+			});
   }
 
   const updateSettings = () => {

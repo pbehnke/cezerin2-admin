@@ -29,7 +29,7 @@ const LoginForm = props => {
     setError(null)
   }
 
-  CezerinClient.authorizeInWebStore(email, `${location.origin}/admin`).then(
+  CezerinClient.authorizeInWebStore(email, `${window.location.origin}/admin`).then(
     ({ status, json }) => {
       setIsFetching(false)
       setEmailIsSent(status === 200)

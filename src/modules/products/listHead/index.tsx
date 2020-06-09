@@ -4,7 +4,6 @@ import {
   createProduct,
   deleteProducts,
   fetchProducts,
-  importProducts,
   setCategory,
   setFilter,
 } from "../actions"
@@ -28,10 +27,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   onCreate: () => {
     dispatch(createProduct(ownProps.history))
-  },
-  onImportProducts: () => {
-    dispatch(importProducts(ownProps.history))
-  },
+  }
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Buttons))

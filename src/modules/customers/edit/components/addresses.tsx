@@ -7,7 +7,7 @@ import MenuItem from "material-ui/MenuItem"
 import React from "react"
 import messages from "../../../../lib/text"
 import ConfirmationDialog from "../../../../modules/shared/confirmation"
-import AddressForm from "./addressForm.js"
+import AddressForm from "./addressForm"
 import style from "./style.module.sass"
 
 const Address = ({ address }) => (

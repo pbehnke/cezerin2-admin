@@ -162,7 +162,7 @@ class TinyMCE extends React.Component {
       }
     }
 
-    tinymce.init(config)
+    this.init(config)
 
     findDOMNode(this).style.hidden = ""
 
@@ -170,7 +170,7 @@ class TinyMCE extends React.Component {
   }
 
   _remove() {
-    tinymce.EditorManager.execCommand("mceRemoveEditor", true, this.id)
+    this.EditorManager.execCommand("mceRemoveEditor", true, this.id)
     this._isInit = false
   }
 }

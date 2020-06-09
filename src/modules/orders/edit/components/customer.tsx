@@ -7,7 +7,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import * as helper from "../../../../lib/helper"
 import messages from "../../../../lib/text"
-import ShippingAddressForm from "./shippingAddressForm.js"
+import ShippingAddressForm from "./shippingAddressForm"
 import style from "./style.module.sass"
 
 const getShippingFieldLabel = ({ label, key }) =>
