@@ -44,7 +44,7 @@ export const App = () => {
           setMinimized(appSettings.minimized)
         }
       })
-      .catch(error => {
+      .catch((error: Error) => {
         console.log(error)
       })
   }
