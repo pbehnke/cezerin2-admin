@@ -1,4 +1,5 @@
 import Paper from "@material-ui/core/Paper"
+import TextField from "@material-ui/core/TextField"
 import FontIcon from "material-ui/FontIcon"
 import IconButton from "material-ui/IconButton"
 import IconMenu from "material-ui/IconMenu"
@@ -6,7 +7,6 @@ import MenuItem from "material-ui/MenuItem"
 import RaisedButton from "material-ui/RaisedButton"
 import React from "react"
 import { Field } from "redux-form"
-import { TextField } from "redux-form-material-ui"
 import messages from "../../../../lib/text"
 import { CustomToggle } from "../../../../modules/shared/form"
 
