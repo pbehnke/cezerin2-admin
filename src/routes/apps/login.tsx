@@ -29,13 +29,14 @@ const LoginForm = props => {
     setError(null)
   }
 
-  CezerinClient.authorizeInWebStore(email, `${window.location.origin}/admin`).then(
-    ({ status, json }) => {
-      setIsFetching(false)
-      setEmailIsSent(status === 200)
-      setError(status !== 200 && json ? json.message : null)
-    }
-  )
+  CezerinClient.authorizeInWebStore(
+    email,
+    `${window.location.origin}/admin`
+  ).then(({ status, json }) => {
+    setIsFetching(false)
+    setEmailIsSent(status === 200)
+    setError(status !== 200 && json ? json.message : null)
+  })
 
   useEffect(() => {
     auth.checkTokenFromUrl()

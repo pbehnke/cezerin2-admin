@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   onCreate: () => {
     dispatch(createProduct(ownProps.history))
-  }
+  },
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Buttons))

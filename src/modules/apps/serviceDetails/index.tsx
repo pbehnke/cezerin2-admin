@@ -1,14 +1,24 @@
 import { connect } from "react-redux"
 import {
-  disableService, enableService, fetchService,
-
-
-
-  fetchServiceLogs, updateServiceSettings
+  disableService,
+  enableService,
+  fetchService,
+  fetchServiceLogs,
+  updateServiceSettings,
 } from "../actions"
 import Details from "./components/details"
 
-const mapStateToProps = (state: { apps: { service: any; serviceSettings: any; serviceLogs: any; loadingEnableDisableService: any } }, ownProps: { match: { params: { serviceId: any } } }) => {
+const mapStateToProps = (
+  state: {
+    apps: {
+      service: any
+      serviceSettings: any
+      serviceLogs: any
+      loadingEnableDisableService: any
+    }
+  },
+  ownProps: { match: { params: { serviceId: any } } }
+) => {
   const { serviceId } = ownProps.match.params
 
   return {
@@ -20,7 +30,28 @@ const mapStateToProps = (state: { apps: { service: any; serviceSettings: any; se
   }
 }
 
-const mapDispatchToProps = (dispatch: (arg0: { (dispatch: (arg0: { (dispatch: any, getState: any): any; (dispatch: any, getState: any): any; type?: string | undefined; service?: any }) => void): any; (dispatch: (arg0: { (dispatch: any, getState: any): any; type?: string | undefined }) => void): any; (dispatch: (arg0: { dispatch: any, getState: any })=> void): any; (dispatch: (arg0: (dispatch: any, getState: any) => any) => void): any; (dispatch: (arg0:  (dispatch: any, getState: any) => any ) => void): any }) => void, ownProps: { match: { params: { serviceId: any } } }) => ({
+const mapDispatchToProps = (
+  dispatch: (arg0: {
+    (
+      dispatch: (arg0: {
+        (dispatch: any, getState: any): any
+        (dispatch: any, getState: any): any
+        type?: string | undefined
+        service?: any
+      }) => void
+    ): any
+    (
+      dispatch: (arg0: {
+        (dispatch: any, getState: any): any
+        type?: string | undefined
+      }) => void
+    ): any
+    (dispatch: (arg0: { dispatch: any; getState: any }) => void): any
+    (dispatch: (arg0: (dispatch: any, getState: any) => any) => void): any
+    (dispatch: (arg0: (dispatch: any, getState: any) => any) => void): any
+  }) => void,
+  ownProps: { match: { params: { serviceId: any } } }
+) => ({
   fetchData: () => {
     const { serviceId } = ownProps.match.params
     dispatch(fetchService(serviceId))
