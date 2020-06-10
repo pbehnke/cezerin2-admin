@@ -1,4 +1,4 @@
-import AppBar from "material-ui/AppBar"
+import AppBar from "@material-ui/core/AppBar"
 import FontIcon from "material-ui/FontIcon"
 import IconButton from "material-ui/IconButton"
 import React from "react"

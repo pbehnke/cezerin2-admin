@@ -1,6 +1,6 @@
-import RaisedButton from "@material-ui/core/RaisedButton"
+import RaisedButton from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
-import React, { useEffect, useState } from "react"
+import React, { FormEvent, useEffect, useState } from "react"
 import api from "../lib/api"
 import messages from "../lib/text"
 
@@ -30,7 +30,7 @@ export const App = () => {
     setPageID(event.target.value)
   }
 
-  const handleMinimizedChange = event => {
+  const handleMinimizedChange = (event: FormEvent) => {
     setMinimized(event.target.value)
   }
 
