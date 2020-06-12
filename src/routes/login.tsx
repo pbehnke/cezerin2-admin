@@ -67,7 +67,7 @@ const LoginForm = () => {
   return (
     <div className="row col-full-height center-xs middle-xs">
       <div className="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-        <Paper className="loginBox" zDepth={1}>
+        <Paper className="loginBox">
           <div className="loginTitle">{messages.loginTitle}</div>
           <div className="loginDescription">{messages.loginDescription}</div>
           <div className="loginInput">
