@@ -2,7 +2,7 @@ import Paper from "@material-ui/core/Paper"
 import CezerinClient from "cezerin2-client"
 import RaisedButton from "material-ui/RaisedButton"
 import TextField from "material-ui/TextField"
-import React, { useEffect, useState } from "react"
+import React, { FormEvent, useEffect, useState } from "react"
 import * as auth from "../lib/auth"
 import settings from "../lib/settings"
 import messages from "../lib/text"
@@ -16,11 +16,11 @@ const LoginForm = () => {
   const [emailIsSent, setEmailIsSent] = useState(false)
   const [error, setError] = useState(null)
 
-  const handleChange = event => {
-    setEmail(event.target.value)
+  const handleChange = (event: FormEvent<{ value: string }>) => {
+    setEmail(event.currentTarget.value)
   }
 
-  const handleKeyPress = event => {
+  const handleKeyPress = (event: FormEvent) => {
     if (event.keyCode === 13 || event.which === 13) {
       handleSubmit()
     }
@@ -33,7 +33,7 @@ const LoginForm = () => {
     setError(null)
 
     CezerinClient.authorize(settings.apiBaseUrl, email)
-      .then(authorizeResponse => {
+      .then((authorizeResponse: { json: { sent; error } }) => {
         setIsFetching(false)
         setIsAuthorized(false)
         setEmailIsSent(authorizeResponse.json.sent)
