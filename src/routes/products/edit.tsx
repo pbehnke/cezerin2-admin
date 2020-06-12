@@ -3,7 +3,7 @@ import { Route } from "react-router-dom"
 import ProductEdit from "../../modules/products/edit"
 import ProductOption from "../../modules/products/edit/option"
 
-const ProductDetails = props => (
+const ProductDetails = () => (
   <div className="row row--no-gutter col-full-height scroll">
     <div className="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
       <Route path="/product/:productId" exact component={ProductEdit} />
