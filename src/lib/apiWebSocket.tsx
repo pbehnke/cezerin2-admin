@@ -49,16 +49,20 @@ const onMessage = (event: { data: string }) => {
   try {
     const message = JSON.parse(event.data)
     eventHandler(message)
-  } catch (err) {}
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 const onOpen = () => {
   if (settings.developerMode === true) {
-    console.log("Connection established.")
+    console.info("Connection established.")
   }
 }
 
-const onError = () => {}
+const onError = () => {
+  console.error("Error happened")
+}
 
 const onClose = (event: { code: number }) => {
   if (event.code !== 1000) {
@@ -92,7 +96,6 @@ const showNotification = (
 const eventHandler = ({ event, payload }) => {
   switch (event) {
     case THEME_INSTALLED:
-      const fileName = payload
       store.dispatch(installReceive())
       showNotification(messages.settings_theme, messages.themeInstalled)
       break
