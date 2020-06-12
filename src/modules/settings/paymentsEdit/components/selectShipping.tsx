@@ -1,58 +1,55 @@
 import Checkbox from "material-ui/Checkbox"
 import { List, ListItem } from "material-ui/List"
-import React from "react"
+import React, { useEffect, useState } from "react"
 
-class SelectShippingMethodsField extends React.Component {
-  constructor(props) {
-    super(props)
-    const ids = Array.isArray(props.input.value) ? props.input.value : []
-    this.state = {
-      selectedIds: ids,
-    }
-  }
+const SelectShippingMethodsField = (props: Readonly<{}>) => {
+  const ids = Array.isArray(props.input.value) ? props.input.value : []
 
-  componentWillReceiveProps(nextProps) {
-    const newIds = Array.isArray(nextProps.input.value)
-      ? nextProps.input.value
-      : []
-    if (newIds !== this.state.selectedIds) {
-      this.setState({
-        selectedIds: newIds,
-      })
-    }
-  }
+  const [selectedIds, setSelectedIds] = useState(ids)
 
-  onCheckboxChecked = methodId => {
-    let ids = this.state.selectedIds
+  //componentWillReceiveProps(nextProps) {
+  useEffect(
+    nextProps => {
+      const newIds = Array.isArray(nextProps.input.value)
+        ? nextProps.input.value
+        : []
+      if (newIds !== selectedIds) {
+        setSelectedIds(newIds)
+      }
+    },
+    [props]
+  )
+
+  const onCheckboxChecked = methodId => {
+    let ids = selectedIds
     if (ids.includes(methodId)) {
       ids = ids.filter(id => id !== methodId)
     } else {
       ids.push(methodId)
     }
-    this.setState({ selectedIds: ids })
-    this.props.input.onChange(ids)
+    setSelectedIds(ids)
+    props.input.onChange(ids)
   }
 
-  isCheckboxChecked = methodId => this.state.selectedIds.includes(methodId)
+  const isCheckboxChecked = methodId => selectedIds.includes(methodId)
 
-  render() {
-    const items = this.props.shippingMethods.map(method => (
-      <ListItem
-        key={method.id}
-        leftCheckbox={
-          <Checkbox
-            checked={this.isCheckboxChecked(method.id)}
-            onCheck={(e, isChecked) => {
-              this.onCheckboxChecked(method.id)
-            }}
-          />
-        }
-        primaryText={method.name}
-        secondaryText={method.description}
-      />
-    ))
+  const items = props.shippingMethods.map(method => (
+    <ListItem
+      key={method.id}
+      leftCheckbox={
+        <Checkbox
+          checked={isCheckboxChecked(method.id)}
+          onCheck={(e, isChecked) => {
+            onCheckboxChecked(method.id)
+          }}
+        />
+      }
+      primaryText={method.name}
+      secondaryText={method.description}
+    />
+  ))
 
-    return <List>{items}</List>
-  }
+  return <List>{items}</List>
 }
+
 export default SelectShippingMethodsField

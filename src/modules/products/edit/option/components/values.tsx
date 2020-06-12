@@ -1,120 +1,98 @@
 import Paper from "@material-ui/core/Paper"
 import FontIcon from "material-ui/FontIcon"
 import IconButton from "material-ui/IconButton"
-import React from "react"
+import React, { useState } from "react"
 import messages from "../../../../../lib/text"
 import style from "./style.module.sass"
 
-class OptionValueEdit extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: props.value.name,
-    }
-    this.onChange = this.onChange.bind(this)
-    this.onBlur = this.onBlur.bind(this)
-    this.onDelete = this.onDelete.bind(this)
+const OptionValueEdit = (props: Readonly<{}>) => {
+  const [value, setValue] = useState(props.value.name)
+  //  onChange =onChange.bind(this)
+  //  onBlur =onBlur.bind(this)
+  //  onDelete =onDelete.bind(this)
+
+  const onChange = e => {
+    setValue(e.target.value)
   }
 
-  onChange = e => {
-    this.setState({ value: e.target.value })
+  const onBlur = e => {
+    props.onChange(props.value.id, value)
   }
 
-  onBlur = e => {
-    this.props.onChange(this.props.value.id, this.state.value)
+  const onDelete = () => {
+    props.onDelete(props.value.id)
   }
 
-  onDelete = () => {
-    this.props.onDelete(this.props.value.id)
-  }
-
-  render() {
-    const { value } = this.state
-
-    return (
-      <div className={style.gridRow}>
-        <div className={style.gridColInput}>
-          <input
-            type="text"
-            className={style.textInput}
-            value={value}
-            onChange={this.onChange}
-            onBlur={this.onBlur}
-          />
-        </div>
-        <div className={style.gridColButton}>
-          <IconButton
-            title={messages.actions_delete}
-            onClick={this.onDelete}
-            tabIndex={-1}
-          >
-            <FontIcon color="#a1a1a1" className="material-icons">
-              delete
-            </FontIcon>
-          </IconButton>
-        </div>
+  return (
+    <div className={style.gridRow}>
+      <div className={style.gridColInput}>
+        <input
+          type="text"
+          className={style.textInput}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
       </div>
-    )
-  }
+      <div className={style.gridColButton}>
+        <IconButton
+          title={messages.actions_delete}
+          onClick={onDelete}
+          tabIndex={-1}
+        >
+          <FontIcon color="#a1a1a1" className="material-icons">
+            delete
+          </FontIcon>
+        </IconButton>
+      </div>
+    </div>
+  )
 }
 
-class OptionValueAdd extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: "",
-    }
-    this.onChange = this.onChange.bind(this)
-    this.onCreate = this.onCreate.bind(this)
-    this.handleKeyPress = this.handleKeyPress.bind(this)
+const OptionValueAdd = (props: Readonly<{}>) => {
+  const [value, setValue] = useState("")
+  //  onChange =onChange.bind(this)
+  //  onCreate =onCreate.bind(this)
+  //  handleKeyPress =handleKeyPress.bind(this)
+
+  const onChange = e => {
+    setValue(e.target.value)
   }
 
-  onChange = e => {
-    this.setState({ value: e.target.value })
-  }
-
-  onCreate = () => {
-    if (this.state.value !== "") {
-      this.props.onCreate(this.state.value)
-      this.setState({ value: "" })
+  const onCreate = () => {
+    if (state.value !== "") {
+      props.onCreate(value)
+      setValue("")
     }
   }
 
-  handleKeyPress(e) {
+  function handleKeyPress(e) {
     if (e.keyCode === 13 || e.which === 13) {
-      this.onCreate()
+      onCreate()
     }
   }
 
-  render() {
-    const { value } = this.state
-
-    return (
-      <div className={style.gridRow}>
-        <div className={style.gridColInput}>
-          <input
-            type="text"
-            className={style.textInput}
-            value={value}
-            placeholder={messages.newOptionValue}
-            onChange={this.onChange}
-            onKeyPress={this.handleKeyPress}
-          />
-        </div>
-        <div className={style.gridColButton}>
-          <IconButton
-            title={messages.add}
-            onClick={this.onCreate}
-            tabIndex={-1}
-          >
-            <FontIcon color="#a1a1a1" className="material-icons">
-              add_circle
-            </FontIcon>
-          </IconButton>
-        </div>
+  return (
+    <div className={style.gridRow}>
+      <div className={style.gridColInput}>
+        <input
+          type="text"
+          className={style.textInput}
+          value={value}
+          placeholder={messages.newOptionValue}
+          onChange={onChange}
+          onKeyPress={handleKeyPress}
+        />
       </div>
-    )
-  }
+      <div className={style.gridColButton}>
+        <IconButton title={messages.add} onClick={onCreate} tabIndex={-1}>
+          <FontIcon color="#a1a1a1" className="material-icons">
+            add_circle
+          </FontIcon>
+        </IconButton>
+      </div>
+    </div>
+  )
 }
 
 const OptionValues = ({

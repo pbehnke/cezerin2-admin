@@ -1,70 +1,76 @@
 import Dialog from "@material-ui/core/Dialog"
 import DialogActions from "@material-ui/core/DialogActions"
 import FlatButton from "material-ui/FlatButton"
-import React from "react"
+import React, { useEffect, useState } from "react"
 
-class ConfirmationDialog extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: props.open,
+const ConfirmationDialog = (
+  props: Readonly<{
+    open: boolean
+    title: string
+    description: string
+    submitLabel: string
+    cancelLabel: string
+    modal: boolean
+    onSubmit: Function
+    onCancel: Function
+  }>
+) => {
+  const [open, setOpen] = useState(props.open)
+
+  //componentWillReceiveProps(nextProps) {
+  useEffect(nextProps => {
+    if (open !== nextProps.open) {
+      setOpen(nextProps.open)
+    }
+  }, [])
+
+  const handleCancel = () => {
+    setOpen(false)
+    if (onCancel) {
+      onCancel()
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.state.open !== nextProps.open) {
-      this.setState({
-        open: nextProps.open,
-      })
+  const handleSubmit = () => {
+    setOpen(false)
+    if (onSubmit) {
+      onSubmit()
     }
   }
 
-  handleCancel = () => {
-    this.setState({ open: false })
-    if (this.props.onCancel) {
-      this.props.onCancel()
-    }
-  }
+  const {
+    title,
+    description,
+    submitLabel,
+    cancelLabel,
+    modal = false,
+    onSubmit,
+    onCancel,
+  } = props
 
-  handleSubmit = () => {
-    this.setState({ open: false })
-    if (this.props.onSubmit) {
-      this.props.onSubmit()
-    }
-  }
-
-  render() {
-    const {
-      title,
-      description,
-      submitLabel,
-      cancelLabel,
-      modal = false,
-    } = this.props
-
-    return (
-      <Dialog
-        title={title}
-        modal={modal}
-        open={this.state.open}
-        onRequestClose={this.handleCancel}
-      >
-        <div style={{ wordWrap: "break-word" }}>{description}</div>
-        <DialogActions>
-          <FlatButton
-            label={cancelLabel}
-            onClick={this.handleCancel}
-            style={{ marginRight: 10 }}
-          />
-          <FlatButton
-            label={submitLabel}
-            primary
-            keyboardFocused
-            onClick={this.handleSubmit}
-          />
-        </DialogActions>
-      </Dialog>
-    )
-  }
+  return (
+    <Dialog
+      title={title}
+      modal={modal}
+      open={open}
+      onRequestClose={handleCancel}
+    >
+      <div style={{ wordWrap: "break-word" }}>{description}</div>
+      <DialogActions>
+        <FlatButton
+          label={cancelLabel}
+          onClick={handleCancel}
+          style={{ marginRight: 10 }}
+        />
+        <FlatButton
+          label={submitLabel}
+          primary
+          keyboardFocused
+          onClick={handleSubmit}
+        />
+      </DialogActions>
+    </Dialog>
+  )
 }
+
 export default ConfirmationDialog

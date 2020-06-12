@@ -1,8 +1,8 @@
-import React from "react"
-import Toggle from "material-ui/Toggle"
-import TextField from "material-ui/TextField"
 import Checkbox from "material-ui/Checkbox"
 import { List, ListItem } from "material-ui/List"
+import TextField from "material-ui/TextField"
+import Toggle from "material-ui/Toggle"
+import React, { useEffect, useState } from "react"
 
 export const CustomToggle = ({
   input,
@@ -48,28 +48,29 @@ export const ColorField = ({ input, meta: { touched, error } }) => (
   <input {...input} type="color" />
 )
 
-export class MultiSelect extends React.Component {
-  constructor(props) {
-    super(props)
-    const values = Array.isArray(props.input.value) ? props.input.value : []
-    this.state = {
-      selectedItems: values,
-    }
-  }
+export const MultiSelect = (
+  props: Readonly<{
+    input: { value: {} }
+    items: string
+    disabled: string
+    columns: number
+  }>
+) => {
+  const values = Array.isArray(props.input.value) ? props.input.value : []
 
-  componentWillReceiveProps(nextProps) {
+  const [selectedItems, setSelectedItems] = useState(values)
+
+  //componentWillReceiveProps(nextProps) {
+  useEffect(nextProps => {
     const values = Array.isArray(nextProps.input.value)
       ? nextProps.input.value
       : []
-    if (values !== this.state.selectedItems) {
-      this.setState({
-        selectedItems: values,
-      })
+    if (values !== selectedItems) {
+      setSelectedItems(values)
     }
-  }
+  }, [])
 
-  onCheckboxChecked = item => {
-    const { selectedItems } = this.state
+  const onCheckboxChecked = (item: string) => {
     let newSelectedItems = []
     if (selectedItems.includes(item)) {
       newSelectedItems = selectedItems.filter(i => i !== item)
@@ -77,39 +78,37 @@ export class MultiSelect extends React.Component {
       newSelectedItems = [...selectedItems, item]
     }
     newSelectedItems.sort()
-    this.setState({ selectedItems: newSelectedItems })
-    this.props.input.onChange(newSelectedItems)
+    setSelectedItems(newSelectedItems)
+    props.input.onChange(newSelectedItems)
   }
 
-  isCheckboxChecked = item => this.state.selectedItems.includes(item)
+  const isCheckboxChecked = (item: string) => selectedItems.includes(item)
 
-  render() {
-    const { items, disabled, columns = 2 } = this.props
-    const columnsClass = 12 / columns
+  const { items, disabled, columns = 2 } = props
+  const columnsClass = 12 / columns
 
-    const elements = items.map((item, index) => (
-      <div className={`col-xs-12 col-sm-${columnsClass}`} key={index}>
-        {item && item !== "" && (
-          <ListItem
-            leftCheckbox={
-              <Checkbox
-                checked={this.isCheckboxChecked(item)}
-                disabled={disabled}
-                onCheck={(e, isChecked) => {
-                  this.onCheckboxChecked(item)
-                }}
-              />
-            }
-            primaryText={item}
-          />
-        )}
-      </div>
-    ))
+  const elements = items.map((item, index) => (
+    <div className={`col-xs-12 col-sm-${columnsClass}`} key={index}>
+      {item && item !== "" && (
+        <ListItem
+          leftCheckbox={
+            <Checkbox
+              checked={isCheckboxChecked(item)}
+              disabled={disabled}
+              onCheck={(e, isChecked) => {
+                onCheckboxChecked(item)
+              }}
+            />
+          }
+          primaryText={item}
+        />
+      )}
+    </div>
+  ))
 
-    return (
-      <List>
-        <div className="row">{elements}</div>
-      </List>
-    )
-  }
+  return (
+    <List>
+      <div className="row">{elements}</div>
+    </List>
+  )
 }

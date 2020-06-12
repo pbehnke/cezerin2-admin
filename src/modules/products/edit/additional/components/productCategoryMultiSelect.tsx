@@ -2,7 +2,7 @@ import Dialog from "@material-ui/core/Dialog"
 import DialogActions from "@material-ui/core/DialogActions"
 import FlatButton from "material-ui/FlatButton"
 import FontIcon from "material-ui/FontIcon"
-import React from "react"
+import React, { useState } from "react"
 import messages from "../../../../../lib/text"
 import CategoryMultiselect from "../../../../../modules/productCategories/components/multiselectList"
 
@@ -21,103 +21,94 @@ const CategoryItem = ({ categoryName, actions }) => (
   </span>
 )
 
-class ProductCategoryMultiSelect extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: false,
-    }
+const ProductCategoryMultiSelect = (props: Readonly<{}>) => {
+  const [open, setOpen] = useState(false)
+
+  const close = () => {
+    setOpen(false)
   }
 
-  close = () => {
-    this.setState({ open: false })
+  const opens = () => {
+    setOpen(true)
   }
 
-  open = () => {
-    this.setState({ open: true })
-  }
-
-  handleCheck = categoryId => {
-    const selectedIds = this.props.fields.getAll()
+  const handleCheck = categoryId => {
+    const selectedIds = props.fields.getAll()
     if (selectedIds && selectedIds.includes(categoryId)) {
       // remove
-      this.props.fields.forEach((name, index, fields) => {
+      props.fields.forEach((name, index, fields) => {
         if (fields.get(index) === categoryId) {
           fields.remove(index)
         }
       })
     } else {
       // add
-      this.props.fields.push(categoryId)
+      props.fields.push(categoryId)
     }
   }
 
-  render() {
-    const {
-      categories,
-      fields,
-      meta: { touched, error, submitFailed },
-    } = this.props
-    const { open } = this.state
-    const selectedIds = fields.getAll()
+  const {
+    categories,
+    fields,
+    meta: { touched, error, submitFailed },
+  } = props
+  const selectedIds = fields.getAll()
 
-    return (
-      <div className="react-tagsinput">
-        <span>
-          {fields.map((field, index) => {
-            const categoryId = fields.get(index)
-            const category = categories.find(item => item.id === categoryId)
-            const categoryName = category ? category.name : "-"
-            const actions = (
-              <CategoryItemActions fields={fields} index={index} />
-            )
-            return (
-              <CategoryItem
-                key={index}
-                categoryName={categoryName}
-                actions={actions}
-              />
-            )
-          })}
-          <Dialog
-            title={messages.additionalCategories}
-            modal={false}
-            open={open}
-            onRequestClose={this.close}
-            autoScrollBodyContent
-          >
-            <CategoryMultiselect
-              items={categories}
-              selectedIds={selectedIds}
-              opened={false}
-              onCheck={this.handleCheck}
+  return (
+    <div className="react-tagsinput">
+      <span>
+        {fields.map((field, index) => {
+          const categoryId = fields.get(index)
+          const category = categories.find(item => item.id === categoryId)
+          const categoryName = category ? category.name : "-"
+          const actions = <CategoryItemActions fields={fields} index={index} />
+          return (
+            <CategoryItem
+              key={index}
+              categoryName={categoryName}
+              actions={actions}
             />
-            <DialogActions>
-              <FlatButton
-                label={messages.cancel}
-                onClick={this.close}
-                style={{ marginRight: 10 }}
-              />
-              <FlatButton
-                label={messages.save}
-                primary
-                keyboardFocused
-                onClick={this.close}
-              />
-            </DialogActions>
-          </Dialog>
-          <FlatButton
-            style={{ minWidth: 52 }}
-            onClick={this.open}
-            icon={
-              <FontIcon color="#333" className="material-icons">
-                add
-              </FontIcon>
-            }
+          )
+        })}
+        <Dialog
+          title={messages.additionalCategories}
+          modal={false}
+          open={open}
+          onRequestClose={close}
+          autoScrollBodyContent
+        >
+          <CategoryMultiselect
+            items={categories}
+            selectedIds={selectedIds}
+            opened={false}
+            onCheck={handleCheck}
           />
-        </span>
-      </div>
-    )
-  }
+          <DialogActions>
+            <FlatButton
+              label={messages.cancel}
+              onClick={close}
+              style={{ marginRight: 10 }}
+            />
+            <FlatButton
+              label={messages.save}
+              primary
+              keyboardFocused
+              onClick={close}
+            />
+          </DialogActions>
+        </Dialog>
+        <FlatButton
+          style={{ minWidth: 52 }}
+          onClick={open}
+          icon={
+            <FontIcon color="#333" className="material-icons">
+              add
+            </FontIcon>
+          }
+        />
+      </span>
+    </div>
+  )
 }
+
 export default ProductCategoryMultiSelect

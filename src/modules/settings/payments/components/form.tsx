@@ -2,7 +2,7 @@ import Paper from "@material-ui/core/Paper"
 import Divider from "material-ui/Divider"
 import FontIcon from "material-ui/FontIcon"
 import { List, ListItem } from "material-ui/List"
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 
 const MethodItem = ({ method }) => (
@@ -30,28 +30,23 @@ const MethodItem = ({ method }) => (
   </>
 )
 
-class EmailSettings extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+const EmailSettings = (props: Readonly<{}>) => {
+  useEffect(() => {
+    props.onLoad()
+  }, [])
 
-  componentDidMount() {
-    this.props.onLoad()
-  }
+  const { paymentMethods } = props
+  const methods = paymentMethods.map((method, index) => (
+    <MethodItem key={index} method={method} />
+  ))
 
-  render() {
-    const { paymentMethods } = this.props
-    const methods = paymentMethods.map((method, index) => (
-      <MethodItem key={index} method={method} />
-    ))
-
-    return (
-      <Paper className="paper-box" zDepth={1}>
-        <div style={{ width: "100%" }}>
-          <List style={{ padding: 0 }}>{methods}</List>
-        </div>
-      </Paper>
-    )
-  }
+  return (
+    <Paper className="paper-box" zDepth={1}>
+      <div style={{ width: "100%" }}>
+        <List style={{ padding: 0 }}>{methods}</List>
+      </div>
+    </Paper>
+  )
 }
+
 export default EmailSettings

@@ -1,91 +1,82 @@
 import Dialog from "@material-ui/core/Dialog"
 import FlatButton from "material-ui/FlatButton"
 import RaisedButton from "material-ui/RaisedButton"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { reduxForm } from "redux-form"
 import messages from "../../../../lib/text"
 import { AVAILABLE_PAYMENT_GATEWAYS } from "../availablePaymentGateways"
 import GatewaySettings from "./gatewaySettings"
 import style from "./style.module.sass"
 
-class EditPaymentGatewayForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: false,
+const EditPaymentGatewayForm = (props: Readonly<{}>) => {
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    props.onLoad()
+  }, [])
+
+  //componentWillReceiveProps(nextProps) {
+  useEffect(nextProps => {
+    if (nextProps.gateway !== props.gateway) {
+      props.onLoad(nextProps.gateway)
     }
+  }, [])
+
+  const handleOpen = () => {
+    setOpen(true)
   }
 
-  componentDidMount() {
-    this.props.onLoad()
+  const handleClose = () => {
+    setOpen(false)
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.gateway !== this.props.gateway) {
-      this.props.onLoad(nextProps.gateway)
-    }
-  }
+  const { handleSubmit, pristine, submitting, initialValues } = props
+  const gatewayDetails = AVAILABLE_PAYMENT_GATEWAYS.find(
+    item => item.key === props.gateway
+  )
 
-  handleOpen = () => {
-    this.setState({ open: true })
-  }
+  if (props.gateway && props.gateway.length > 0) {
+    return (
+      <>
+        <RaisedButton
+          onClick={handleOpen}
+          label={messages.drawer_settings}
+          style={{ margin: "15px 0 30px 0" }}
+        />
 
-  handleClose = () => {
-    this.setState({ open: false })
-  }
+        <Dialog
+          title={gatewayDetails.name}
+          modal={false}
+          open={open}
+          autoScrollBodyContent
+          contentStyle={{ width: 600 }}
+          onRequestClose={handleClose}
+        >
+          <div style={{ width: "500px", margin: "25px" }}>
+            <form
+              onSubmit={handleSubmit}
+              style={{ display: "initial", width: "100%" }}
+            >
+              <GatewaySettings gateway={props.gateway} />
 
-  render() {
-    const { handleSubmit, pristine, submitting, initialValues } = this.props
-    const gatewayDetails = AVAILABLE_PAYMENT_GATEWAYS.find(
-      item => item.key === this.props.gateway
+              <div className={style.buttons}>
+                <FlatButton label={messages.cancel} onClick={handleClose} />
+                <FlatButton
+                  label={messages.save}
+                  primary
+                  type="submit"
+                  onClick={handleClose}
+                  style={{ marginLeft: 12 }}
+                  disabled={pristine || submitting}
+                />
+              </div>
+            </form>
+          </div>
+        </Dialog>
+      </>
     )
-
-    if (this.props.gateway && this.props.gateway.length > 0) {
-      return (
-        <>
-          <RaisedButton
-            onClick={this.handleOpen}
-            label={messages.drawer_settings}
-            style={{ margin: "15px 0 30px 0" }}
-          />
-
-          <Dialog
-            title={gatewayDetails.name}
-            modal={false}
-            open={this.state.open}
-            autoScrollBodyContent
-            contentStyle={{ width: 600 }}
-            onRequestClose={this.handleClose}
-          >
-            <div style={{ width: "500px", margin: "25px" }}>
-              <form
-                onSubmit={handleSubmit}
-                style={{ display: "initial", width: "100%" }}
-              >
-                <GatewaySettings gateway={this.props.gateway} />
-
-                <div className={style.buttons}>
-                  <FlatButton
-                    label={messages.cancel}
-                    onClick={this.handleClose}
-                  />
-                  <FlatButton
-                    label={messages.save}
-                    primary
-                    type="submit"
-                    onClick={this.handleClose}
-                    style={{ marginLeft: 12 }}
-                    disabled={pristine || submitting}
-                  />
-                </div>
-              </form>
-            </div>
-          </Dialog>
-        </>
-      )
-    }
-    return null
   }
+  return null
 }
 
 export default reduxForm({

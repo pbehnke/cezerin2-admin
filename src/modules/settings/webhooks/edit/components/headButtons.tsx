@@ -1,60 +1,54 @@
 import FontIcon from "material-ui/FontIcon"
 import IconButton from "material-ui/IconButton"
-import React from "react"
+import React, { useState } from "react"
 import messages from "../../../../../lib/text"
 import DeleteConfirmation from "../../../../../modules/shared/deleteConfirmation"
 
-class Buttons extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      openDelete: false,
-    }
+const Buttons = (props: Readonly<{}>) => {
+  const [openDelete, setOpenDelete] = useState(false)
+
+  const openDeletes = () => {
+    setOpenDelete(true)
   }
 
-  openDelete = () => {
-    this.setState({ openDelete: true })
+  const closeDelete = () => {
+    setOpenDelete(false)
   }
 
-  closeDelete = () => {
-    this.setState({ openDelete: false })
+  const deletePage = () => {
+    setOpenDelete(false)
+    props.onDelete(props.webhook.id)
   }
 
-  deletePage = () => {
-    this.setState({ openDelete: false })
-    this.props.onDelete(this.props.webhook.id)
-  }
+  const { webhook } = props
+  const webhookName =
+    webhook && webhook.url && webhook.url.length > 0 ? webhook.url : "Draft"
 
-  render() {
-    const { webhook } = this.props
-    const webhookName =
-      webhook && webhook.url && webhook.url.length > 0 ? webhook.url : "Draft"
-
-    if (webhook) {
-      return (
-        <>
-          <IconButton
-            touch
-            tooltipPosition="bottom-left"
-            tooltip={messages.actions_delete}
-            onClick={this.openDelete}
-          >
-            <FontIcon color="#fff" className="material-icons">
-              delete
-            </FontIcon>
-          </IconButton>
-          <DeleteConfirmation
-            open={this.state.openDelete}
-            isSingle
-            itemsCount={1}
-            itemName={webhookName}
-            onCancel={this.closeDelete}
-            onDelete={this.deletePage}
-          />
-        </>
-      )
-    }
-    return null
+  if (webhook) {
+    return (
+      <>
+        <IconButton
+          touch
+          tooltipPosition="bottom-left"
+          tooltip={messages.actions_delete}
+          onClick={openDelete}
+        >
+          <FontIcon color="#fff" className="material-icons">
+            delete
+          </FontIcon>
+        </IconButton>
+        <DeleteConfirmation
+          open={openDelete}
+          isSingle
+          itemsCount={1}
+          itemName={webhookName}
+          onCancel={closeDelete}
+          onDelete={deletePage}
+        />
+      </>
+    )
   }
+  return null
 }
+
 export default Buttons

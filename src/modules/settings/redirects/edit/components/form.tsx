@@ -24,7 +24,7 @@ const EditRedirectForm = props => {
     props.onLoad()
   }, [])
 
-  const { handleSubmit, pristine, submitting, redirectId } = this.props
+  const { handleSubmit, pristine, submitting, redirectId } = props
   const isAdd = redirectId === null || redirectId === undefined
 
   return (

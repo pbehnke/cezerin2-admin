@@ -4,45 +4,37 @@ import FontIcon from "material-ui/FontIcon"
 import IconButton from "material-ui/IconButton"
 import MenuItem from "material-ui/MenuItem"
 import RaisedButton from "material-ui/RaisedButton"
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import messages from "../../../../../lib/text"
 import style from "./style.module.sass"
 
-class VariantInput extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: props.value,
-    }
-    this.onChange = this.onChange.bind(this)
-    this.onBlur = this.onBlur.bind(this)
+const VariantInput = (props: Readonly<{}>) => {
+  const [value, setValue] = useState(props.value)
+  // onChange =onChange.bind(this)
+  //  onBlur =onBlur.bind(this)
+
+  const onChange = e => {
+    setValue(e.target.value)
   }
 
-  onChange = e => {
-    this.setState({ value: e.target.value })
+  const onBlur = e => {
+    props.onChange(props.variantId, value)
   }
 
-  onBlur = e => {
-    this.props.onChange(this.props.variantId, this.state.value)
-  }
+  const { type, placeholder } = props
 
-  render() {
-    const { type, placeholder } = this.props
-    const { value } = this.state
-
-    return (
-      <input
-        type={type}
-        className={style.textInput}
-        placeholder={placeholder}
-        value={value}
-        onChange={this.onChange}
-        onBlur={this.onBlur}
-        min="0"
-      />
-    )
-  }
+  return (
+    <input
+      type={type}
+      className={style.textInput}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      onBlur={onBlur}
+      min="0"
+    />
+  )
 }
 
 const VariantRow = ({

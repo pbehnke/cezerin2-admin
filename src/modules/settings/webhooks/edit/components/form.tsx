@@ -1,7 +1,7 @@
 import Paper from "@material-ui/core/Paper"
 import TextField from "@material-ui/core/TextField"
 import RaisedButton from "material-ui/RaisedButton"
-import React from "react"
+import React, { useEffect } from "react"
 import { Field, reduxForm } from "redux-form"
 import messages from "../../../../../lib/text"
 import { CustomToggle, MultiSelect } from "../../../../../modules/shared/form"
@@ -32,79 +32,71 @@ const validate = values => {
   return errors
 }
 
-class EditWebhookForm extends React.Component {
-  componentDidMount() {
-    this.props.onLoad()
-  }
+const EditWebhookForm = (props: Readonly<{}>) => {
+  useEffect(() => {
+    props.onLoad()
+  }, [])
 
-  render() {
-    const {
-      handleSubmit,
-      pristine,
-      submitting,
-      initialValues,
-      webhookId,
-    } = this.props
-    const isAdd = webhookId === null || webhookId === undefined
+  const { handleSubmit, pristine, submitting, initialValues, webhookId } = props
+  const isAdd = webhookId === null || webhookId === undefined
 
-    return (
-      <>
-        <form onSubmit={handleSubmit}>
-          <Paper className="paper-box" zDepth={1}>
-            <div className={style.innerBox}>
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <Paper className="paper-box" zDepth={1}>
+          <div className={style.innerBox}>
+            <Field
+              name="description"
+              component={TextField}
+              floatingLabelText={messages.description}
+              fullWidth
+              multiLine
+            />
+            <Field
+              name="url"
+              component={TextField}
+              floatingLabelText="URL"
+              fullWidth
+            />
+            <Field
+              name="secret"
+              component={TextField}
+              floatingLabelText={messages.webhookSecret}
+              fullWidth
+            />
+            <div style={{ maxWidth: 256 }}>
               <Field
-                name="description"
-                component={TextField}
-                floatingLabelText={messages.description}
-                fullWidth
-                multiLine
-              />
-              <Field
-                name="url"
-                component={TextField}
-                floatingLabelText="URL"
-                fullWidth
-              />
-              <Field
-                name="secret"
-                component={TextField}
-                floatingLabelText={messages.webhookSecret}
-                fullWidth
-              />
-              <div style={{ maxWidth: 256 }}>
-                <Field
-                  component={CustomToggle}
-                  name="enabled"
-                  label={messages.enabled}
-                  style={{ paddingTop: 16, paddingBottom: 16 }}
-                />
-              </div>
-              <div className="blue-title">{messages.webhookEvents}</div>
-              <Field
-                name="events"
-                component={MultiSelect}
-                items={WEBHOOK_EVENTS}
-                columns={3}
+                component={CustomToggle}
+                name="enabled"
+                label={messages.enabled}
+                style={{ paddingTop: 16, paddingBottom: 16 }}
               />
             </div>
-            <div
-              className={`buttons-box ${
-                pristine && !isAdd ? "buttons-box-pristine" : "buttons-box-show"
-              }`}
-            >
-              <RaisedButton
-                type="submit"
-                label={isAdd ? messages.add : messages.save}
-                primary
-                className={style.button}
-                disabled={pristine || submitting}
-              />
-            </div>
-          </Paper>
-        </form>
-      </>
-    )
-  }
+            <div className="blue-title">{messages.webhookEvents}</div>
+            <Field
+              name="events"
+              component={MultiSelect}
+              items={WEBHOOK_EVENTS}
+              columns={3}
+            />
+          </div>
+          <div
+            className={`buttons-box ${
+              pristine && !isAdd ? "buttons-box-pristine" : "buttons-box-show"
+            }`}
+          >
+            <RaisedButton
+              type="submit"
+              label={isAdd ? messages.add : messages.save}
+              primary
+              className={style.button}
+              disabled={pristine || submitting}
+            />
+          </div>
+        </Paper>
+      </form>
+    </>
+  )
 }
 
 export default reduxForm({
