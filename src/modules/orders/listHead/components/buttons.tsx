@@ -1,69 +1,71 @@
 import FontIcon from "material-ui/FontIcon"
 import IconButton from "material-ui/IconButton"
-import React from "react"
+import React, { useState } from "react"
 import messages from "../../../../lib/text"
 import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
 import Search from "./search"
-class Buttons extends React.Component {
-  constructor(props: Readonly<{}>) {
-    super(props)
-    this.state = {
-      openDelete: false,
-    }
+const Buttons = (
+  props: Readonly<{
+    search: string
+    setSearch: string
+    selectedCount: number
+    onDelete: Function
+    onCreate: string
+  }>
+) => {
+  const [openDelete, setOpenDelete] = useState(false)
+
+  const openDeletes = () => {
+    setOpenDelete(true)
   }
 
-  openDelete = () => {
-    this.setState({ openDelete: true })
+  const closeDelete = () => {
+    setOpenDelete(false)
   }
 
-  closeDelete = () => {
-    this.setState({ openDelete: false })
+  const deleteOrders = () => {
+    setOpenDelete(false)
+    onDelete()
   }
 
-  deleteOrders = () => {
-    this.setState({ openDelete: false })
-    this.props.onDelete()
-  }
+  const { search, setSearch, selectedCount, onDelete, onCreate } = props
 
-  render() {
-    const { search, setSearch, selectedCount, onDelete, onCreate } = this.props
-
-    return (
-      <>
-        <Search value={search} setSearch={setSearch} />
-        {selectedCount > 0 && (
-          <>
-            <IconButton
-              touch
-              tooltipPosition="bottom-left"
-              tooltip={messages.actions_delete}
-              onClick={this.openDelete}
-            >
-              <FontIcon color="#fff" className="material-icons">
-                delete
-              </FontIcon>
-            </IconButton>
-            <DeleteConfirmation
-              open={this.state.openDelete}
-              isSingle={false}
-              itemsCount={selectedCount}
-              onCancel={this.closeDelete}
-              onDelete={this.deleteOrders}
-            />
-          </>
-        )}
-        <IconButton
-          touch
-          tooltipPosition="bottom-left"
-          tooltip={messages.orders_titleAdd}
-          onClick={onCreate}
-        >
-          <FontIcon color="#fff" className="material-icons">
-            add
-          </FontIcon>
-        </IconButton>
-      </>
-    )
-  }
+  return (
+    <>
+      <Search value={search} setSearch={setSearch} />
+      {selectedCount > 0 && (
+        <>
+          <IconButton
+            touch
+            tooltipPosition="bottom-left"
+            tooltip={messages.actions_delete}
+            onClick={openDelete}
+          >
+            <FontIcon color="#fff" className="material-icons">
+              delete
+            </FontIcon>
+          </IconButton>
+          <DeleteConfirmation
+            open={openDelete}
+            isSingle={false}
+            itemsCount={selectedCount}
+            onCancel={closeDelete}
+            onDelete={deleteOrders}
+          />
+        </>
+      )}
+      <IconButton
+        touch
+        tooltipPosition="bottom-left"
+        tooltip={messages.orders_titleAdd}
+        onClick={onCreate}
+      >
+        <FontIcon color="#fff" className="material-icons">
+          add
+        </FontIcon>
+      </IconButton>
+    </>
+  )
 }
+
 export default Buttons
