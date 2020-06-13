@@ -1,6 +1,5 @@
+import Editor from "editorjs"
 import React from "react"
-import settings from "../../../lib/settings"
-import TinyMCE from "../tinymce"
 
 const config = {
   inline: true,
@@ -15,52 +14,14 @@ const config = {
     "undo redo | forecolor paste removeformat table | outdent indent | preview code",
 }
 
-class Editor extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: props.input.value,
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.state.value !== nextProps.input.value) {
-      this.setState({
-        value: nextProps.input.value,
-      })
-    }
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.value !== nextState.value
-  }
-
-  onChange = e => {
+const Editor = props => {
+  const onChange = e => {
     const content = e.target.getContent()
-    this.setState({ value: content })
-    this.props.input.onChange(content)
+    //setState({ value: content })
+    props.input.onChange(content)
   }
 
-  render() {
-    return (
-      <TinyMCE
-        entityId={this.props.entityId}
-        content={this.state.value}
-        config={{
-          relative_urls: false,
-          remove_script_host: false,
-          convert_urls: false,
-          language: settings.language,
-          themes: config.themes,
-          inline: config.inline,
-          plugins: config.plugins,
-          toolbar1: config.toolbar1,
-          toolbar2: config.toolbar2,
-          menubar: false,
-        }}
-        onChange={this.onChange}
-      />
-    )
-  }
+  return <Editor onChange={onChange} />
 }
+
 export default Editor

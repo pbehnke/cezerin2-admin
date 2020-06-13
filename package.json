@@ -33,7 +33,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "typescript": "~3.9.3"
+    "typescript": "~3.9.3",
+    "editorjs": ""
   },
   "devDependencies": {
     "@date-io/moment": "^2.6.0",
