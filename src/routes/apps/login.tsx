@@ -1,11 +1,11 @@
 import Paper from "@material-ui/core/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import TextField from "material-ui/TextField"
-import React, { useEffect, useState } from "react"
+import React, { FormEvent, useEffect, useState } from "react"
 import messages from "../../lib/text"
 import * as auth from "../../lib/webstoreAuth"
 
-const LoginForm = props => {
+const LoginForm = () => {
   const [email, setEmail] = useState(
     localStorage.getItem("webstore_email") || ""
   )
@@ -13,12 +13,12 @@ const LoginForm = props => {
   const [emailIsSent, setEmailIsSent] = useState(false)
   const [error, setError] = useState(null)
 
-  const handleChange = event => {
-    setEmail(event.target.value)
+  const handleChange = (event: FormEvent<{ value: string }>) => {
+    setEmail(event.currentTarget.value)
   }
 
-  const handleKeyPress = e => {
-    if (e.keyCode === 13 || e.which === 13) {
+  const handleKeyPress = (event: FormEvent) => {
+    if (event.keyCode === 13 || event.which === 13) {
       handleSubmit()
     }
   }
