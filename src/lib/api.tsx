@@ -1,7 +1,7 @@
 import CezerinClient from "cezerin2-client"
 import settings from "./settings"
 
-let api = {}
+let api = { apps: { settings: { retrieve: Function } } }
 const dashboardToken = localStorage.getItem("dashboard_token")
 const webstoreToken = localStorage.getItem("webstore_token")
 

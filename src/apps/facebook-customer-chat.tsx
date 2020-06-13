@@ -26,12 +26,12 @@ export const App = () => {
   const [pageID, setPageID] = useState("")
   const [minimized, setMinimized] = useState("false")
 
-  const handlePageIdChange = event => {
-    setPageID(event.target.value)
+  const handlePageIdChange = (event: FormEvent<{ value: string }>) => {
+    setPageID(event.currentTarget.value)
   }
 
-  const handleMinimizedChange = (event: FormEvent) => {
-    setMinimized(event.target.value)
+  const handleMinimizedChange = (event: FormEvent<{ value: string }>) => {
+    setMinimized(event.currentTarget.value)
   }
 
   const fetchSettings = () => {
