@@ -3,7 +3,7 @@ import * as webstoreAuth from "../../../lib/webstoreAuth"
 import { fetchAccount, updateAccount, updateDeveloperAccount } from "../actions"
 import Details from "./components/details"
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state: { apps: { account: string } }) => ({
   account: state.apps.account,
 })
 
@@ -16,10 +16,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
       ownProps.history.push("/apps/login")
     }
   },
-  onAccountSubmit: values => {
+  onAccountSubmit: (values: string) => {
     dispatch(updateAccount(values))
   },
-  onDeveloperSubmit: values => {
+  onDeveloperSubmit: (values: string) => {
     dispatch(updateDeveloperAccount(values))
   },
 })
